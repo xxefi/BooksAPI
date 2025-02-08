@@ -25,7 +25,7 @@ public class OrderConfiguration : IEntityTypeConfiguration<Order>
             .OnDelete(DeleteBehavior.Cascade); 
         
         builder.HasOne(o => o.Status)
-            .WithMany()
+            .WithMany(u => u.Orders)
             .HasForeignKey(o => o.StatusId)
             .OnDelete(DeleteBehavior.Restrict);
         

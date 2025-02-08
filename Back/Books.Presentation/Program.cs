@@ -1,40 +1,152 @@
-using Books.Application.Services;
-using Books.Core.Abstractions.Services;
+using System.Text;
+using Books.Application.Mappings;
+using Books.Application.Services.Auth;
+using Books.Application.Services.Main;
+using Books.Application.Validators.Create;
+using Books.Application.Validators.Update;
+using Books.Core.Abstractions.Repositories;
+using Books.Core.Abstractions.Services.Auth;
+using Books.Core.Abstractions.Services.Main;
+using Books.Core.Abstractions.UOW;
 using Books.Infrastructure.Context;
+using Books.Infrastructure.Repositories;
+using Books.Infrastructure.UOW;
 using Books.Presentation.Middlewares;
 using FluentValidation.AspNetCore;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
-//builder.Services.AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<CreateRoleDtoValidator>());
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+}).AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters()
+    {
+        ValidateActor = true,
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        RequireExpirationTime = true,
+        ValidateIssuerSigningKey = true,
+        ValidateLifetime = true,
+        ClockSkew = TimeSpan.Zero,
+        ValidIssuer = builder.Configuration.GetSection("JWT:Issuer").Value,
+        ValidAudience = builder.Configuration.GetSection("JWT:Audience").Value,
+        IssuerSigningKey = 
+            new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration.GetSection("JWT:Secret").Value))
+    };
+});
+
+
+builder.Services.AddLocalization(options => options.ResourcesPath = "./Resources");
+
 builder.Services.AddControllers()
     .AddDataAnnotationsLocalization()
-    .AddFluentValidation();
+    .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<Program>());
+
+
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen(options =>
+{
+    options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
+    {
+        Name = "Authorization",
+        In = ParameterLocation.Header,
+        Type = SecuritySchemeType.Http,
+        Scheme = "Bearer",
+    });
+    options.AddSecurityRequirement(new OpenApiSecurityRequirement()
+    {
+        {
+            new OpenApiSecurityScheme()
+            {
+                Reference = new OpenApiReference()
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "Bearer"
+                }
+            },
+            Array.Empty<string>()
+        }
+    });
+});
+
+builder.Services.AddCors(options =>
+    options.AddDefaultPolicy(policy =>
+        policy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader()));
+
+builder.Services.AddAutoMapper(typeof(MappingProfile).Assembly);
+
+builder.Services.AddScoped<IBookRepository, BookRepository>();
+builder.Services.AddScoped<IOrderItemRepository, OrderItemRepository>();
+builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+builder.Services.AddScoped<IReviewRepository, ReviewRepository>();
+builder.Services.AddScoped<IRoleRepository, RoleRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+
+builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IAccountService, AccountService>();
+builder.Services.AddScoped<ITokenService, TokenService>();
+
+builder.Services.AddScoped<IBookService, BookService>();
+builder.Services.AddScoped<IOrderItemService, OrderItemService>();
+builder.Services.AddScoped<IOrderService, OrderService>();
+builder.Services.AddScoped<IReviewService, ReviewService>();
+builder.Services.AddScoped<IRoleService, RoleService>();
+builder.Services.AddScoped<IUserService, UserService>();
 
 builder.Services.AddSingleton<ILocalizationService, LocalizationService>();
+
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+builder.Services.AddScoped<CreateBookValidator>();
+builder.Services.AddScoped<CreateOrderItemValidator>();
+builder.Services.AddScoped<CreateOrderValidator>();
+builder.Services.AddScoped<CreateReviewValidator>();
+builder.Services.AddScoped<CreateRoleValidator>();
+builder.Services.AddScoped<CreateUserValidator>();
+
+builder.Services.AddScoped<UpdateBookValidator>();
+builder.Services.AddScoped<UpdateOrderItemValidator>();
+builder.Services.AddScoped<UpdateOrderValidator>();
+builder.Services.AddScoped<UpdateReviewValidator>();
+builder.Services.AddScoped<UpdateRoleValidator>();
+builder.Services.AddScoped<UpdateUserValidator>();
+
 
 builder.Services.AddDbContext<BooksContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("Books")));
 
 var app = builder.Build();
 
-var supportedCultures = new[] { "en-US", "ru-RU", "az-AZ" };
+var supportedCultures = new[] { "en", "ru", "az" };
 var localizationOptions = new RequestLocalizationOptions()
-    .SetDefaultCulture("en-US")
+    .SetDefaultCulture("en")
     .AddSupportedCultures(supportedCultures)
     .AddSupportedUICultures(supportedCultures);
 
 app.UseRequestLocalization(localizationOptions);
+
+app.UseMiddleware<CustomSuccessResponseMiddleware>();
+app.UseMiddleware<CustomExceptionMiddleware>();
 app.UseMiddleware<LocalizationMiddleware>();
 
 
 app.UseSwagger();
 app.UseSwaggerUI();
 
+app.UseAuthentication();
+app.UseAuthorization();
+
 app.UseHttpsRedirection();
+
+app.MapControllers();
+app.UseCors();
+
 
 app.Run();

@@ -15,16 +15,16 @@ public class BookRepository : IBookRepository
         => _context = context;
     
     public async Task<Book> GetByIdAsync(Guid id)
-    {
-        return await _context.Books
-            .AsNoTracking()
-            .FirstOrDefaultAsync(b => b.Id == id)
-            ?? throw new BookException(ExceptionType.NotFound, "BookNotFound");
-    }
+        => await _context.Books
+               .Include(b => b.Reviews) 
+               .AsNoTracking()
+               .FirstOrDefaultAsync(b => b.Id == id)
+           ?? throw new BookException(ExceptionType.NotFound, "BookNotFound");
 
     public async Task<IEnumerable<Book>> GetAllAsync()
     {
         var books = await _context.Books
+            .Include(b => b.Reviews)
             .AsNoTracking()
             .ToListAsync();
         
@@ -55,16 +55,18 @@ public class BookRepository : IBookRepository
         var book = await _context.Books
             .Where(b => b.Id == id)
             .ExecuteDeleteAsync();
+        
         if (book == 0) throw new BookException(ExceptionType.NotFound, "BookNotFound");
     }
 
-    public async Task<ICollection<Book>> FindAsync(Expression<Func<Book, bool>> predicate)
+    public async Task<bool> AnyAsync(Expression<Func<Role, bool>> predicate)
     {
-        var books = await _context.Books
+        throw new NotImplementedException();
+    }
+
+    public async Task<ICollection<Book>> FindAsync(Expression<Func<Book, bool>> predicate)
+        => await _context.Books
             .AsNoTracking()
             .Where(predicate)
             .ToListAsync();
-        
-        return books.Any() ? books : Array.Empty<Book>();
-    }
 }

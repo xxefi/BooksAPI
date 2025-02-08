@@ -1,4 +1,4 @@
-namespace Books.Core.Abstractions.Services;
+namespace Books.Core.Abstractions.Services.Main;
 
 public interface ILocalizationService
 {

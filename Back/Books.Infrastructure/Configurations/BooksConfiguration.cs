@@ -24,5 +24,12 @@ public class BooksConfiguration : IEntityTypeConfiguration<Book>
         builder.Property(b => b.CreatedAt)
             .HasDefaultValueSql("CURRENT_TIMESTAMP");
         
+        builder.HasMany(b => b.Reviews)
+            .WithOne(r => r.Book)
+            .HasForeignKey(r => r.BookId);
+
+        builder.HasIndex(b => b.Author);
+        builder.HasIndex(b => b.Genre);
+
     }
 }

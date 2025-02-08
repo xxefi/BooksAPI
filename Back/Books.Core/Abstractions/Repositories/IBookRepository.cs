@@ -10,5 +10,6 @@ public interface IBookRepository
     Task AddAsync(Book book);
     Task UpdateAsync(IEnumerable<Book> books);
     Task DeleteAsync(Guid id);
+    Task<bool> AnyAsync(Expression<Func<Role, bool>> predicate);
     Task<ICollection<Book>> FindAsync(Expression<Func<Book, bool>> predicate);
 }

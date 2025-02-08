@@ -1,0 +1,182 @@
+using AutoMapper;
+using Books.Application.Exceptions;
+using Books.Application.Validators.Create;
+using Books.Application.Validators.Update;
+using Books.Core.Abstractions.Repositories;
+using Books.Core.Abstractions.Services.Main;
+using Books.Core.Abstractions.UOW;
+using Books.Core.Dtos.Auth;
+using Books.Core.Dtos.Create;
+using Books.Core.Dtos.Read;
+using Books.Core.Dtos.Update;
+using Books.Core.Models;
+
+namespace Books.Application.Services.Main;
+
+public class UserService : IUserService
+{
+    private readonly IMapper _mapper;
+    private readonly CreateUserValidator _createUserValidator;
+    private readonly UpdateUserValidator _updateUserValidator;
+    private readonly IUserRepository _userRepository;
+    private readonly IUnitOfWork _unitOfWork;
+
+    public UserService(IMapper mapper, CreateUserValidator createUserValidator,
+        UpdateUserValidator updateUserValidator, IUserRepository userRepository,
+        IUnitOfWork unitOfWork)
+    {
+        _mapper = mapper;
+        _createUserValidator = createUserValidator;
+        _updateUserValidator = updateUserValidator;
+        _userRepository = userRepository;
+        _unitOfWork = unitOfWork;
+    }
+    public async Task<IEnumerable<UserDto>> GetAllUsersAsync()
+    {
+        var users = await _userRepository.GetAllAsync();
+        return _mapper.Map<IEnumerable<UserDto>>(users);
+    }
+
+    public async Task<UserDto?> GetUserByIdAsync(Guid id)
+    {
+       var user = await _userRepository.GetByIdAsync(id);
+       return _mapper.Map<UserDto>(user);
+    }
+
+    public async Task<UserDto?> GetUserByUsernameAsync(string username)
+    {
+        var user = (await _userRepository.FindAsync(u => u.Username == username))
+            .FirstOrDefault();
+        return _mapper.Map<UserDto>(user);
+    }
+
+    public async Task<UserDto?> GetUserByEmailAsync(string email)
+    {
+        var user = (await _userRepository.FindAsync(u => u.Email == email))
+            .FirstOrDefault();
+        return _mapper.Map<UserDto>(user);
+    }
+
+    public async Task<UserDto> CreateUserAsync(CreateUserDto createUserDto)
+    {
+        if (await ExistsByEmailAsync(createUserDto.Email))
+            throw new BookException(ExceptionType.CredentialsAlreadyExists, "UserAlreadyExists");
+        
+        var validator = await _createUserValidator.ValidateAsync(createUserDto);
+        if (!validator.IsValid)
+            throw new BookException(ExceptionType.InvalidCredentials, 
+                string.Join(", ", validator.Errors));
+        
+        await _unitOfWork.BeginTransactionAsync();
+
+        try
+        {
+            var user = _mapper.Map<User>(createUserDto);
+            await _userRepository.AddAsync(user);
+            await _unitOfWork.CommitTransactionAsync();
+            
+            return _mapper.Map<UserDto>(user);
+        }
+        catch
+        {
+            await _unitOfWork.RollbackTransactionAsync();
+            throw;
+        }
+    }
+
+    public async Task<UserDto> UpdateUserAsync(Guid id, UpdateUserDto updateUserDto)
+    {
+        var existingUser = await _userRepository.GetByIdAsync(id);
+        var validator = await _updateUserValidator.ValidateAsync(updateUserDto);
+        if (!validator.IsValid)
+            throw new BookException(ExceptionType.InvalidCredentials, 
+                string.Join(", ", validator.Errors));
+        
+        await _unitOfWork.BeginTransactionAsync();
+
+        try
+        {
+            _mapper.Map(updateUserDto, existingUser);
+            await _userRepository.UpdateAsync(new[] { existingUser });
+            await _unitOfWork.CommitTransactionAsync();
+            
+            return _mapper.Map<UserDto>(existingUser);
+        }
+        catch
+        {
+            await _unitOfWork.RollbackTransactionAsync();
+            throw;
+        }
+    }
+
+    public async Task<bool> DeleteUserAsync(Guid id)
+    {
+        await _unitOfWork.BeginTransactionAsync();
+        try
+        {
+            await _userRepository.DeleteAsync(id);
+            await _unitOfWork.CommitTransactionAsync();
+            return true;
+        }
+        catch
+        {
+            await _unitOfWork.RollbackTransactionAsync();
+            throw;
+        }
+    }
+
+    public async Task<bool> ExistsByEmailAsync(string email)
+        => await _userRepository.AnyAsync(u => u.Email == email);
+
+    public async Task<Role?> GetUserRoleAsync(Guid userId)
+    {
+        var user = await _userRepository.GetByIdAsync(userId);
+        return user?.Role;
+    }
+
+    public async Task<IEnumerable<UserDto>> GetUsersByRoleAsync(Guid roleId)
+    {
+        var users = await _userRepository.FindAsync(u => u.RoleId == roleId);
+        return _mapper.Map<IEnumerable<UserDto>>(users);
+    }
+
+    public async Task<int> GetTotalUsersCountAsync()
+        => await _userRepository.CountAsync();
+
+    public async Task<IEnumerable<UserDto>> GetUsersPageAsync(int pageNumber, int pageSize)
+    {
+        if (pageNumber <= 0 || pageSize <= 0)
+            throw new BookException(ExceptionType.BadRequest, "PaginationError");
+
+        var users = await _userRepository.GetAllAsync();
+        var pagedUsers = users
+            .Skip((pageNumber - 1) * pageSize)
+            .Take(pageSize);
+        
+        return _mapper.Map<IEnumerable<UserDto>>(pagedUsers);
+    }
+
+    public async Task<string> GetUserPasswordHashAsync(Guid userId)
+    {
+        var user = await _userRepository.GetByIdAsync(userId);
+        return user.Password;
+    }
+
+    public async Task UpdateUserPasswordAsync(Guid userId, string newPassword)
+    {
+        var user = await _userRepository.GetByIdAsync(userId);
+        user.Password = newPassword;
+        await _userRepository.UpdateAsync(new[]{user});
+    }
+
+    public async Task<UserCredentialsDto> GetUserCredentialsByEmailAsync(string email)
+    {
+        var user = (await _userRepository.FindAsync(u => u.Email == email))
+            .FirstOrDefault();
+        return new UserCredentialsDto
+        {
+            Id = user.Id,
+            Password = user.Password
+        };
+    }
+}

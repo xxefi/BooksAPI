@@ -1,4 +1,4 @@
-using Books.Core.UOW;
+using Books.Core.Abstractions.UOW;
 using Books.Infrastructure.Context;
 using Microsoft.EntityFrameworkCore.Storage;
 

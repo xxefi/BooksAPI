@@ -8,5 +8,6 @@ public class Book
     public int Year { get; set; } 
     public string Genre { get; set; } = string.Empty;
     public List<Review> Reviews { get; set; } = null!;
-    public DateTime CreatedAt { get; set; } = DateTime.Now;
+    public List<OrderItem> OrderItems { get; set; } = null!;
+    public DateTime CreatedAt { get; set; }
 }

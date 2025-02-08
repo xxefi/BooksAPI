@@ -1,4 +1,4 @@
-namespace Books.Core.UOW;
+namespace Books.Core.Abstractions.UOW;
 
 public interface IUnitOfWork
 {

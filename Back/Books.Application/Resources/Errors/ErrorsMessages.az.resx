@@ -18,9 +18,57 @@
         <value>Kitablar yoxdur</value>
     </data>
     <data name="NoOrderItemsFound" xml:space="preserve">
-        <value>Sifariş məhsulu tapılmadı</value>
+        <value>Sifariş məhsulları yoxdur</value>
     </data>
     <data name="OrderItemNotFound" xml:space="preserve">
-        <value>Sifariş məhsulları yoxdur</value>
+        <value>Sifariş məhsulu tapılmadı</value>
+    </data>
+    <data name="OrderNotFound" xml:space="preserve">
+        <value>Sifariş tapılmadı</value>
+    </data>
+    <data name="NoOrdersFound" xml:space="preserve">
+        <value>Sifarişlər yoxdur</value>
+    </data>
+    <data name="ReviewNotFound" xml:space="preserve">
+        <value>Şərh tapılmadı</value>
+    </data>
+    <data name="NoReviewsFound" xml:space="preserve">
+        <value>Şərhlər yoxdur</value>
+    </data>
+    <data name="NoRolesFound" xml:space="preserve">
+        <value>Rollar yoxdur</value>
+    </data>
+    <data name="RoleNotFound" xml:space="preserve">
+        <value>Rol tapılmadı</value>
+    </data>
+    <data name="BookAlreadyExists" xml:space="preserve">
+        <value>Kitab artıq mövcuddur</value>
+    </data>
+    <data name="PaginationError" xml:space="preserve">
+        <value>Yanlış səhifələmə parametrləri</value>
+    </data>
+    <data name="RoleAlreadyExists" xml:space="preserve">
+        <value>Rol artıq mövcuddur</value>
+    </data>
+    <data name="UserAlreadyExists" xml:space="preserve">
+        <value>İstifadəçi artıq mövcuddur</value>
+    </data>
+    <data name="OldPasswordIncorrect" xml:space="preserve">
+        <value>Yanlış köhnə parol</value>
+    </data>
+    <data name="InvalidEmailOrPassword" xml:space="preserve">
+        <value>Yanlış e-poçt ünvanı və ya şifrə</value>
+    </data>
+    <data name="InvalidRefreshToken" xml:space="preserve">
+        <value>Etibarsız yeniləmə tokeni</value>
+    </data>
+    <data name="RefreshTokenExpired" xml:space="preserve">
+        <value>Yeniləmə tokeninin müddəti bitdi</value>
+    </data>
+    <data name="SecretKeyNotFound" xml:space="preserve">
+        <value>Gizli açar tapılmadı</value>
+    </data>
+    <data name="InvalidTokenF" xml:space="preserve">
+        <value>Etibarsız token formatı</value>
     </data>
 </root>

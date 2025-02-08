@@ -10,5 +10,7 @@ public interface IUserRepository
     Task AddAsync(User user);
     Task UpdateAsync(IEnumerable<User> users);
     Task DeleteAsync(Guid id);
+    Task<int> CountAsync();
+    Task<bool> AnyAsync(Expression<Func<User, bool>> predicate);
     Task<ICollection<User>> FindAsync(Expression<Func<User, bool>> predicate);
 }

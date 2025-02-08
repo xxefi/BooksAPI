@@ -18,9 +18,57 @@
         <value>No books found</value>
     </data>
     <data name="NoOrderItemsFound" xml:space="preserve">
-        <value>Order item not found</value>
+        <value>Order items not found</value>
     </data>
     <data name="OrderItemNotFound" xml:space="preserve">
-        <value>No order items found</value>
+        <value>Order item not found</value>
+    </data>
+    <data name="OrderNotFound" xml:space="preserve">
+        <value>Order not found</value>
+    </data>
+    <data name="NoOrdersFound" xml:space="preserve">
+        <value>Orders not found</value>
+    </data>
+    <data name="ReviewNotFound" xml:space="preserve">
+        <value>Review not found</value>
+    </data>
+    <data name="NoReviewsFound" xml:space="preserve">
+        <value>No reviews found</value>
+    </data>
+    <data name="NoRolesFound" xml:space="preserve">
+        <value>No roles found</value>
+    </data>
+    <data name="RoleNotFound" xml:space="preserve">
+        <value>Role not found</value>
+    </data>
+    <data name="BookAlreadyExists" xml:space="preserve">
+        <value>Book already exists</value>
+    </data>
+    <data name="PaginationError" xml:space="preserve">
+        <value>Invalid pagination parameters</value>
+    </data>
+    <data name="RoleAlreadyExists" xml:space="preserve">
+        <value>Role Already Exists</value>
+    </data>
+    <data name="UserAlreadyExists" xml:space="preserve">
+        <value>User already exists</value>
+    </data>
+    <data name="OldPasswordIncorrect" xml:space="preserve">
+        <value>Old password incorrect</value>
+    </data>
+    <data name="InvalidEmailOrPassword" xml:space="preserve">
+        <value>Invalid email or password</value>
+    </data>
+    <data name="InvalidRefreshToken" xml:space="preserve">
+        <value>Invalid Refresh Token</value>
+    </data>
+    <data name="RefreshTokenExpired" xml:space="preserve">
+        <value>Refresh Token Expired</value>
+    </data>
+    <data name="SecretKeyNotFound" xml:space="preserve">
+        <value>Secret Key Not Found</value>
+    </data>
+    <data name="InvalidTokenF" xml:space="preserve">
+        <value>Invalid Token Format</value>
     </data>
 </root>

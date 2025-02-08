@@ -10,5 +10,7 @@ public interface IRoleRepository
     Task AddAsync(Role role);
     Task UpdateAsync(IEnumerable<Role> roles);
     Task DeleteAsync(Guid id);
-    Task<ICollection<Review>> FindAsync(Expression<Func<Review, bool>> predicate);
+    Task<int> CountAsync();
+    Task<bool> AnyAsync(Expression<Func<Role, bool>> predicate);
+    Task<ICollection<Role>> FindAsync(Expression<Func<Role, bool>> predicate);
 }

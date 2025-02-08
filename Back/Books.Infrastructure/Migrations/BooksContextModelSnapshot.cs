@@ -53,6 +53,10 @@ namespace Books.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("Author");
+
+                    b.HasIndex("Genre");
+
                     b.ToTable("Books");
                 });
 
@@ -72,9 +76,6 @@ namespace Books.Infrastructure.Migrations
                         .HasColumnType("timestamp with time zone")
                         .HasDefaultValueSql("CURRENT_TIMESTAMP");
 
-                    b.Property<int?>("OrderStatusId")
-                        .HasColumnType("integer");
-
                     b.Property<int>("StatusId")
                         .HasColumnType("integer");
 
@@ -86,8 +87,6 @@ namespace Books.Infrastructure.Migrations
                         .HasColumnType("uuid");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("OrderStatusId");
 
                     b.HasIndex("StatusId");
 
@@ -257,12 +256,8 @@ namespace Books.Infrastructure.Migrations
 
             modelBuilder.Entity("Books.Core.Models.Order", b =>
                 {
-                    b.HasOne("Books.Core.Models.OrderStatus", null)
-                        .WithMany("Orders")
-                        .HasForeignKey("OrderStatusId");
-
                     b.HasOne("Books.Core.Models.OrderStatus", "Status")
-                        .WithMany()
+                        .WithMany("Orders")
                         .HasForeignKey("StatusId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
@@ -281,7 +276,7 @@ namespace Books.Infrastructure.Migrations
             modelBuilder.Entity("Books.Core.Models.OrderItem", b =>
                 {
                     b.HasOne("Books.Core.Models.Book", "Book")
-                        .WithMany()
+                        .WithMany("OrderItems")
                         .HasForeignKey("BookId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
@@ -308,7 +303,7 @@ namespace Books.Infrastructure.Migrations
                     b.HasOne("Books.Core.Models.User", "User")
                         .WithMany("Reviews")
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Book");
@@ -329,6 +324,8 @@ namespace Books.Infrastructure.Migrations
 
             modelBuilder.Entity("Books.Core.Models.Book", b =>
                 {
+                    b.Navigation("OrderItems");
+
                     b.Navigation("Reviews");
                 });
 

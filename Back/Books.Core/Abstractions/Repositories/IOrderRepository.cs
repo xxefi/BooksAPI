@@ -10,5 +10,6 @@ public interface IOrderRepository
     Task AddAsync(Order order);
     Task UpdateAsync(IEnumerable<Order> orders);
     Task DeleteAsync(Guid id);
+    Task<int> CountAsync();
     Task<ICollection<Order>> FindAsync(Expression<Func<Order, bool>> predicate);
 }

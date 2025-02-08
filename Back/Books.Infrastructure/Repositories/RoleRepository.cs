@@ -1,7 +1,9 @@
 using System.Linq.Expressions;
+using Books.Application.Exceptions;
 using Books.Core.Abstractions.Repositories;
 using Books.Core.Models;
 using Books.Infrastructure.Context;
+using Microsoft.EntityFrameworkCore;
 
 namespace Books.Infrastructure.Repositories;
 
@@ -13,32 +15,57 @@ public class RoleRepository : IRoleRepository
         => _context = context;
     
     public async Task<Role> GetByIdAsync(Guid id)
-    {
-        throw new NotImplementedException();
-    }
+        => await _context.Roles
+            .Include(r => r.Users)
+            .AsNoTracking()
+            .FirstOrDefaultAsync(r => r.Id == id)
+            ?? throw new BookException(ExceptionType.NotFound, "RoleNotFound");
 
     public async Task<IEnumerable<Role>> GetAllAsync()
     {
-        throw new NotImplementedException();
+        var roles = await _context.Roles
+            .Include(r => r.Users)
+            .AsNoTracking()
+            .ToListAsync();
+        
+        return roles.Any() ? roles : throw new BookException(ExceptionType.NotFound, "NoRolesFound");
     }
 
     public async Task AddAsync(Role role)
-    {
-        throw new NotImplementedException();
-    }
+        => await _context.Roles.AddAsync(role);
 
     public async Task UpdateAsync(IEnumerable<Role> roles)
     {
-        throw new NotImplementedException();
+        foreach (var role in roles)
+        {
+            var updatedCount = await _context.Roles
+                .Where(r => r.Id == role.Id)
+                .ExecuteUpdateAsync(r => r
+                    .SetProperty(r => r.Name, role.Name));
+
+            if (updatedCount == 0) throw new BookException(ExceptionType.NotFound, "RoleNotFound");
+        }
     }
 
     public async Task DeleteAsync(Guid id)
     {
-        throw new NotImplementedException();
+        var deletedCount = await _context.Roles
+            .Where(r => r.Id == id)
+            .ExecuteDeleteAsync();
+
+        if (deletedCount == 0) throw new BookException(ExceptionType.NotFound, "RoleNotFound");
     }
 
-    public async Task<ICollection<Review>> FindAsync(Expression<Func<Review, bool>> predicate)
-    {
-        throw new NotImplementedException();
-    }
+    public async Task<int> CountAsync()
+        => await _context.Roles.CountAsync();
+
+    public async Task<bool> AnyAsync(Expression<Func<Role, bool>> predicate)
+        => await _context.Roles.AnyAsync(predicate);
+
+    public async Task<ICollection<Role>> FindAsync(Expression<Func<Role, bool>> predicate)
+        => await _context.Roles
+            .Include(r => r.Users)
+            .Where(predicate)
+            .AsNoTracking()
+            .ToListAsync();
 }
