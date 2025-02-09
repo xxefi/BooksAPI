@@ -1,10 +1,7 @@
-using AutoMapper;
 using Books.Application.Exceptions;
-using Books.Core.Abstractions.Repositories;
 using Books.Core.Abstractions.Services.Auth;
 using Books.Core.Abstractions.Services.Main;
 using Books.Core.Dtos.Auth;
-using Books.Core.Dtos.Read;
 using Books.Core.Dtos.Update;
 using static BCrypt.Net.BCrypt;
 
@@ -37,7 +34,7 @@ public class AccountService : IAccountService
     {
         var user = await _userService.GetUserByEmailAsync(resetPasswordDto.Email);
 
-        var newPassword = await _tokenService.GenerateRandomPasswordAsync();
+        var newPassword = _tokenService.GenerateRandomPassword();
         var hashedPassword = HashPassword(newPassword);
         
        var updateUserDto = new UpdateUserDto { Password = hashedPassword };

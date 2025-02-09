@@ -1,24 +1,25 @@
-using System.Net;
-using System.Text.Json;
-using System.Text.Json.Serialization;
-using Books.Application.Exceptions;
+﻿using Books.Application.Exceptions;
 using Books.Core.Abstractions.Services.Main;
+using System.Net;
+using System.Text.Json.Serialization;
+using System.Text.Json;
 using Books.Core.Dtos.Read;
-using Books.Infrastructure.Context;
 
 namespace Books.Presentation.Middlewares;
 
 public class CustomExceptionMiddleware
 {
     private readonly RequestDelegate _next;
+    private readonly IServiceProvider _serviceProvider;
     private readonly ILocalizationService _localizationService;
 
-    public CustomExceptionMiddleware(RequestDelegate next, ILocalizationService localizationService)
+    public CustomExceptionMiddleware(RequestDelegate next, IServiceProvider serviceProvider, ILocalizationService localizationService)
     {
         _next = next;
+        _serviceProvider = serviceProvider;
         _localizationService = localizationService;
     }
-    
+
     public async Task InvokeAsync(HttpContext context)
     {
         try
@@ -30,15 +31,20 @@ public class CustomExceptionMiddleware
             await HandleExceptionAsync(context, ex);
         }
     }
-    
+
     private async Task HandleExceptionAsync(HttpContext context, BookException exception)
     {
         var language = GetLanguageFromRequest(context);
-        var statusCode = GetStatusCodeForExceptionType(exception.ExceptionType);
+        var statusCode = (int)HttpStatusCode.InternalServerError;
         var errorResponse = CreateErrorResponse(context, exception, language, statusCode);
 
-        errorResponse.Message = _localizationService.GetLocalizedString(exception.Message, language);
-        errorResponse.Ex = exception.ExceptionType.ToString();
+        if (exception is BookException academyExceptions)
+        {
+            statusCode = GetStatusCodeForExceptionType(academyExceptions.ExceptionType);
+            errorResponse.Code = statusCode;
+            errorResponse.Message = _localizationService.GetLocalizedString(academyExceptions.Message, language);
+            errorResponse.Ex = academyExceptions.ExceptionType.ToString();
+        }
 
         context.Response.ContentType = "application/json";
         context.Response.StatusCode = statusCode;
@@ -51,7 +57,7 @@ public class CustomExceptionMiddleware
 
         await context.Response.WriteAsync(jsonResponse);
     }
-    
+
     private ErrorResponseDto.ErrorResponse CreateErrorResponse(HttpContext context, BookException exception, string language, int statusCode)
     {
         return new ErrorResponseDto.ErrorResponse
@@ -61,17 +67,11 @@ public class CustomExceptionMiddleware
             Message = _localizationService.GetLocalizedString(exception.Message, language),
             Ex = exception.ExceptionType.ToString(),
             RequestDate = DateTime.UtcNow,
-            Ticks = DateTime.UtcNow.Ticks,
-            ActivityTraceId = context.TraceIdentifier,
-            Details = new ErrorResponseDto.ErrorResponseDetails
-            {
-                Path = context.Request.Path,
-                HttpMethod = context.Request.Method,
-            },
+            Ticks = DateTime.UtcNow.Ticks
         };
     }
 
-    private int GetStatusCodeForExceptionType(ExceptionType exceptionType)
+    private static int GetStatusCodeForExceptionType(ExceptionType exceptionType)
     {
         return exceptionType switch
         {
@@ -99,16 +99,17 @@ public class CustomExceptionMiddleware
             _ => (int)HttpStatusCode.InternalServerError,
         };
     }
+
     private string GetLanguageFromRequest(HttpContext context)
     {
         string defaultLang = "en";
         var queryLang = context.Request.Query["lang"].ToString().ToLower();
         var headerLang = context.Request.Headers["Accept-Language"].ToString().Split(',')[0].ToLower();
 
-        if (new[] { "ru", "az", "en" }.Contains(queryLang))
+        if (!string.IsNullOrEmpty(queryLang) && (queryLang == "ru" || queryLang == "az" || queryLang == "en"))
             return queryLang;
 
-        if (new[] { "ru", "az", "en" }.Contains(headerLang))
+        if (!string.IsNullOrEmpty(headerLang) && (headerLang == "ru" || headerLang == "az" || headerLang == "en"))
             return headerLang;
 
         return defaultLang;

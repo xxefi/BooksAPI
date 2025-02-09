@@ -1,7 +1,7 @@
-using System.Text;
-using System.Text.Json;
+﻿using Books.Core.Dtos.Read;
 using System.Text.Json.Serialization;
-using Books.Core.Dtos.Read;
+using System.Text.Json;
+using System.Text;
 using Books.Infrastructure.Context;
 
 namespace Books.Presentation.Middlewares;
@@ -16,8 +16,8 @@ public class CustomSuccessResponseMiddleware
         _next = next;
         _serviceProvider = serviceProvider;
     }
-    
-     public async Task InvokeAsync(HttpContext context)
+
+    public async Task InvokeAsync(HttpContext context)
     {
         if (context.Request.Path.StartsWithSegments("/swagger"))
         {
@@ -25,25 +25,23 @@ public class CustomSuccessResponseMiddleware
             return;
         }
         var originalBodyStream = context.Response.Body;
-        
+
         using var responseBody = new MemoryStream();
         context.Response.Body = responseBody;
-        
+
         using var scope = _serviceProvider.CreateScope();
         var dbContext = scope.ServiceProvider.GetRequiredService<BooksContext>();
         try
         {
             await _next(context);
-        
+
             responseBody.Seek(0, SeekOrigin.Begin);
             var responseText = await new StreamReader(responseBody).ReadToEndAsync();
-        
-            var clientInfo = GetClientInfo(context);
-        
-            var modifiedResponse = await BuildResponseAsync(context, responseText, clientInfo);
-        
+
+            var modifiedResponse = await BuildResponseAsync(context, responseText);
+
             if (context.Response.StatusCode >= 200 && context.Response.StatusCode < 300)
-                await HandleSuccessResponse(context, originalBodyStream, responseBody, modifiedResponse, dbContext, clientInfo);
+                await HandleSuccessResponse(context, originalBodyStream, responseBody, modifiedResponse);
             else
                 await HandleErrorResponse(originalBodyStream, responseBody);
         }
@@ -57,7 +55,7 @@ public class CustomSuccessResponseMiddleware
                 RequestDate = DateTime.UtcNow,
                 Ticks = DateTime.UtcNow.Ticks,
             };
-            
+
             context.Response.StatusCode = 500;
             context.Response.ContentType = "application/json";
 
@@ -75,9 +73,7 @@ public class CustomSuccessResponseMiddleware
         HttpContext context,
         Stream originalBodyStream,
         Stream responseBody,
-        string modifiedResponse,
-        BooksContext dbContext, 
-        ClientInfoDto clientInfo)
+        string modifiedResponse)
     {
         if (context.Response.ContentType != null && context.Response.ContentType.Contains("application/json"))
         {
@@ -95,20 +91,20 @@ public class CustomSuccessResponseMiddleware
         responseBody.Seek(0, SeekOrigin.Begin);
         await responseBody.CopyToAsync(originalBodyStream);
     }
-    private static async Task<string> BuildResponseAsync(HttpContext context, string responseText, ClientInfoDto clientInfo)
+    private static async Task<string> BuildResponseAsync(HttpContext context, string responseText)
     {
         if (string.IsNullOrWhiteSpace(responseText)) responseText = "{}";
-        
+
         var data = await JsonSerializer.DeserializeAsync<object>(
             new MemoryStream(Encoding.UTF8.GetBytes(responseText)));
-        
+
         var responseObject = new ResponseDto<object>
         {
             Data = data,
             Success = true,
             Code = context.Response.StatusCode,
             RequestDate = DateTime.UtcNow,
-            Ticks = DateTime.UtcNow.Ticks
+            Ticks = DateTime.UtcNow.Ticks,
         };
 
         return JsonSerializer.Serialize(responseObject, new JsonSerializerOptions
@@ -116,22 +112,5 @@ public class CustomSuccessResponseMiddleware
             PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
             DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
         });
-    }
-    private static ClientInfoDto GetClientInfo(HttpContext context)
-    {
-        return new ClientInfoDto
-        {
-            UserAgent = context.Request.Headers["User-Agent"].FirstOrDefault(),
-            IpAddress = GetClientIpAddress(context)
-        };
-    }
-    
-    private static string GetClientIpAddress(HttpContext context)
-    {
-        var forwardedFor = context.Request.Headers["X-Forwarded-For"].FirstOrDefault();
-        if (!string.IsNullOrEmpty(forwardedFor))
-            return forwardedFor.Split(',').FirstOrDefault();
-
-        return context.Connection.RemoteIpAddress?.ToString() ?? "Unknown";
     }
 }

@@ -4,7 +4,7 @@ using Books.Core.Dtos.Create;
 using Books.Core.Dtos.Update;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Books.Presentation.Controllers.Auth;
+namespace Books.Presentation.Controllers.Main;
 
 [ApiController]
 [Route("api/[controller]")]

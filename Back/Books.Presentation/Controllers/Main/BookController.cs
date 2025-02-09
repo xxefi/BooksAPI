@@ -4,14 +4,14 @@ using Books.Core.Dtos.Create;
 using Books.Core.Dtos.Update;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Books.Presentation.Controllers.Auth;
+namespace Books.Presentation.Controllers.Main;
 
 [ApiController]
 [Route("api/[controller]")]
 public class BooksController : ControllerBase
 {
     private readonly IBookService _bookService;
-    
+
     public BooksController(IBookService bookService)
         => _bookService = bookService;
 

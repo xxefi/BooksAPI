@@ -19,9 +19,10 @@
         <PackageReference Include="NCrontab.Signed" Version="3.3.3" />
         <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.0.2" />
     </ItemGroup>
-
+    
     <ItemGroup>
       <ProjectReference Include="..\Books.Core\Books.Core.csproj" />
     </ItemGroup>
-
+	
+	
 </Project>

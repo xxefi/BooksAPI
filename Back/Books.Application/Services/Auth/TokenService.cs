@@ -5,6 +5,7 @@ using System.Text;
 using Books.Application.Exceptions;
 using Books.Core.Abstractions.Services.Auth;
 using Books.Core.Abstractions.Services.Main;
+using Books.Core.Dtos.Read;
 using Books.Core.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
@@ -21,9 +22,8 @@ public class TokenService : ITokenService
         _configuration = configuration;
         _roleService = roleService;
     }
-    public async Task<string> GenerateAccessTokenAsync(User user)
+    public string GenerateAccessToken(UserDto user)
     {
-        var role = await _roleService.GetRoleByIdAsync(user.RoleId);
         var claims = new List<Claim>
         {
             new(ClaimTypes.NameIdentifier, user.Id.ToString()),
@@ -49,10 +49,10 @@ public class TokenService : ITokenService
         return new JwtSecurityTokenHandler().WriteToken(token);
     }
 
-    public async Task<string> GenerateRefreshTokenAsync()
+    public string GenerateRefreshToken()
         => Guid.NewGuid().ToString();
 
-    public ClaimsPrincipal GetPrincipalFromTokenAsync(string token, bool validateLifetime = false)
+    public ClaimsPrincipal GetPrincipalFromToken(string token, bool validateLifetime = false)
     {
         var tokenValidationParameters = new TokenValidationParameters
         {
@@ -83,7 +83,7 @@ public class TokenService : ITokenService
         }
     }
 
-    public async Task<string> GenerateRandomPasswordAsync(int length = 12)
+    public string GenerateRandomPassword(int length = 12)
     {
         const string validChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
         StringBuilder password = new();

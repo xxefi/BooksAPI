@@ -27,8 +27,7 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
             .HasMaxLength(255);
         builder.Property(u => u.RefreshToken)
             .HasMaxLength(500);
-        builder.Property(u => u.RefreshTokenExpiryTime)
-            .IsRequired();
+        builder.Property(u => u.RefreshTokenExpiryTime);
         builder.Property(u => u.CreatedAt)
             .HasDefaultValueSql("CURRENT_TIMESTAMP"); 
         

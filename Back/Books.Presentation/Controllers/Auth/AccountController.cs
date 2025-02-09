@@ -2,7 +2,7 @@ using Books.Core.Abstractions.Services.Auth;
 using Books.Core.Dtos.Auth;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Books.Presentation.Controllers.Main;
+namespace Books.Presentation.Controllers.Auth;
 
 [ApiController]
 [Route("api/[controller]")]
@@ -13,7 +13,7 @@ public class AccountController : ControllerBase
     public AccountController(IAccountService accountService) => _accountService = accountService;
 
     [HttpPut("ChangePassword")]
-    public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordDto changePasswordDto) => 
+    public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordDto changePasswordDto) =>
         Ok(await _accountService.ChangePasswordAsync(changePasswordDto));
 
     [HttpPost("ResetPassword")]

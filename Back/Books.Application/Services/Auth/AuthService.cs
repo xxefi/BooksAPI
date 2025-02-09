@@ -30,12 +30,9 @@ public class AuthService : IAuthService
         if (!Verify(loginDto.Password, user.Password))
             throw new BookException(ExceptionType.InvalidRequest, "InvalidEmailOrPassword");
         
-        var accessToken = await _tokenService.GenerateAccessTokenAsync(_mapper.Map<User>(user));
-        var refreshToken = await _tokenService.GenerateRefreshTokenAsync();
+        var accessToken = _tokenService.GenerateAccessToken(_mapper.Map<UserDto>(user));
+        var refreshToken = _tokenService.GenerateRefreshToken();
         var refreshTokenExpiryTime = DateTime.Now.AddDays(7);
-
-        var principal = _tokenService.GetPrincipalFromTokenAsync(accessToken)
-            ?? throw new BookException(ExceptionType.InvalidRequest, "InvalidToken");
         
         
         var updatedUserDto = new UpdateUserDto
@@ -64,8 +61,8 @@ public class AuthService : IAuthService
         if (user.RefreshTokenExpiryTime < DateTime.Now)
             throw new BookException(ExceptionType.InvalidRequest, "RefreshTokenExpired");
         
-        var accessToken = await _tokenService.GenerateAccessTokenAsync(_mapper.Map<User>(user));
-        var newRefreshToken = await _tokenService.GenerateRefreshTokenAsync();
+        var accessToken = _tokenService.GenerateAccessToken(_mapper.Map<UserDto>(user));
+        var newRefreshToken = _tokenService.GenerateRefreshToken();
         var refreshTokenExpiryTime = DateTime.Now.AddDays(7);
         
         var updatedUserDto = new UpdateUserDto

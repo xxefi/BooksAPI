@@ -1,12 +1,13 @@
 using System.Security.Claims;
+using Books.Core.Dtos.Read;
 using Books.Core.Models;
 
 namespace Books.Core.Abstractions.Services.Auth;
 
 public interface ITokenService
 {
-    Task<string> GenerateAccessTokenAsync(User user);
-    Task<string> GenerateRefreshTokenAsync();
-    ClaimsPrincipal GetPrincipalFromTokenAsync(string token, bool validateLifetime = false);
-    Task<string> GenerateRandomPasswordAsync(int length = 12);
+    string GenerateAccessToken(UserDto user);
+    string GenerateRefreshToken();
+    ClaimsPrincipal GetPrincipalFromToken(string token, bool validateLifetime = false);
+    string GenerateRandomPassword(int length = 12);
 }

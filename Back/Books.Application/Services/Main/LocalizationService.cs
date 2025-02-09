@@ -30,7 +30,7 @@ public class LocalizationService : ILocalizationService
     };
     public string GetLocalizedString(string key, string? culture = null)
     {
-        culture ??= CultureInfo.CurrentUICulture.TwoLetterISOLanguageName;
+        culture ??= _defaultCulture;
 
         foreach (var resourceDict in _resourceManagers)
         {
@@ -41,6 +41,6 @@ public class LocalizationService : ILocalizationService
                     return result;
             }
         }
-        return key; 
+        return key;
     }
 }

@@ -2,7 +2,7 @@ using Books.Core.Abstractions.Services.Auth;
 using Books.Core.Dtos.Auth;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Books.Presentation.Controllers.Main;
+namespace Books.Presentation.Controllers.Auth;
 
 [ApiController]
 [Route("api/[controller]")]

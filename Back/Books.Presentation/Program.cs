@@ -37,17 +37,13 @@ builder.Services.AddAuthentication(options =>
         ClockSkew = TimeSpan.Zero,
         ValidIssuer = builder.Configuration.GetSection("JWT:Issuer").Value,
         ValidAudience = builder.Configuration.GetSection("JWT:Audience").Value,
-        IssuerSigningKey = 
+        IssuerSigningKey =
             new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration.GetSection("JWT:Secret").Value))
     };
 });
 
 
-builder.Services.AddLocalization(options => options.ResourcesPath = "./Resources");
-
-builder.Services.AddControllers()
-    .AddDataAnnotationsLocalization()
-    .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<Program>());
+builder.Services.AddControllers();
 
 
 builder.Services.AddEndpointsApiExplorer();
@@ -124,19 +120,8 @@ builder.Services.AddDbContext<BooksContext>(options =>
 
 var app = builder.Build();
 
-var supportedCultures = new[] { "en", "ru", "az" };
-var localizationOptions = new RequestLocalizationOptions()
-    .SetDefaultCulture("en")
-    .AddSupportedCultures(supportedCultures)
-    .AddSupportedUICultures(supportedCultures);
-
-app.UseRequestLocalization(localizationOptions);
-
 app.UseMiddleware<CustomSuccessResponseMiddleware>();
 app.UseMiddleware<CustomExceptionMiddleware>();
-app.UseMiddleware<LocalizationMiddleware>();
-
-
 app.UseSwagger();
 app.UseSwaggerUI();
 

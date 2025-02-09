@@ -10,6 +10,7 @@ using Books.Core.Dtos.Create;
 using Books.Core.Dtos.Read;
 using Books.Core.Dtos.Update;
 using Books.Core.Models;
+using static BCrypt.Net.BCrypt;
 
 namespace Books.Application.Services.Main;
 
@@ -72,6 +73,7 @@ public class UserService : IUserService
         try
         {
             var user = _mapper.Map<User>(createUserDto);
+            user.Password = HashPassword(createUserDto.Password);
             await _userRepository.AddAsync(user);
             await _unitOfWork.CommitTransactionAsync();
             

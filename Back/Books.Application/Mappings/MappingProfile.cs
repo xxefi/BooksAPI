@@ -1,4 +1,5 @@
 using AutoMapper;
+using Books.Core.Dtos.Auth;
 using Books.Core.Dtos.Create;
 using Books.Core.Dtos.Read;
 using Books.Core.Dtos.Update;
@@ -38,9 +39,16 @@ public class MappingProfile : Profile
         CreateMap<UpdateUserDto, User>();
         CreateMap<User, UserDto>();
 
-        
+
         CreateMap<CreateOrderStatusDto, OrderStatus>();
         CreateMap<UpdateOrderStatusDto, OrderStatus>();
         CreateMap<OrderStatus, OrderStatusDto>();
+
+        CreateMap<UserCredentialsDto, UserDto>()
+            .ForMember(dest => dest.Username, opt => opt.Ignore())
+            .ForMember(dest => dest.FirstName, opt => opt.Ignore())
+            .ForMember(dest => dest.LastName, opt => opt.Ignore())
+            .ForMember(dest => dest.Email, opt => opt.Ignore())
+            .ForMember(dest => dest.RoleName, opt => opt.Ignore());
     }
 }
