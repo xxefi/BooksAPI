@@ -171,12 +171,6 @@
   <data name="RefreshTokenExpired" xml:space="preserve">
     <value>Срок действия токена обновления истек</value>
   </data>
-  <data name="SecretKeyNotFound" xml:space="preserve">
-    <value>Секретный ключ Не найден</value>
-  </data>
-  <data name="InvalidTokenF" xml:space="preserve">
-    <value>Неверный формат токена</value>
-  </data>
   <data name="UserNotFound" xml:space="preserve">
     <value>Нет такого пользователя</value>
   </data>
@@ -185,5 +179,20 @@
   </data>
   <data name="LastNameIsRequired" xml:space="preserve">
     <value>Требуется указать фамилию</value>
+  </data>
+  <data name="InvalidTokenFormat" xml:space="preserve">
+    <value>Неверный формат токена</value>
+  </data>
+  <data name="EmailAndPasswordCannotBeEmpty" xml:space="preserve">
+    <value>Email и пароль не могут быть пустыми</value>
+  </data>
+  <data name="InvalidEmailFormat" xml:space="preserve">
+    <value>Неверный формат email</value>
+  </data>
+  <data name="NoUsersFound" xml:space="preserve">
+    <value>Нет пользователей</value>
+  </data>
+  <data name="RefreshTokenAlreadyExists" xml:space="preserve">
+    <value>Токен Обновления уже существует</value>
   </data>
 </root>

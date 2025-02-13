@@ -14,7 +14,6 @@ public class ErrorResponseDto
         public string RequestId { get; set; }
         public string? ActivityTraceId { get; set; }
         public ErrorResponseDetails Details { get; set; }
-        public ClientInfoDto ClientInfo { get; set; }
     }
 
     public class ErrorResponseDetails

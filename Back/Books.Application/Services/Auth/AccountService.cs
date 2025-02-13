@@ -37,10 +37,10 @@ public class AccountService : IAccountService
         var newPassword = _tokenService.GenerateRandomPassword();
         var hashedPassword = HashPassword(newPassword);
         
-       var updateUserDto = new UpdateUserDto { Password = hashedPassword };
+        var updateUserDto = new UpdateUserDto { Password = hashedPassword };
        
-       await _userService.UpdateUserAsync(user.Id, updateUserDto);
+        await _userService.UpdateUserAsync(user.Id, updateUserDto);
 
-       return true;
+        return true;
     }
 }

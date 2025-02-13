@@ -10,13 +10,11 @@ namespace Books.Presentation.Middlewares;
 public class CustomExceptionMiddleware
 {
     private readonly RequestDelegate _next;
-    private readonly IServiceProvider _serviceProvider;
     private readonly ILocalizationService _localizationService;
 
-    public CustomExceptionMiddleware(RequestDelegate next, IServiceProvider serviceProvider, ILocalizationService localizationService)
+    public CustomExceptionMiddleware(RequestDelegate next, ILocalizationService localizationService)
     {
         _next = next;
-        _serviceProvider = serviceProvider;
         _localizationService = localizationService;
     }
 

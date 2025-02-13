@@ -1,6 +1,6 @@
 namespace Books.Core.Constants;
 
-public class ValidationConstants
+public static class ValidationConstants
 {
     public const int MinUsernameLength = 3;
     public const int MaxUsernameLength = 50;
@@ -18,6 +18,7 @@ public class ValidationConstants
     public const string UsernameRegex = @"^[a-zA-Z0-9_\-\.]+$";
     public const string PasswordRegex = @"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$";
     public const string NameRegex = @"^[a-zA-Zа-яА-ЯёЁ]+([a-zA-Zа-яА-ЯёЁ\s\-]*)$"; 
+    public const string EmailRegex = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
     public const string ReviewContentRegex = @"^[a-zA-Z0-9а-яА-ЯёЁ\s\.,!?-]*$"; 
     public const string TitleRegex = @"^[a-zA-Z0-9\s\-\.,:;]+$";
     public const string AuthorRegex = @"^[a-zA-Z\s\-\.,:;]+$"; 

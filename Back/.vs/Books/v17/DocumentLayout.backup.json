@@ -94,8 +94,7 @@
               "RelativeToolTip": "Books.Application\\Services\\Auth\\TokenService.cs",
               "ViewState": "AgIAABAAAAAAAAAAAAAwwB8AAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-09T00:17:01.983Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-09T00:17:01.983Z"
             },
             {
               "$type": "Document",
@@ -107,8 +106,7 @@
               "RelativeToolTip": "Books.Application\\Mappings\\MappingProfile.cs",
               "ViewState": "AgIAABgAAAAAAAAAAAAgwC4AAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-08T23:57:44.599Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-08T23:57:44.599Z"
             },
             {
               "$type": "Document",
@@ -133,8 +131,7 @@
               "RelativeToolTip": "Books.Presentation\\Middlewares\\CustomSuccessResponseMiddleware.cs",
               "ViewState": "AgIAACEAAAAAAAAAAAAAAC8AAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-08T23:44:12.592Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-08T23:44:12.592Z"
             },
             {
               "$type": "Document",
@@ -146,8 +143,7 @@
               "RelativeToolTip": "Books.Application\\Services\\Main\\RoleService.cs",
               "ViewState": "AgIAACcAAAAAAAAAAAAAACoAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-08T23:48:15.303Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-08T23:48:15.303Z"
             },
             {
               "$type": "Document",
@@ -159,12 +155,7 @@
               "RelativeToolTip": "Books.Presentation\\Middlewares\\CustomExceptionMiddleware.cs",
               "ViewState": "AgIAABAAAAAAAAAAAAAAABsAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-08T23:41:34.404Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
+              "WhenOpened": "2025-02-08T23:41:34.404Z"
             },
             {
               "$type": "Document",
@@ -176,8 +167,7 @@
               "RelativeToolTip": "Books.Core\\Dtos\\Read\\UserDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-09T00:18:18.218Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-09T00:18:18.218Z"
             },
             {
               "$type": "Document",
@@ -189,8 +179,7 @@
               "RelativeToolTip": "Books.Core\\Abstractions\\Services\\Auth\\ITokenService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-09T00:21:34.139Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-09T00:21:34.139Z"
             },
             {
               "$type": "Document",
@@ -202,8 +191,7 @@
               "RelativeToolTip": "Books.Application\\Services\\Main\\UserService.cs",
               "ViewState": "AgIAAEkAAAAAAAAAAAAlwF0AAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-08T23:55:03.533Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-08T23:55:03.533Z"
             },
             {
               "$type": "Document",
@@ -215,8 +203,7 @@
               "RelativeToolTip": "Books.Presentation\\Controllers\\Main\\BookController.cs",
               "ViewState": "AgIAAAkAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-08T23:58:50.188Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-08T23:58:50.188Z"
             },
             {
               "$type": "Document",
@@ -228,8 +215,7 @@
               "RelativeToolTip": "Books.Application\\Services\\Auth\\AccountService.cs",
               "ViewState": "AgIAABMAAAAAAAAAAAAgwCkAAABCAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-09T00:00:02.382Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-09T00:00:02.382Z"
             },
             {
               "$type": "Document",
@@ -241,8 +227,7 @@
               "RelativeToolTip": "Books.Core\\Models\\User.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-09T00:01:44.048Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-09T00:01:44.048Z"
             },
             {
               "$type": "Document",
@@ -254,8 +239,7 @@
               "RelativeToolTip": "Books.Infrastructure\\Repositories\\UserRepository.cs",
               "ViewState": "AgIAABEAAAAAAAAAAIAwwBIAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-08T23:40:20.306Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-08T23:40:20.306Z"
             },
             {
               "$type": "Document",
@@ -267,8 +251,7 @@
               "RelativeToolTip": "Books.Infrastructure\\Configurations\\UserConfiguration.cs",
               "ViewState": "AgIAAAwAAAAAAAAAAAAAAB0AAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-09T00:02:20.097Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-09T00:02:20.097Z"
             },
             {
               "$type": "Document",
@@ -280,8 +263,7 @@
               "RelativeToolTip": "Books.Application\\Validators\\Create\\CreateUserValidator.cs",
               "ViewState": "AgIAACEAAAAAAAAAAAAAADgAAABKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-08T23:55:23.605Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-08T23:55:23.605Z"
             },
             {
               "$type": "Document",
@@ -293,21 +275,19 @@
               "RelativeToolTip": "Books.Presentation\\Program.cs",
               "ViewState": "AgIAAGcAAAAAAAAAAAAAAHsAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-08T23:28:31.447Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-08T23:28:31.447Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 17,
-              "Title": "Books.Application",
+              "Title": "Books.Application.csproj",
               "DocumentMoniker": "C:\\Users\\magsu\\Desktop\\Books\\Back\\Books.Application\\Books.Application.csproj",
               "RelativeDocumentMoniker": "Books.Application\\Books.Application.csproj",
               "ToolTip": "C:\\Users\\magsu\\Desktop\\Books\\Back\\Books.Application\\Books.Application.csproj",
               "RelativeToolTip": "Books.Application\\Books.Application.csproj",
               "ViewState": "AgIAAA4AAAAAAAAAAAAswBoAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-02-08T20:51:06.409Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-08T20:51:06.409Z"
             },
             {
               "$type": "Document",
@@ -319,8 +299,11 @@
               "RelativeToolTip": "Books.Application\\Services\\Main\\LocalizationService.cs",
               "ViewState": "AgIAAA0AAAAAAAAAAIAwwCsAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-08T20:48:29.186Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-08T20:48:29.186Z"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
             }
           ]
         }

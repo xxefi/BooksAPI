@@ -171,12 +171,6 @@
   <data name="RefreshTokenExpired" xml:space="preserve">
     <value>Refresh Token Expired</value>
   </data>
-  <data name="SecretKeyNotFound" xml:space="preserve">
-    <value>Secret Key Not Found</value>
-  </data>
-  <data name="InvalidTokenF" xml:space="preserve">
-    <value>Invalid Token Format</value>
-  </data>
   <data name="UserNotFound" xml:space="preserve">
     <value>User Not Found</value>
   </data>
@@ -185,5 +179,20 @@
   </data>
   <data name="LastNameIsRequired" xml:space="preserve">
     <value>Last name Is Required</value>
+  </data>
+  <data name="InvalidTokenFormat" xml:space="preserve">
+    <value>Invalid Token Format</value>
+  </data>
+  <data name="EmailAndPasswordCannotBeEmpty" xml:space="preserve">
+    <value>Email and password cannot be empty</value>
+  </data>
+  <data name="InvalidEmailFormat" xml:space="preserve">
+    <value>Invalid email format</value>
+  </data>
+  <data name="NoUsersFound" xml:space="preserve">
+    <value>No users found</value>
+  </data>
+  <data name="RefreshTokenAlreadyExists" xml:space="preserve">
+    <value>Refresh Token Already Exists</value>
   </data>
 </root>

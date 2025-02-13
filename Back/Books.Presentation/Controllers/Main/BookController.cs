@@ -2,10 +2,12 @@ using Books.Application.Exceptions;
 using Books.Core.Abstractions.Services.Main;
 using Books.Core.Dtos.Create;
 using Books.Core.Dtos.Update;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Books.Presentation.Controllers.Main;
 
+[Authorize] 
 [ApiController]
 [Route("api/[controller]")]
 public class BooksController : ControllerBase
@@ -14,18 +16,18 @@ public class BooksController : ControllerBase
 
     public BooksController(IBookService bookService)
         => _bookService = bookService;
-
+    
     [HttpGet("GetBooks")]
     public async Task<IActionResult> GetAll() =>
         Ok(await _bookService.GetAllBooksAsync());
 
     [HttpGet("ID/{id:guid}")]
     public async Task<IActionResult> GetById(Guid id) =>
-        Ok(await _bookService.GetBookByIdAsync(id) ?? throw new BookException(ExceptionType.NotFound, "BookNotFound"));
+        Ok(await _bookService.GetBookByIdAsync(id));
 
     [HttpGet("title/{title}")]
     public async Task<IActionResult> GetByTitle(string title) =>
-        Ok(await _bookService.GetBookByTitleAsync(title) ?? throw new BookException(ExceptionType.NotFound, "BookNotFound"));
+        Ok(await _bookService.GetBookByTitleAsync(title));
 
     [HttpPost("CreateBook")]
     public async Task<IActionResult> Create([FromBody] CreateBookDto createBookDto) =>
@@ -49,9 +51,5 @@ public class BooksController : ControllerBase
 
     [HttpGet("GetBooksCount")]
     public async Task<IActionResult> GetBooksCount() =>
-        Ok(await _bookService.GetBooksCountAsync());
-
-    [HttpGet("GetTotalBooksCount")]
-    public async Task<IActionResult> GetTotalBooksCount() =>
         Ok(await _bookService.GetBooksCountAsync());
 }

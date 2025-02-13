@@ -7,32 +7,47 @@ namespace Books.Application.Services.Main;
 public class LocalizationService : ILocalizationService
 {
     private readonly string _defaultCulture = "en";
-    private readonly List<Dictionary<string, ResourceManager>> _resourceManagers = new()
+    private readonly Dictionary<string, Dictionary<string, ResourceManager>> _resourceManagers = new()
     {
-        new()
         {
-            { "en", new ResourceManager("Books.Application.Resources.Errors.ErrorsMessages", typeof(LocalizationService).Assembly) },
-            { "ru", new ResourceManager("Books.Application.Resources.Errors.ErrorsMessages", typeof(LocalizationService).Assembly) },
-            { "az", new ResourceManager("Books.Application.Resources.Errors.ErrorsMessages", typeof(LocalizationService).Assembly) }
+            "Errors",
+            new()
+            {
+                { "en", new ResourceManager("Books.Application.Resources.Errors.ErrorsMessages", typeof(LocalizationService).Assembly) },
+                { "ru", new ResourceManager("Books.Application.Resources.Errors.ErrorsMessages", typeof(LocalizationService).Assembly) },
+                { "az", new ResourceManager("Books.Application.Resources.Errors.ErrorsMessages", typeof(LocalizationService).Assembly) }
+            }
+        },  
+        {
+            "OrderStatus",
+            new()
+            {
+                { "en", new ResourceManager("Books.Application.Resources.OrderStatus.OrderStatusMessages", typeof(LocalizationService).Assembly) },
+                { "ru", new ResourceManager("Books.Application.Resources.OrderStatus.OrderStatusMessages", typeof(LocalizationService).Assembly) },
+                { "az", new ResourceManager("Books.Application.Resources.OrderStatus.OrderStatusMessages", typeof(LocalizationService).Assembly) }
+            }
         },
-        new()
         {
-            { "en", new ResourceManager("Books.Application.Resources.OrderStatus.OrderStatusMessages", typeof(LocalizationService).Assembly) },
-            { "ru", new ResourceManager("Books.Application.Resources.OrderStatus.OrderStatusMessages", typeof(LocalizationService).Assembly) },
-            { "az", new ResourceManager("Books.Application.Resources.OrderStatus.OrderStatusMessages", typeof(LocalizationService).Assembly) }
-        },
-        new()
-        {
-            { "en", new ResourceManager("Books.Application.Resources.Validators.ValidationMessages", typeof(LocalizationService).Assembly) },
-            { "ru", new ResourceManager("Books.Application.Resources.Validators.ValidationMessages", typeof(LocalizationService).Assembly) },
-            { "az", new ResourceManager("Books.Application.Resources.Validators.ValidationMessages", typeof(LocalizationService).Assembly) }
+            "Validation",
+            new()
+            {
+                { "en", new ResourceManager("Books.Application.Resources.Validators.ValidationMessages", typeof(LocalizationService).Assembly) },
+                { "ru", new ResourceManager("Books.Application.Resources.Validators.ValidationMessages", typeof(LocalizationService).Assembly) },
+                { "az", new ResourceManager("Books.Application.Resources.Validators.ValidationMessages", typeof(LocalizationService).Assembly) }
+            }
         }
     };
+    
     public string GetLocalizedString(string key, string? culture = null)
     {
-        culture ??= _defaultCulture;
+        culture ??= CultureInfo.CurrentUICulture.TwoLetterISOLanguageName;
 
-        foreach (var resourceDict in _resourceManagers)
+        if (!_resourceManagers.Values.SelectMany(dict => dict.Keys).Contains(culture))
+        {
+            culture = _defaultCulture;
+        }
+
+        foreach (var resourceDict in _resourceManagers.Values)
         {
             if (resourceDict.TryGetValue(culture, out var resourceManager))
             {
@@ -41,6 +56,7 @@ public class LocalizationService : ILocalizationService
                     return result;
             }
         }
-        return key;
+    
+        return key; 
     }
 }

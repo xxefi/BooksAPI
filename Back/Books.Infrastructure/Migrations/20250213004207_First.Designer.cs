@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Books.Infrastructure.Migrations
 {
     [DbContext(typeof(BooksContext))]
-    [Migration("20250207194130_UpdateConfigurations")]
-    partial class UpdateConfigurations
+    [Migration("20250213004207_First")]
+    partial class First
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -37,9 +37,7 @@ namespace Books.Infrastructure.Migrations
                         .HasColumnType("character varying(255)");
 
                     b.Property<DateTime>("CreatedAt")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("timestamp with time zone")
-                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Genre")
                         .IsRequired()
@@ -75,9 +73,7 @@ namespace Books.Infrastructure.Migrations
                         .HasColumnType("character varying(255)");
 
                     b.Property<DateTime>("CreatedAt")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("timestamp with time zone")
-                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<int>("StatusId")
                         .HasColumnType("integer");
@@ -106,6 +102,9 @@ namespace Books.Infrastructure.Migrations
 
                     b.Property<Guid>("BookId")
                         .HasColumnType("uuid");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<Guid>("OrderId")
                         .HasColumnType("uuid");
@@ -161,9 +160,7 @@ namespace Books.Infrastructure.Migrations
                         .HasColumnType("character varying(500)");
 
                     b.Property<DateTime>("CreatedAt")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("timestamp with time zone")
-                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<decimal>("Rating")
                         .ValueGeneratedOnAdd()
@@ -188,6 +185,9 @@ namespace Books.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -208,9 +208,7 @@ namespace Books.Infrastructure.Migrations
                         .HasColumnType("uuid");
 
                     b.Property<DateTime>("CreatedAt")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("timestamp with time zone")
-                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -233,8 +231,7 @@ namespace Books.Infrastructure.Migrations
                         .HasColumnType("character varying(255)");
 
                     b.Property<string>("RefreshToken")
-                        .HasMaxLength(500)
-                        .HasColumnType("character varying(500)");
+                        .HasColumnType("text");
 
                     b.Property<DateTime>("RefreshTokenExpiryTime")
                         .HasColumnType("timestamp with time zone");

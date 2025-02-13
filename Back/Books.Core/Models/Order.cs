@@ -10,5 +10,5 @@ public class Order
     public int StatusId { get; set; }
     public OrderStatus Status { get; set; } = null!;
     public string Address { get; set; } = string.Empty;
-    public DateTime CreatedAt { get; set; }
+    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 }

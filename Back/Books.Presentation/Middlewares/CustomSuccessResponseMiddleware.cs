@@ -30,7 +30,6 @@ public class CustomSuccessResponseMiddleware
         context.Response.Body = responseBody;
 
         using var scope = _serviceProvider.CreateScope();
-        var dbContext = scope.ServiceProvider.GetRequiredService<BooksContext>();
         try
         {
             await _next(context);

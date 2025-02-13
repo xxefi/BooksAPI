@@ -9,5 +9,5 @@ public class Book
     public string Genre { get; set; } = string.Empty;
     public List<Review> Reviews { get; set; } = null!;
     public List<OrderItem> OrderItems { get; set; } = null!;
-    public DateTime CreatedAt { get; set; }
+    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 }

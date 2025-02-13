@@ -15,18 +15,15 @@ namespace Books.Application.Services.Auth;
 public class TokenService : ITokenService
 {
     private readonly IConfiguration _configuration;
-    private readonly IRoleService _roleService;
 
-    public TokenService(IConfiguration configuration, IRoleService roleService)
-    {
-        _configuration = configuration;
-        _roleService = roleService;
-    }
+    public TokenService(IConfiguration configuration)
+        => _configuration = configuration;
     public string GenerateAccessToken(UserDto user)
     {
         var claims = new List<Claim>
         {
             new(ClaimTypes.NameIdentifier, user.Id.ToString()),
+            new(ClaimTypes.Role, user.RoleName),
             new(ClaimTypes.Name, user.Username),
             new(ClaimTypes.Email, user.Email),
             new("FirstName", user.FirstName),
@@ -73,7 +70,7 @@ public class TokenService : ITokenService
             if (securityToken is not JwtSecurityToken jwtSecurityToken
                 || !jwtSecurityToken.Header.Alg.Equals(SecurityAlgorithms.HmacSha256,
                     StringComparison.InvariantCultureIgnoreCase))
-                throw new BookException(ExceptionType.InvalidToken, "InvalidTokenF");
+                throw new BookException(ExceptionType.InvalidToken, "InvalidTokenFormat");
             
             return principal;
         }

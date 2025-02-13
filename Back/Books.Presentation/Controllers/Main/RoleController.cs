@@ -2,10 +2,12 @@ using Books.Application.Exceptions;
 using Books.Core.Abstractions.Services.Main;
 using Books.Core.Dtos.Create;
 using Books.Core.Dtos.Update;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Books.Presentation.Controllers.Main;
 
+[Authorize]
 [ApiController]
 [Route("api/[controller]")]
 public class RolesController : ControllerBase

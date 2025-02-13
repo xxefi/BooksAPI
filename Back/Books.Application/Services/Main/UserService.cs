@@ -58,6 +58,19 @@ public class UserService : IUserService
         return _mapper.Map<UserDto>(user);
     }
 
+    public async Task<UserCredentialsDto?> GetUserCredentialsByIdAsync(Guid id)
+    {
+        var user = await _userRepository.GetByIdAsync(id);
+
+        return new UserCredentialsDto
+        {
+            Id = user.Id,
+            Password = user.Password,
+            RefreshToken = user.RefreshToken,
+            RefreshTokenExpiryTime = user.RefreshTokenExpiryTime
+        };
+    }
+
     public async Task<UserDto> CreateUserAsync(CreateUserDto createUserDto)
     {
         if (await ExistsByEmailAsync(createUserDto.Email))
@@ -99,6 +112,26 @@ public class UserService : IUserService
         try
         {
             _mapper.Map(updateUserDto, existingUser);
+            await _userRepository.UpdateAsync(new[] { existingUser });
+            await _unitOfWork.CommitTransactionAsync();
+            
+            return _mapper.Map<UserDto>(existingUser);
+        }
+        catch
+        {
+            await _unitOfWork.RollbackTransactionAsync();
+            throw;
+        }
+    }
+
+    public async Task<UserDto> UpdateUserCredentialsAsync(Guid userId, UpdateUserCredentialsDto updateUserCredentialsDto)
+    {
+        var existingUser = await _userRepository.GetByIdAsync(userId);
+        await _unitOfWork.BeginTransactionAsync();
+
+        try
+        {
+            _mapper.Map(updateUserCredentialsDto, existingUser);
             await _userRepository.UpdateAsync(new[] { existingUser });
             await _unitOfWork.CommitTransactionAsync();
             
@@ -169,16 +202,5 @@ public class UserService : IUserService
         var user = await _userRepository.GetByIdAsync(userId);
         user.Password = newPassword;
         await _userRepository.UpdateAsync(new[]{user});
-    }
-
-    public async Task<UserCredentialsDto> GetUserCredentialsByEmailAsync(string email)
-    {
-        var user = (await _userRepository.FindAsync(u => u.Email == email))
-            .FirstOrDefault();
-        return new UserCredentialsDto
-        {
-            Id = user.Id,
-            Password = user.Password
-        };
     }
 }

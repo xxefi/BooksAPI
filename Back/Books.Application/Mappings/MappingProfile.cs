@@ -11,44 +11,53 @@ public class MappingProfile : Profile
 {
     public MappingProfile()
     {
+        CreateMap<UpdateUserCredentialsDto, User>()
+            .ForMember(dest => dest.RefreshToken, opt => opt.MapFrom(src => src.RefreshToken))
+            .ForMember(dest => dest.RefreshTokenExpiryTime, opt => opt.MapFrom(src => src.RefreshTokenExpiryTime))
+            .ForMember(dest => dest.Username, opt => opt.Ignore())
+            .ForMember(dest => dest.FirstName, opt => opt.Ignore())
+            .ForMember(dest => dest.LastName, opt => opt.Ignore())
+            .ForMember(dest => dest.Email, opt => opt.Ignore())
+            .ForMember(dest => dest.Password, opt => opt.Ignore())
+            .ForMember(dest => dest.RoleId, opt => opt.Ignore());
+
+        CreateMap<UserCredentialsDto, UserDto>();
+
         CreateMap<CreateBookDto, Book>();
         CreateMap<UpdateBookDto, Book>();
-        CreateMap<Book, BookDto>(); 
+        CreateMap<CreateBookDto, BookDto>();
+
+        CreateMap<Book, BookDto>()
+            .ForMember(dest => dest.Reviews, opt => opt.MapFrom(src => src.Reviews));;
         
+
         CreateMap<CreateOrderDto, Order>();
         CreateMap<UpdateOrderDto, Order>();
         CreateMap<Order, OrderDto>();
 
-        
         CreateMap<CreateOrderItemDto, OrderItem>();
         CreateMap<UpdateOrderItemDto, OrderItem>();
         CreateMap<OrderItem, OrderItemDto>();
 
-        
         CreateMap<CreateReviewDto, Review>();
         CreateMap<UpdateReviewDto, Review>();
         CreateMap<Review, ReviewDto>();
 
-        
         CreateMap<CreateRoleDto, Role>();
         CreateMap<UpdateRoleDto, Role>();
         CreateMap<Role, RoleDto>();
 
-        
         CreateMap<CreateUserDto, User>();
         CreateMap<UpdateUserDto, User>();
+        
         CreateMap<User, UserDto>();
-
+        CreateMap<User, UpdateUserDto>();
 
         CreateMap<CreateOrderStatusDto, OrderStatus>();
         CreateMap<UpdateOrderStatusDto, OrderStatus>();
         CreateMap<OrderStatus, OrderStatusDto>();
 
-        CreateMap<UserCredentialsDto, UserDto>()
-            .ForMember(dest => dest.Username, opt => opt.Ignore())
-            .ForMember(dest => dest.FirstName, opt => opt.Ignore())
-            .ForMember(dest => dest.LastName, opt => opt.Ignore())
-            .ForMember(dest => dest.Email, opt => opt.Ignore())
-            .ForMember(dest => dest.RoleName, opt => opt.Ignore());
+        CreateMap<UserDto, UserCredentialsDto>();
+       
     }
 }

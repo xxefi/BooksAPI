@@ -21,7 +21,7 @@ namespace Books.Infrastructure.Migrations
                     Author = table.Column<string>(type: "character varying(255)", maxLength: 255, nullable: false),
                     Year = table.Column<int>(type: "integer", nullable: false),
                     Genre = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValueSql: "CURRENT_TIMESTAMP")
+                    CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -46,7 +46,8 @@ namespace Books.Infrastructure.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    Name = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false)
+                    Name = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -64,9 +65,9 @@ namespace Books.Infrastructure.Migrations
                     Email = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
                     Password = table.Column<string>(type: "character varying(255)", maxLength: 255, nullable: false),
                     RoleId = table.Column<Guid>(type: "uuid", nullable: false),
-                    RefreshToken = table.Column<string>(type: "character varying(500)", maxLength: 500, nullable: true),
+                    RefreshToken = table.Column<string>(type: "text", nullable: true),
                     RefreshTokenExpiryTime = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValueSql: "CURRENT_TIMESTAMP")
+                    CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -88,17 +89,11 @@ namespace Books.Infrastructure.Migrations
                     TotalPrice = table.Column<decimal>(type: "numeric(18,2)", precision: 18, scale: 2, nullable: false),
                     StatusId = table.Column<int>(type: "integer", nullable: false),
                     Address = table.Column<string>(type: "character varying(255)", maxLength: 255, nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValueSql: "CURRENT_TIMESTAMP"),
-                    OrderStatusId = table.Column<int>(type: "integer", nullable: true)
+                    CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Orders", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Orders_OrderStatus_OrderStatusId",
-                        column: x => x.OrderStatusId,
-                        principalTable: "OrderStatus",
-                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Orders_OrderStatus_StatusId",
                         column: x => x.StatusId,
@@ -122,7 +117,7 @@ namespace Books.Infrastructure.Migrations
                     Rating = table.Column<decimal>(type: "numeric(2,1)", nullable: false, defaultValue: 0m),
                     UserId = table.Column<Guid>(type: "uuid", nullable: false),
                     BookId = table.Column<Guid>(type: "uuid", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValueSql: "CURRENT_TIMESTAMP")
+                    CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -138,7 +133,7 @@ namespace Books.Infrastructure.Migrations
                         column: x => x.UserId,
                         principalTable: "Users",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -149,7 +144,8 @@ namespace Books.Infrastructure.Migrations
                     OrderId = table.Column<Guid>(type: "uuid", nullable: false),
                     BookId = table.Column<Guid>(type: "uuid", nullable: false),
                     Quantity = table.Column<int>(type: "integer", nullable: false, defaultValue: 1),
-                    Price = table.Column<decimal>(type: "numeric(18,2)", precision: 18, scale: 2, nullable: false)
+                    Price = table.Column<decimal>(type: "numeric(18,2)", precision: 18, scale: 2, nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -169,6 +165,16 @@ namespace Books.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_Books_Author",
+                table: "Books",
+                column: "Author");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Books_Genre",
+                table: "Books",
+                column: "Genre");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_OrderItems_BookId",
                 table: "OrderItems",
                 column: "BookId");
@@ -177,11 +183,6 @@ namespace Books.Infrastructure.Migrations
                 name: "IX_OrderItems_OrderId",
                 table: "OrderItems",
                 column: "OrderId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Orders_OrderStatusId",
-                table: "Orders",
-                column: "OrderStatusId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Orders_StatusId",

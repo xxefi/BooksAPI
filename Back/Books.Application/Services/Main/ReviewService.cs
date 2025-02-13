@@ -85,7 +85,7 @@ public class ReviewService : IReviewService
     public async Task<int> GetReviewsCountByBookIdAsync(Guid bookId)
     {
         var reviews = await _reviewRepository.FindAsync(b => b.BookId == bookId);
-        return reviews.Any() ? reviews.Sum(r => r.Rating) : 0;
+        return reviews.Count;
     }
 
     public async Task<int> GetReviewsCountByUserIdAsync(Guid userId)

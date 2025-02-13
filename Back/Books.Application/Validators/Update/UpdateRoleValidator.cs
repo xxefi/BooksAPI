@@ -14,6 +14,8 @@ public class UpdateRoleValidator : AbstractValidator<UpdateRoleDto>
             .NotEmpty()
             .WithMessage(ls.GetLocalizedString("RoleNameRequired"))
             .MinimumLength(MinRoleNameLength)
-            .WithMessage(_ => string.Format(ls.GetLocalizedString("RoleNameLength"), MinRoleNameLength));
+            .WithMessage(_ => string.Format(ls.GetLocalizedString("RoleNameLength"), MinRoleNameLength))
+            .MaximumLength(MaxRoleNameLength)
+            .WithMessage(_ => string.Format(ls.GetLocalizedString("RoleNameMaxLength"), MaxRoleNameLength));
     }
 }

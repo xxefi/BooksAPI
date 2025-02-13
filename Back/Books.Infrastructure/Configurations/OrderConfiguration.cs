@@ -14,10 +14,8 @@ public class OrderConfiguration : IEntityTypeConfiguration<Order>
             .HasPrecision(18, 2)
             .IsRequired();
         builder.Property(o => o.Address)
-            .HasMaxLength(255) 
-            .IsRequired();
-        builder.Property(o => o.CreatedAt)
-            .HasDefaultValueSql("CURRENT_TIMESTAMP");
+            .HasMaxLength(255);
+        builder.Property(o => o.CreatedAt);
         
         builder.HasOne(o => o.User) 
             .WithMany(u => u.Orders)

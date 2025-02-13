@@ -149,4 +149,13 @@
     <data name="GenreInvalid" xml:space="preserve">
         <value>Janrda səhv simvollar var</value>
     </data>
+    <data name="RoleNameMaxLength" xml:space="preserve">
+        <value>Rol adının maksimum uzunluğu {0} dır</value>
+    </data>
+    <data name="RoleNameRequired" xml:space="preserve">
+        <value>Rol adı tələb olunur</value>
+    </data>
+    <data name="RoleNameMinLength" xml:space="preserve">
+        <value>Rol adının minimum uzunluğu {0} olmalıdır</value>
+    </data>
 </root>

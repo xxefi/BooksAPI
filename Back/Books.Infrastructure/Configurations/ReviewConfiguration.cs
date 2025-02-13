@@ -11,14 +11,11 @@ public class ReviewConfiguration : IEntityTypeConfiguration<Review>
         builder.HasKey(r => r.Id);
         
         builder.Property(r => r.Content)
-            .IsRequired()
             .HasMaxLength(500);
         builder.Property(r => r.Rating)
-            .IsRequired()
             .HasDefaultValue(0) 
-            .HasColumnType("decimal(2,1)"); 
-        builder.Property(r => r.CreatedAt)
-            .HasDefaultValueSql("CURRENT_TIMESTAMP");
+            .HasColumnType("decimal(2,1)");
+        builder.Property(r => r.CreatedAt);
         
         builder.HasOne(r => r.Book)
             .WithMany(b => b.Reviews) 

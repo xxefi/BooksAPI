@@ -149,4 +149,13 @@
     <data name="GenreInvalid" xml:space="preserve">
         <value>Жанр содержит недопустимые символы</value>
     </data>
+    <data name="RoleNameRequired" xml:space="preserve">
+        <value>Требуется имя роли</value>
+    </data>
+    <data name="RoleNameMinLength" xml:space="preserve">
+        <value>Минимальная длина имени должна быть больше {0}</value>
+    </data>
+    <data name="RoleNameMaxLength" xml:space="preserve">
+        <value>Максимальная длина имени роли не должна превышать {0}</value>
+    </data>
 </root>

@@ -8,6 +8,5 @@ public interface ITokenService
 {
     string GenerateAccessToken(UserDto user);
     string GenerateRefreshToken();
-    ClaimsPrincipal GetPrincipalFromToken(string token, bool validateLifetime = false);
     string GenerateRandomPassword(int length = 12);
 }

@@ -11,18 +11,13 @@ public class BooksConfiguration : IEntityTypeConfiguration<Book>
         builder.HasKey(b => b.Id);
         
         builder.Property(b => b.Title)
-            .IsRequired()
             .HasMaxLength(255);
         builder.Property(b => b.Author)
-            .IsRequired()
             .HasMaxLength(255);
-        builder.Property(b => b.Year)
-            .IsRequired();
+        builder.Property(b => b.Year);
         builder.Property(b => b.Genre)
-            .IsRequired()
             .HasMaxLength(100);
-        builder.Property(b => b.CreatedAt)
-            .HasDefaultValueSql("CURRENT_TIMESTAMP");
+        builder.Property(b => b.CreatedAt);
         
         builder.HasMany(b => b.Reviews)
             .WithOne(r => r.Book)

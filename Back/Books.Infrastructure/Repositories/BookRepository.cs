@@ -59,10 +59,8 @@ public class BookRepository : IBookRepository
         if (book == 0) throw new BookException(ExceptionType.NotFound, "BookNotFound");
     }
 
-    public async Task<bool> AnyAsync(Expression<Func<Role, bool>> predicate)
-    {
-        throw new NotImplementedException();
-    }
+    public async Task<bool> AnyAsync(Expression<Func<Book, bool>> predicate)
+        => await _context.Books.AnyAsync(predicate);
 
     public async Task<ICollection<Book>> FindAsync(Expression<Func<Book, bool>> predicate)
         => await _context.Books

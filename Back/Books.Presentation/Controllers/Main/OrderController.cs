@@ -2,16 +2,17 @@ using Books.Application.Exceptions;
 using Books.Core.Abstractions.Services.Main;
 using Books.Core.Dtos.Create;
 using Books.Core.Dtos.Update;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Books.Presentation.Controllers.Main;
 
+[Authorize]
 [ApiController]
 [Route("api/[controller]")]
 public class OrdersController : ControllerBase
 {
     private readonly IOrderService _orderService;
-
     public OrdersController(IOrderService orderService)
         => _orderService = orderService;
 
@@ -21,7 +22,7 @@ public class OrdersController : ControllerBase
 
     [HttpGet("ID/{id:guid}")]
     public async Task<IActionResult> GetById(Guid id) =>
-        Ok(await _orderService.GetOrderByIdAsync(id) ?? throw new BookException(ExceptionType.NotFound, "OrderNotFound"));
+        Ok(await _orderService.GetOrderByIdAsync(id));
 
     [HttpPost("CreateOrder")]
     public async Task<IActionResult> Create([FromBody] CreateOrderDto createOrderDto) =>

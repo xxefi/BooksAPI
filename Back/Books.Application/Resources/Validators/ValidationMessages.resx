@@ -256,4 +256,13 @@
   <data name="GenreInvalid" xml:space="preserve">
     <value />
   </data>
+  <data name="RoleNameMinLength" xml:space="preserve">
+    <value />
+  </data>
+  <data name="RoleNameRequired" xml:space="preserve">
+    <value />
+  </data>
+  <data name="RoleNameMaxLength" xml:space="preserve">
+    <value />
+  </data>
 </root>

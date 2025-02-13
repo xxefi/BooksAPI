@@ -149,4 +149,13 @@
     <data name="GenreInvalid" xml:space="preserve">
         <value>Genre contains invalid characters</value>
     </data>
+    <data name="RoleNameRequired" xml:space="preserve">
+        <value>Role Name Required</value>
+    </data>
+    <data name="RoleNameMinLength" xml:space="preserve">
+        <value>Role Name Minimum Length is {0}</value>
+    </data>
+    <data name="RoleNameMaxLength" xml:space="preserve">
+        <value>Role Name Maximum Length is {0}</value>
+    </data>
 </root>

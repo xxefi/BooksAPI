@@ -1,3 +1,4 @@
+using System.Globalization;
 using System.Text;
 using Books.Application.Mappings;
 using Books.Application.Services.Auth;
@@ -14,7 +15,9 @@ using Books.Infrastructure.UOW;
 using Books.Presentation.Middlewares;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 
@@ -44,7 +47,22 @@ builder.Services.AddAuthentication(options =>
 
 
 builder.Services.AddControllers();
+builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
 
+builder.Services.Configure<RequestLocalizationOptions>(options =>
+{
+    var supportedCultures = new[]
+    {
+        new CultureInfo("en"),
+        new CultureInfo("ru"),
+        new CultureInfo("az")
+    };
+
+    options.DefaultRequestCulture = new RequestCulture("en");
+    options.SupportedCultures = supportedCultures;
+    options.SupportedUICultures = supportedCultures;
+    options.ApplyCurrentCultureToResponseHeaders = true;
+});
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
@@ -120,11 +138,18 @@ builder.Services.AddDbContext<BooksContext>(options =>
 
 var app = builder.Build();
 
+var localizationOptions = app.Services.GetRequiredService<IOptions<RequestLocalizationOptions>>().Value;
+
+
 app.UseMiddleware<CustomSuccessResponseMiddleware>();
 app.UseMiddleware<CustomExceptionMiddleware>();
+app.UseMiddleware<RateLimitingMiddleware>();
+app.UseMiddleware<LocalizationMiddleware>();
+
 app.UseSwagger();
 app.UseSwaggerUI();
 
+app.UseRequestLocalization(localizationOptions);
 app.UseAuthentication();
 app.UseAuthorization();
 
@@ -132,6 +157,7 @@ app.UseHttpsRedirection();
 
 app.MapControllers();
 app.UseCors();
+
 
 
 app.Run();

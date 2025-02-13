@@ -2,10 +2,12 @@ using Books.Application.Exceptions;
 using Books.Core.Abstractions.Services.Main;
 using Books.Core.Dtos.Create;
 using Books.Core.Dtos.Update;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Books.Presentation.Controllers.Main;
 
+[Authorize]
 [ApiController]
 [Route("api/[controller]")]
 public class OrderItemsController : ControllerBase
@@ -21,7 +23,7 @@ public class OrderItemsController : ControllerBase
 
     [HttpGet("ID/{id:guid}")]
     public async Task<IActionResult> GetById(Guid id) =>
-        Ok(await _orderItemService.GetOrderItemByIdAsync(id) ?? throw new BookException(ExceptionType.NotFound, "OrderItemNotFound"));
+        Ok(await _orderItemService.GetOrderItemByIdAsync(id));
 
     [HttpPost("CreateOrderItem")]
     public async Task<IActionResult> Create([FromBody] CreateOrderItemDto createOrderItemDto) =>

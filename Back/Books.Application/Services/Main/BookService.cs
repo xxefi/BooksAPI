@@ -65,7 +65,7 @@ public class BookService : IBookService
            await _bookRepository.AddAsync(book);
            await _unitOfWork.CommitTransactionAsync();
            
-           return _mapper.Map<BookDto>(createBookDto);
+           return _mapper.Map<BookDto>(book);
         }
         catch
         {
@@ -106,14 +106,13 @@ public class BookService : IBookService
 
     public async Task<bool> DeleteBookAsync(Guid id)
     {
-        var book = await _bookRepository.GetByIdAsync(id);
         await _bookRepository.DeleteAsync(id);
 
         return true;
     }
 
     public async Task<bool> ExistsByTitleAsync(string title)
-        => await _bookRepository.AnyAsync(b => b.Name == title);
+        => await _bookRepository.AnyAsync(b => b.Title == title);
 
     public async Task<int> GetBooksCountAsync()
     {

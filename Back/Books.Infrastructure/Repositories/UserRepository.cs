@@ -39,16 +39,19 @@ public class UserRepository : IUserRepository
     {
         foreach (var user in users)
         {
-            var updatedCount = await _context.Users
-                .Where(u => u.Id == user.Id)
+            var existingUser = await _context.Users
+                .Where(b => b.Id == user.Id)
                 .ExecuteUpdateAsync(u => u
                     .SetProperty(u => u.Username, user.Username)
                     .SetProperty(u => u.FirstName, user.FirstName)
                     .SetProperty(u => u.LastName, user.LastName)
                     .SetProperty(u => u.Email, user.Email)
-                    .SetProperty(u => u.RoleId, user.RoleId));
-
-            if (updatedCount == 0) throw new BookException(ExceptionType.NotFound, "UserNotFound");
+                    .SetProperty(u => u.Password, user.Password)
+                    .SetProperty(u => u.RoleId, user.RoleId)
+                    .SetProperty(u => u.RefreshToken, user.RefreshToken)
+                    .SetProperty(u => u.RefreshTokenExpiryTime, user.RefreshTokenExpiryTime));
+            
+            if (existingUser == 0) throw new BookException(ExceptionType.NotFound, "UserNotFound");
         }
     }
 
