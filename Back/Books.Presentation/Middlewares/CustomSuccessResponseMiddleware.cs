@@ -2,20 +2,16 @@
 using System.Text.Json.Serialization;
 using System.Text.Json;
 using System.Text;
-using Books.Infrastructure.Context;
+using System.Text.RegularExpressions;
 
 namespace Books.Presentation.Middlewares;
 
 public class CustomSuccessResponseMiddleware
 {
     private readonly RequestDelegate _next;
-    private readonly IServiceProvider _serviceProvider;
 
-    public CustomSuccessResponseMiddleware(RequestDelegate next, IServiceProvider serviceProvider)
-    {
-        _next = next;
-        _serviceProvider = serviceProvider;
-    }
+    public CustomSuccessResponseMiddleware(RequestDelegate next) 
+        => _next = next;
 
     public async Task InvokeAsync(HttpContext context)
     {
@@ -25,11 +21,9 @@ public class CustomSuccessResponseMiddleware
             return;
         }
         var originalBodyStream = context.Response.Body;
-
-        using var responseBody = new MemoryStream();
+        await using var responseBody = new MemoryStream();
         context.Response.Body = responseBody;
 
-        using var scope = _serviceProvider.CreateScope();
         try
         {
             await _next(context);
@@ -37,16 +31,19 @@ public class CustomSuccessResponseMiddleware
             responseBody.Seek(0, SeekOrigin.Begin);
             var responseText = await new StreamReader(responseBody).ReadToEndAsync();
 
-            var modifiedResponse = await BuildResponseAsync(context, responseText);
-
-            if (context.Response.StatusCode >= 200 && context.Response.StatusCode < 300)
-                await HandleSuccessResponse(context, originalBodyStream, responseBody, modifiedResponse);
+            if (IsJsonResponse(context))
+            {
+                var modifiedResponse = BuildResponse(context, responseText);
+                await HandleSuccessResponse(context, originalBodyStream, modifiedResponse);
+            }
             else
-                await HandleErrorResponse(originalBodyStream, responseBody);
+            {
+                await WriteRawResponse(originalBodyStream, responseText);
+            }
         }
         catch (Exception ex)
         {
-            var responseObject = new ResponseDto<object>
+            var errorResponse = new ResponseDto<object>
             {
                 Success = false,
                 Code = 500,
@@ -55,48 +52,40 @@ public class CustomSuccessResponseMiddleware
                 Ticks = DateTime.UtcNow.Ticks,
             };
 
-            context.Response.StatusCode = 500;
+            context.Response.StatusCode = StatusCodes.Status500InternalServerError;
             context.Response.ContentType = "application/json";
-
-            var errorResponse = JsonSerializer.Serialize(responseObject, new JsonSerializerOptions
-            {
-                PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-                DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
-            });
-
-            await originalBodyStream.WriteAsync(Encoding.UTF8.GetBytes(errorResponse));
+            var errorJson = JsonSerializer.Serialize(errorResponse, GetJsonSerializerOptions());
+            await originalBodyStream.WriteAsync(Encoding.UTF8.GetBytes(errorJson));
         }
-    }
-
-    private static async Task HandleSuccessResponse(
-        HttpContext context,
-        Stream originalBodyStream,
-        Stream responseBody,
-        string modifiedResponse)
-    {
-        if (context.Response.ContentType != null && context.Response.ContentType.Contains("application/json"))
+        finally
         {
-            context.Response.ContentType = "application/json";
-            await originalBodyStream.WriteAsync(Encoding.UTF8.GetBytes(modifiedResponse));
-        }
-        else
-        {
-            responseBody.Seek(0, SeekOrigin.Begin);
-            await responseBody.CopyToAsync(originalBodyStream);
+            context.Response.Body = originalBodyStream;
         }
     }
-    private static async Task HandleErrorResponse(Stream originalBodyStream, Stream responseBody)
+
+    private static async Task HandleSuccessResponse(HttpContext context, Stream originalBodyStream, string modifiedResponse)
     {
-        responseBody.Seek(0, SeekOrigin.Begin);
-        await responseBody.CopyToAsync(originalBodyStream);
+        context.Response.ContentType = "application/json";
+        await originalBodyStream.WriteAsync(Encoding.UTF8.GetBytes(modifiedResponse));
     }
-    private static async Task<string> BuildResponseAsync(HttpContext context, string responseText)
+
+    private static async Task WriteRawResponse(Stream originalBodyStream, string responseText)
+    {
+        await originalBodyStream.WriteAsync(Encoding.UTF8.GetBytes(responseText));
+    }
+
+    private static bool IsJsonResponse(HttpContext context)
+    {
+        var contentType = context.Response.ContentType;
+        return !string.IsNullOrEmpty(contentType) &&
+               Regex.IsMatch(contentType, @"application\/json", RegexOptions.IgnoreCase);
+    }
+
+    private static string BuildResponse(HttpContext context, string responseText)
     {
         if (string.IsNullOrWhiteSpace(responseText)) responseText = "{}";
 
-        var data = await JsonSerializer.DeserializeAsync<object>(
-            new MemoryStream(Encoding.UTF8.GetBytes(responseText)));
-
+        var data = JsonSerializer.Deserialize<object>(responseText);
         var responseObject = new ResponseDto<object>
         {
             Data = data,
@@ -106,10 +95,12 @@ public class CustomSuccessResponseMiddleware
             Ticks = DateTime.UtcNow.Ticks,
         };
 
-        return JsonSerializer.Serialize(responseObject, new JsonSerializerOptions
-        {
-            PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-            DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
-        });
+        return JsonSerializer.Serialize(responseObject, GetJsonSerializerOptions());
     }
+
+    private static JsonSerializerOptions GetJsonSerializerOptions() => new()
+    {
+        PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+        DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
+    };
 }

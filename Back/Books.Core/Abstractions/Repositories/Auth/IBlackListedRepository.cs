@@ -1,7 +1,7 @@
 using System.Linq.Expressions;
 using Books.Core.Models;
 
-namespace Books.Core.Abstractions.Repositories;
+namespace Books.Core.Abstractions.Repositories.Auth;
 
 public interface IBlackListedRepository
 {

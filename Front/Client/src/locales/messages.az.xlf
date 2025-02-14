@@ -1,0 +1,11 @@
+<xliff version="1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="welcomeMessage" datatype="html">
+        <source>Welcome to my app!</source>
+        <target>Proqramıma xoş gəlmisiniz!</target>
+      </trans-unit>
+      <!-- Добавьте другие переводы здесь -->
+    </body>
+  </file>
+</xliff>

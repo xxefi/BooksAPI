@@ -16,6 +16,7 @@ public class BooksContext : DbContext
     public DbSet<Role> Roles { get; set; }
     public DbSet<User> Users { get; set; }
     public DbSet<BlackListed> BlackListeds { get; set; }
+    public DbSet<UserActiveSessions> UserActiveSessions { get; set; }
 
 
     

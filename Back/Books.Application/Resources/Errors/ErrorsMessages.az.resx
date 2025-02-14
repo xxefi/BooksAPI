@@ -195,4 +195,13 @@
   <data name="RefreshTokenAlreadyExists" xml:space="preserve">
     <value>Yeniləmə işarəsi artıq mövcuddur</value>
   </data>
+  <data name="MissingTokens" xml:space="preserve">
+    <value>Tokenlər yoxdur</value>
+  </data>
+  <data name="TokenAlreadyBlacklisted" xml:space="preserve">
+    <value>Token artıq qara siyahıya salınıb</value>
+  </data>
+  <data name="TokenIsBlacklisted" xml:space="preserve">
+    <value>Token qara siyahıya alındı</value>
+  </data>
 </root>

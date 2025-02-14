@@ -5,15 +5,17 @@ using Books.Application.Services.Auth;
 using Books.Application.Services.Main;
 using Books.Application.Validators.Create;
 using Books.Application.Validators.Update;
-using Books.Core.Abstractions.Repositories;
+using Books.Core.Abstractions.Repositories.Auth;
+using Books.Core.Abstractions.Repositories.Main;
 using Books.Core.Abstractions.Services.Auth;
 using Books.Core.Abstractions.Services.Main;
 using Books.Core.Abstractions.UOW;
 using Books.Infrastructure.Context;
-using Books.Infrastructure.Repositories;
+using Books.Infrastructure.Repositories.Auth;
+using Books.Infrastructure.Repositories.Main;
 using Books.Infrastructure.UOW;
 using Books.Presentation.Middlewares;
-using FluentValidation.AspNetCore;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
@@ -88,10 +90,12 @@ builder.Services.AddScoped<IReviewRepository, ReviewRepository>();
 builder.Services.AddScoped<IRoleRepository, RoleRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IBlackListedRepository, BlackListedRepository>();
+builder.Services.AddScoped<IUserActiveSessionsRepository, UserActiveSessionsRepository>();
 
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IAccountService, AccountService>();
 builder.Services.AddScoped<ITokenService, TokenService>();
+builder.Services.AddScoped<IUserActiveSessionsService, UserActiveSessionsService>();
 
 builder.Services.AddScoped<IBookService, BookService>();
 builder.Services.AddScoped<IOrderItemService, OrderItemService>();
@@ -130,9 +134,11 @@ var app = builder.Build();
 var localizationOptions = app.Services.GetRequiredService<IOptions<RequestLocalizationOptions>>().Value;
 
 
-app.UseMiddleware<CustomSuccessResponseMiddleware>();
 app.UseMiddleware<CustomExceptionMiddleware>();
-//app.UseMiddleware<RateLimitingMiddleware>();
+app.UseMiddleware<CustomSuccessResponseMiddleware>();
+app.UseMiddleware<BlackListMiddleware>();
+//app.UseMiddleware<ActiveSessionMiddleware>();
+app.UseMiddleware<RateLimitingMiddleware>();
 app.UseMiddleware<LocalizationMiddleware>();
 
 app.UseSwagger();

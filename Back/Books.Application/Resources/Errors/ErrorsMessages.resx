@@ -195,4 +195,13 @@
   <data name="RefreshTokenAlreadyExists" xml:space="preserve">
     <value />
   </data>
+  <data name="TokenIsBlacklisted" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TokenAlreadyBlacklisted" xml:space="preserve">
+    <value />
+  </data>
+  <data name="MissingTokens" xml:space="preserve">
+    <value />
+  </data>
 </root>

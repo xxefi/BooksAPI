@@ -3,6 +3,7 @@ using Books.Application.Exceptions;
 using Books.Application.Validators.Create;
 using Books.Application.Validators.Update;
 using Books.Core.Abstractions.Repositories;
+using Books.Core.Abstractions.Repositories.Main;
 using Books.Core.Abstractions.Services.Main;
 using Books.Core.Abstractions.UOW;
 using Books.Core.Dtos.Auth;
@@ -66,8 +67,6 @@ public class UserService : IUserService
         {
             Id = user.Id,
             Password = user.Password,
-            RefreshToken = user.RefreshToken,
-            RefreshTokenExpiryTime = user.RefreshTokenExpiryTime
         };
     }
 
@@ -203,4 +202,5 @@ public class UserService : IUserService
         user.Password = newPassword;
         await _userRepository.UpdateAsync(new[]{user});
     }
+    
 }

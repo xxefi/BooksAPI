@@ -1,5 +1,6 @@
 using Books.Core.Abstractions.Services.Auth;
 using Books.Core.Dtos.Create;
+using Books.Core.Dtos.Read;
 using Books.Core.Dtos.Update;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -29,7 +30,7 @@ public class BlackListedController : ControllerBase
         => Ok(await _blackListedService.AddToBlackListAsync(createBlackListedDto));
 
     [HttpPut]
-    public async Task<IActionResult> UpdateBlackList([FromBody] IEnumerable<UpdateBlackListedDto> updateBlackListedDto) 
+    public async Task<IActionResult> UpdateBlackList([FromBody] UpdateBlackListedDto updateBlackListedDto) 
         => Ok(await _blackListedService.UpdateBlackListAsync(updateBlackListedDto));
 
     [HttpDelete("{id}")]
@@ -37,6 +38,6 @@ public class BlackListedController : ControllerBase
         => Ok(await _blackListedService.DeleteFromBlackListAsync(id));
 
     [HttpGet("check/{token}")]
-    public async Task<IActionResult> IsBlackListed(string token) 
-        => Ok(await _blackListedService.IsBlackListedAsync(token));
+    public async Task<IActionResult> IsBlackListed([FromBody] BlackListedDto checkBlackListedDto) 
+        => Ok(await _blackListedService.IsBlackListedAsync(checkBlackListedDto));
 }

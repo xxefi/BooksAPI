@@ -10,7 +10,7 @@ public interface IBlackListedService
     Task<IEnumerable<BlackListedDto>> GetAllBlackListedAsync(); 
     Task<BlackListedDto> GetBlackListedByIdAsync(int id);
     Task<BlackListedDto> AddToBlackListAsync(CreateBlackListedDto createBlackListedDto);
-    Task<IEnumerable<BlackListedDto>> UpdateBlackListAsync(IEnumerable<UpdateBlackListedDto> updateBlackListedDto);
+    Task<BlackListedDto> UpdateBlackListAsync(UpdateBlackListedDto updateBlackListedDto);
     Task<bool> DeleteFromBlackListAsync(int id);
-    Task<bool> IsBlackListedAsync(string token);
+    Task<bool> IsBlackListedAsync(BlackListedDto blackListedDto);
 }

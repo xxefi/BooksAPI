@@ -33,32 +33,9 @@ public class CustomExceptionMiddleware
     private async Task HandleExceptionAsync(HttpContext context, BookException exception)
     {
         var language = GetLanguageFromRequest(context);
-        var statusCode = (int)HttpStatusCode.InternalServerError;
-        var errorResponse = CreateErrorResponse(context, exception, language, statusCode);
-
-        if (exception is BookException academyExceptions)
-        {
-            statusCode = GetStatusCodeForExceptionType(academyExceptions.ExceptionType);
-            errorResponse.Code = statusCode;
-            errorResponse.Message = _localizationService.GetLocalizedString(academyExceptions.Message, language);
-            errorResponse.Ex = academyExceptions.ExceptionType.ToString();
-        }
-
-        context.Response.ContentType = "application/json";
-        context.Response.StatusCode = statusCode;
-
-        var jsonResponse = JsonSerializer.Serialize(errorResponse, new JsonSerializerOptions
-        {
-            PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-            DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
-        });
-
-        await context.Response.WriteAsync(jsonResponse);
-    }
-
-    private ErrorResponseDto.ErrorResponse CreateErrorResponse(HttpContext context, BookException exception, string language, int statusCode)
-    {
-        return new ErrorResponseDto.ErrorResponse
+        var statusCode = GetStatusCodeForExceptionType(exception.ExceptionType);
+        
+        var errorResponse = new ErrorResponseDto.ErrorResponse
         {
             Success = false,
             Code = statusCode,
@@ -67,6 +44,17 @@ public class CustomExceptionMiddleware
             RequestDate = DateTime.UtcNow,
             Ticks = DateTime.UtcNow.Ticks
         };
+        context.Response.StatusCode = statusCode;
+
+        await WriteResponseAsync(context, errorResponse);
+        
+        var jsonResponse = JsonSerializer.Serialize(errorResponse, new JsonSerializerOptions
+        {
+            PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+            DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
+        });
+
+        await context.Response.WriteAsync(jsonResponse);
     }
 
     private static int GetStatusCodeForExceptionType(ExceptionType exceptionType)
@@ -97,19 +85,31 @@ public class CustomExceptionMiddleware
             _ => (int)HttpStatusCode.InternalServerError,
         };
     }
+    
+    private async Task WriteResponseAsync(HttpContext context, ErrorResponseDto.ErrorResponse errorResponse)
+    {
+        var jsonResponse = JsonSerializer.Serialize(errorResponse, new JsonSerializerOptions
+        {
+            PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+            DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
+        });
+
+        context.Response.ContentType = "application/json";
+        await context.Response.WriteAsync(jsonResponse);
+    }
 
     private string GetLanguageFromRequest(HttpContext context)
     {
-        string defaultLang = "en";
-        var queryLang = context.Request.Query["lang"].ToString().ToLower();
-        var headerLang = context.Request.Headers["Accept-Language"].ToString().Split(',')[0].ToLower();
-
-        if (!string.IsNullOrEmpty(queryLang) && (queryLang == "ru" || queryLang == "az" || queryLang == "en"))
-            return queryLang;
-
-        if (!string.IsNullOrEmpty(headerLang) && (headerLang == "ru" || headerLang == "az" || headerLang == "en"))
-            return headerLang;
-
-        return defaultLang;
+        return context.Request.Query["lang"].ToString().ToLower() switch
+        {
+            "ru" => "ru",
+            "az" => "az",
+            _ => context.Request.Headers["Accept-Language"].ToString().Split(',')[0].ToLower() switch
+            {
+                "ru" => "ru",
+                "az" => "az",
+                _ => "en"
+            }
+        };
     }
 }

@@ -20,8 +20,6 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
             .HasMaxLength(100);
         builder.Property(u => u.Password)
             .HasMaxLength(255);
-        builder.Property(u => u.RefreshToken);
-        builder.Property(u => u.RefreshTokenExpiryTime);
         builder.Property(u => u.CreatedAt);
         
         builder.HasOne(u => u.Role)

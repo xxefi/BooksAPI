@@ -1,11 +1,11 @@
 using System.Linq.Expressions;
 using Books.Application.Exceptions;
-using Books.Core.Abstractions.Repositories;
+using Books.Core.Abstractions.Repositories.Main;
 using Books.Core.Models;
 using Books.Infrastructure.Context;
 using Microsoft.EntityFrameworkCore;
 
-namespace Books.Infrastructure.Repositories;
+namespace Books.Infrastructure.Repositories.Main;
 
 public class UserRepository : IUserRepository
 {
@@ -47,9 +47,7 @@ public class UserRepository : IUserRepository
                     .SetProperty(u => u.LastName, user.LastName)
                     .SetProperty(u => u.Email, user.Email)
                     .SetProperty(u => u.Password, user.Password)
-                    .SetProperty(u => u.RoleId, user.RoleId)
-                    .SetProperty(u => u.RefreshToken, user.RefreshToken)
-                    .SetProperty(u => u.RefreshTokenExpiryTime, user.RefreshTokenExpiryTime));
+                    .SetProperty(u => u.RoleId, user.RoleId));
             
             if (existingUser == 0) throw new BookException(ExceptionType.NotFound, "UserNotFound");
         }

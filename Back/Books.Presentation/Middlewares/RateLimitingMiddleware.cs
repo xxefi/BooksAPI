@@ -16,6 +16,11 @@ public class RateLimitingMiddleware
 
     public async Task InvokeAsync(HttpContext context)
     {
+        if (context.Request.Path.StartsWithSegments("/swagger") || context.Request.Path.StartsWithSegments("/swagger-ui"))
+        {
+            await _next(context);
+            return;
+        }
         var ipAddress = context.Connection.RemoteIpAddress?.ToString();
         if (ipAddress == null)
         {

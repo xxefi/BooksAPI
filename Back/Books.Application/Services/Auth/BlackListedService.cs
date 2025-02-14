@@ -1,6 +1,7 @@
 using AutoMapper;
 using Books.Application.Exceptions;
 using Books.Core.Abstractions.Repositories;
+using Books.Core.Abstractions.Repositories.Auth;
 using Books.Core.Abstractions.Services.Auth;
 using Books.Core.Abstractions.UOW;
 using Books.Core.Dtos.Create;
@@ -37,7 +38,8 @@ public class BlackListedService : IBlackListedService
 
     public async Task<BlackListedDto> AddToBlackListAsync(CreateBlackListedDto createBlackListedDto)
     {
-        var existingItem = await _blackListedRepository.AnyAsync(b => b.Token == createBlackListedDto.Token);
+        var existingItem = await _blackListedRepository.AnyAsync(b => b.AccessToken == createBlackListedDto.AccessToken
+        && b.RefreshToken == createBlackListedDto.RefreshToken);
         if (existingItem)
             throw new BookException(ExceptionType.CredentialsAlreadyExists, "TokenAlreadyBlacklisted");
         
@@ -57,32 +59,25 @@ public class BlackListedService : IBlackListedService
         }
     }
 
-    public async Task<IEnumerable<BlackListedDto>> UpdateBlackListAsync(IEnumerable<UpdateBlackListedDto> updateBlackListedDto)
+    public async Task<BlackListedDto> UpdateBlackListAsync(UpdateBlackListedDto updateBlackListedDto)
     {
-        var blackListedItems = new List<BlackListed>();
-
-        foreach (var dto in updateBlackListedDto)
-        {
-            var existingItem = await _blackListedRepository.GetByIdAsync(dto.Id);
-            if (existingItem == null)
-                throw new BookException(ExceptionType.NotFound, "BlackListItemNotFound");
-
-            _mapper.Map(dto, existingItem);
-            blackListedItems.Add(existingItem);
-        }
-
+        var existingBlackListed = await _blackListedRepository.GetByIdAsync(updateBlackListedDto.Id);
+        
         await _unitOfWork.BeginTransactionAsync();
+
         try
         {
-            await _blackListedRepository.UpdateAsync(blackListedItems);
+            _mapper.Map(updateBlackListedDto, existingBlackListed);
+            await _blackListedRepository.UpdateAsync(new[] {existingBlackListed});
             await _unitOfWork.CommitTransactionAsync();
+            
+            return _mapper.Map<BlackListedDto>(existingBlackListed);
         }
         catch
         {
             await _unitOfWork.RollbackTransactionAsync();
             throw;
         }
-        return _mapper.Map<IEnumerable<BlackListedDto>>(blackListedItems);
     }
 
     public async Task<bool> DeleteFromBlackListAsync(int id)
@@ -91,9 +86,11 @@ public class BlackListedService : IBlackListedService
         return true;
     }
 
-    public async Task<bool> IsBlackListedAsync(string token)
+    public async Task<bool> IsBlackListedAsync(BlackListedDto blackListedDto)
     {
-        var blackListedItem = await _blackListedRepository.FindAsync(b => b.Token == token);
-        return blackListedItem.Any();
+        var isAccessTokenBlackListed = await _blackListedRepository.AnyAsync(b => b.AccessToken == blackListedDto.AccessToken);
+        var isRefreshTokenBlackListed = await _blackListedRepository.AnyAsync(b => b.RefreshToken == blackListedDto.RefreshToken);
+    
+        return isAccessTokenBlackListed  || isRefreshTokenBlackListed ;
     }
 }

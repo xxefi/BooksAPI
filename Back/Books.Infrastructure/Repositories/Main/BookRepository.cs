@@ -1,11 +1,11 @@
 using System.Linq.Expressions;
 using Books.Application.Exceptions;
-using Books.Core.Abstractions.Repositories;
+using Books.Core.Abstractions.Repositories.Main;
 using Books.Core.Models;
 using Books.Infrastructure.Context;
 using Microsoft.EntityFrameworkCore;
 
-namespace Books.Infrastructure.Repositories;
+namespace Books.Infrastructure.Repositories.Main;
 
 public class BookRepository : IBookRepository
 {

@@ -12,16 +12,12 @@ public class MappingProfile : Profile
     public MappingProfile()
     {
         CreateMap<UpdateUserCredentialsDto, User>()
-            .ForMember(dest => dest.RefreshToken, opt => opt.MapFrom(src => src.RefreshToken))
-            .ForMember(dest => dest.RefreshTokenExpiryTime, opt => opt.MapFrom(src => src.RefreshTokenExpiryTime))
             .ForMember(dest => dest.Username, opt => opt.Ignore())
             .ForMember(dest => dest.FirstName, opt => opt.Ignore())
             .ForMember(dest => dest.LastName, opt => opt.Ignore())
             .ForMember(dest => dest.Email, opt => opt.Ignore())
             .ForMember(dest => dest.Password, opt => opt.Ignore())
             .ForMember(dest => dest.RoleId, opt => opt.Ignore());
-
-        CreateMap<UserCredentialsDto, UserDto>();
 
         CreateMap<CreateBookDto, Book>();
         CreateMap<UpdateBookDto, Book>();
@@ -56,11 +52,13 @@ public class MappingProfile : Profile
         CreateMap<CreateOrderStatusDto, OrderStatus>();
         CreateMap<UpdateOrderStatusDto, OrderStatus>();
         CreateMap<OrderStatus, OrderStatusDto>();
-
-        CreateMap<UserDto, UserCredentialsDto>();
         
         CreateMap<CreateBlackListedDto, BlackListed>();
         CreateMap<BlackListed, BlackListedDto>().ReverseMap();
-       
+        
+        CreateMap<CreateUserDeviceTokenDto, UserActiveSessions>();
+        CreateMap<UpdateUserDeviceTokenDto, UserActiveSessions>()
+                .ForMember(dest => dest.Id, opt => opt.Ignore());
+        CreateMap<UserActiveSessions, UserDto>();
     }
 }

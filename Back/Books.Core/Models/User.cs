@@ -12,7 +12,5 @@ public class User
     public Role Role { get; set; } = null!;
     public List<Review> Reviews { get; set; } = [];
     public List<Order> Orders { get; set; } = [];
-    public string? RefreshToken { get; set; }
-    public DateTime RefreshTokenExpiryTime { get; set; }
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 }

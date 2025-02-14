@@ -4,6 +4,14 @@
   "newProjectRoot": "projects",
   "projects": {
     "client": {
+      "i18n": {
+        "sourceLocale": "en-US",
+        "locales": {
+          "az": "/src/locales/messages.az.xlf",
+          "en": "/src/locales/messages.en.xlf",
+          "ru": "/src/locales/messages.ru.xlf"
+        }
+      },
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -16,9 +24,7 @@
             "outputPath": "dist/client",
             "index": "src/index.html",
             "browser": "src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
+            "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
             "assets": [
               {
@@ -79,10 +85,7 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ],
+            "polyfills": ["zone.js", "zone.js/testing"],
             "tsConfig": "tsconfig.spec.json",
             "assets": [
               {

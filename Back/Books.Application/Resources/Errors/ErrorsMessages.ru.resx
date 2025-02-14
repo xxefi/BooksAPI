@@ -195,4 +195,13 @@
   <data name="RefreshTokenAlreadyExists" xml:space="preserve">
     <value>Токен Обновления уже существует</value>
   </data>
+  <data name="MissingTokens" xml:space="preserve">
+    <value>Отсуствуют токены</value>
+  </data>
+  <data name="TokenAlreadyBlacklisted" xml:space="preserve">
+    <value>Токен уже занесен в черный список</value>
+  </data>
+  <data name="TokenIsBlacklisted" xml:space="preserve">
+    <value>Токен занесен в черный список</value>
+  </data>
 </root>

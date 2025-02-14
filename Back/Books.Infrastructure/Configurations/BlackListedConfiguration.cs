@@ -9,13 +9,14 @@ public class BlackListedConfiguration : IEntityTypeConfiguration<BlackListed>
     public void Configure(EntityTypeBuilder<BlackListed> builder)
     {
         builder.HasKey(x => x.Id);
-        
-        builder.Property(b => b.Token)
-            .IsRequired()
-            .HasMaxLength(500);
+
+        builder.Property(b => b.AccessToken)
+            .IsRequired();
+        builder.Property(b => b.RefreshToken)
+            .IsRequired();
 
         builder.Property(b => b.AddedAt);
         
-        builder.HasIndex(b => b.Token).IsUnique();
+        builder.HasIndex(b => b.RefreshToken).IsUnique();
     }
 }

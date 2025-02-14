@@ -1,11 +1,11 @@
 using System.Linq.Expressions;
 using Books.Application.Exceptions;
-using Books.Core.Abstractions.Repositories;
+using Books.Core.Abstractions.Repositories.Auth;
 using Books.Core.Models;
 using Books.Infrastructure.Context;
 using Microsoft.EntityFrameworkCore;
 
-namespace Books.Infrastructure.Repositories;
+namespace Books.Infrastructure.Repositories.Auth;
 
 public class BlackListedRepository : IBlackListedRepository
 {
@@ -41,7 +41,8 @@ public class BlackListedRepository : IBlackListedRepository
             var updatedCount = await _context.BlackListeds
                 .Where(b => b.Id == blackListed.Id)
                 .ExecuteUpdateAsync(b => b
-                    .SetProperty(b => b.Token, blackListed.Token)
+                    .SetProperty(b => b.AccessToken, blackListed.AccessToken)
+                    .SetProperty(b => b.RefreshToken, blackListed.RefreshToken)
                     .SetProperty(b => b.IpAddress, blackListed.IpAddress)
                     .SetProperty(b => b.DeviceInfo, blackListed.DeviceInfo)
                     .SetProperty(b => b.UserAgent, blackListed.UserAgent));
