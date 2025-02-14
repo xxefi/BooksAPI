@@ -5,7 +5,6 @@
         <source>Welcome to my app!</source>
         <target>Welcome to my app!</target>
       </trans-unit>
-      <!-- Добавьте другие переводы здесь -->
     </body>
   </file>
 </xliff>
