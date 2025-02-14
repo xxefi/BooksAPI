@@ -29,9 +29,17 @@ builder.Services.AddAuthentication(options =>
     options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
 }).AddJwtBearer(options =>
 {
+    options.Events = new JwtBearerEvents
+    {
+        OnMessageReceived = context =>
+        {
+            if (context.Request.Cookies.ContainsKey("accessToken"))
+                context.Token = context.Request.Cookies["accessToken"];
+            return Task.CompletedTask;
+        }
+    };
     options.TokenValidationParameters = new TokenValidationParameters()
     {
-        ValidateActor = true,
         ValidateIssuer = true,
         ValidateAudience = true,
         RequireExpirationTime = true,
@@ -65,30 +73,7 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
 });
 
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(options =>
-{
-    options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
-    {
-        Name = "Authorization",
-        In = ParameterLocation.Header,
-        Type = SecuritySchemeType.Http,
-        Scheme = "Bearer",
-    });
-    options.AddSecurityRequirement(new OpenApiSecurityRequirement()
-    {
-        {
-            new OpenApiSecurityScheme()
-            {
-                Reference = new OpenApiReference()
-                {
-                    Type = ReferenceType.SecurityScheme,
-                    Id = "Bearer"
-                }
-            },
-            Array.Empty<string>()
-        }
-    });
-});
+builder.Services.AddSwaggerGen();
 
 builder.Services.AddCors(options =>
     options.AddDefaultPolicy(policy =>
@@ -102,6 +87,7 @@ builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 builder.Services.AddScoped<IReviewRepository, ReviewRepository>();
 builder.Services.AddScoped<IRoleRepository, RoleRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IBlackListedRepository, BlackListedRepository>();
 
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IAccountService, AccountService>();
@@ -113,6 +99,7 @@ builder.Services.AddScoped<IOrderService, OrderService>();
 builder.Services.AddScoped<IReviewService, ReviewService>();
 builder.Services.AddScoped<IRoleService, RoleService>();
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IBlackListedService, BlackListedService>();
 
 builder.Services.AddSingleton<ILocalizationService, LocalizationService>();
 
@@ -132,6 +119,8 @@ builder.Services.AddScoped<UpdateReviewValidator>();
 builder.Services.AddScoped<UpdateRoleValidator>();
 builder.Services.AddScoped<UpdateUserValidator>();
 
+builder.Services.AddHttpContextAccessor();
+
 
 builder.Services.AddDbContext<BooksContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("Books")));
@@ -143,7 +132,7 @@ var localizationOptions = app.Services.GetRequiredService<IOptions<RequestLocali
 
 app.UseMiddleware<CustomSuccessResponseMiddleware>();
 app.UseMiddleware<CustomExceptionMiddleware>();
-app.UseMiddleware<RateLimitingMiddleware>();
+//app.UseMiddleware<RateLimitingMiddleware>();
 app.UseMiddleware<LocalizationMiddleware>();
 
 app.UseSwagger();
@@ -157,7 +146,6 @@ app.UseHttpsRedirection();
 
 app.MapControllers();
 app.UseCors();
-
 
 
 app.Run();

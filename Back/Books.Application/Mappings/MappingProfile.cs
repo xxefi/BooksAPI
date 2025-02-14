@@ -58,6 +58,9 @@ public class MappingProfile : Profile
         CreateMap<OrderStatus, OrderStatusDto>();
 
         CreateMap<UserDto, UserCredentialsDto>();
+        
+        CreateMap<CreateBlackListedDto, BlackListed>();
+        CreateMap<BlackListed, BlackListedDto>().ReverseMap();
        
     }
 }

@@ -6,6 +6,6 @@ namespace Books.Core.Abstractions.Services.Auth;
 public interface IAuthService
 {
     Task<AccessInfoDto> LoginAsync(LoginDto loginDto);
-    Task<AccessInfoDto> RefreshTokenAsync(TokenDto tokenDto);
-    Task<bool> LogoutAsync(TokenDto tokenDto);
+    Task<AccessInfoDto> RefreshTokenAsync();
+    Task<bool> LogoutAsync();
 }

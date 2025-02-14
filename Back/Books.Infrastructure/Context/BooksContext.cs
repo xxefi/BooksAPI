@@ -15,6 +15,9 @@ public class BooksContext : DbContext
     public DbSet<Review> Reviews { get; set; }
     public DbSet<Role> Roles { get; set; }
     public DbSet<User> Users { get; set; }
+    public DbSet<BlackListed> BlackListeds { get; set; }
+
+
     
     protected override void OnModelCreating(ModelBuilder modelBuilder)
         => modelBuilder.ApplyConfigurationsFromAssembly(typeof(BooksContext).Assembly);

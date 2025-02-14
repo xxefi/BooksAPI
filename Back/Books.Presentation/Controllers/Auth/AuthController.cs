@@ -17,10 +17,10 @@ public class AuthController : ControllerBase
         Ok(await _authService.LoginAsync(loginDto));
 
     [HttpPost("RefreshToken")]
-    public async Task<IActionResult> RefreshToken([FromBody] TokenDto tokenDto) =>
-        Ok(await _authService.RefreshTokenAsync(tokenDto));
+    public async Task<IActionResult> RefreshToken() =>
+        Ok(await _authService.RefreshTokenAsync());
 
     [HttpPost("Logout")]
-    public async Task<IActionResult> Logout([FromBody] TokenDto tokenDto) =>
-        Ok(await _authService.LogoutAsync(tokenDto));
+    public async Task<IActionResult> Logout() =>
+        Ok(await _authService.LogoutAsync());
 }
