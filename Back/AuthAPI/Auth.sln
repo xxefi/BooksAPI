@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auth.Application", "Auth.Application\Auth.Application.csproj", "{9F48EFE9-5ABE-46A5-A151-323136585F08}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auth.Core", "Auth.Core\Auth.Core.csproj", "{620C35C5-0215-4A73-9441-9E3373980C15}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auth.Infrastructure", "Auth.Infrastructure\Auth.Infrastructure.csproj", "{4CF2C82D-12DF-4E73-99C8-29D7A5965A4D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auth.Presentation", "Auth.Presentation\Auth.Presentation.csproj", "{236DA405-28D5-41D8-BC6D-669929209CF8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9F48EFE9-5ABE-46A5-A151-323136585F08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F48EFE9-5ABE-46A5-A151-323136585F08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F48EFE9-5ABE-46A5-A151-323136585F08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F48EFE9-5ABE-46A5-A151-323136585F08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{620C35C5-0215-4A73-9441-9E3373980C15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{620C35C5-0215-4A73-9441-9E3373980C15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{620C35C5-0215-4A73-9441-9E3373980C15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{620C35C5-0215-4A73-9441-9E3373980C15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CF2C82D-12DF-4E73-99C8-29D7A5965A4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CF2C82D-12DF-4E73-99C8-29D7A5965A4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CF2C82D-12DF-4E73-99C8-29D7A5965A4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CF2C82D-12DF-4E73-99C8-29D7A5965A4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{236DA405-28D5-41D8-BC6D-669929209CF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{236DA405-28D5-41D8-BC6D-669929209CF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{236DA405-28D5-41D8-BC6D-669929209CF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{236DA405-28D5-41D8-BC6D-669929209CF8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

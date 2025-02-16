@@ -1,0 +1,470 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\magsu\\Desktop\\Books\\Back\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{7382B4FF-C1FC-46DB-A578-25C50BCB9FCB}|Books.Application\\Books.Application.csproj|c:\\users\\magsu\\desktop\\books\\back\\books.application\\services\\auth\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7382B4FF-C1FC-46DB-A578-25C50BCB9FCB}|Books.Application\\Books.Application.csproj|solutionrelative:books.application\\services\\auth\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A35D201-DF3A-4B16-A771-62C67A012FA3}|Books.Presentation\\Books.Presentation.csproj|c:\\users\\magsu\\desktop\\books\\back\\books.presentation\\controllers\\auth\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A35D201-DF3A-4B16-A771-62C67A012FA3}|Books.Presentation\\Books.Presentation.csproj|solutionrelative:books.presentation\\controllers\\auth\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7382B4FF-C1FC-46DB-A578-25C50BCB9FCB}|Books.Application\\Books.Application.csproj|c:\\users\\magsu\\desktop\\books\\back\\books.application\\services\\auth\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7382B4FF-C1FC-46DB-A578-25C50BCB9FCB}|Books.Application\\Books.Application.csproj|solutionrelative:books.application\\services\\auth\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A35D201-DF3A-4B16-A771-62C67A012FA3}|Books.Presentation\\Books.Presentation.csproj|c:\\users\\magsu\\desktop\\books\\back\\books.presentation\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A35D201-DF3A-4B16-A771-62C67A012FA3}|Books.Presentation\\Books.Presentation.csproj|solutionrelative:books.presentation\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A35D201-DF3A-4B16-A771-62C67A012FA3}|Books.Presentation\\Books.Presentation.csproj|c:\\users\\magsu\\desktop\\books\\back\\books.presentation\\middlewares\\tokenrefreshmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A35D201-DF3A-4B16-A771-62C67A012FA3}|Books.Presentation\\Books.Presentation.csproj|solutionrelative:books.presentation\\middlewares\\tokenrefreshmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A35D201-DF3A-4B16-A771-62C67A012FA3}|Books.Presentation\\Books.Presentation.csproj|c:\\users\\magsu\\desktop\\books\\back\\books.presentation\\middlewares\\customexceptionmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A35D201-DF3A-4B16-A771-62C67A012FA3}|Books.Presentation\\Books.Presentation.csproj|solutionrelative:books.presentation\\middlewares\\customexceptionmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A35D201-DF3A-4B16-A771-62C67A012FA3}|Books.Presentation\\Books.Presentation.csproj|c:\\users\\magsu\\desktop\\books\\back\\books.presentation\\controllers\\main\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A35D201-DF3A-4B16-A771-62C67A012FA3}|Books.Presentation\\Books.Presentation.csproj|solutionrelative:books.presentation\\controllers\\main\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A35D201-DF3A-4B16-A771-62C67A012FA3}|Books.Presentation\\Books.Presentation.csproj|c:\\users\\magsu\\desktop\\books\\back\\books.presentation\\controllers\\main\\orderitemcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A35D201-DF3A-4B16-A771-62C67A012FA3}|Books.Presentation\\Books.Presentation.csproj|solutionrelative:books.presentation\\controllers\\main\\orderitemcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A35D201-DF3A-4B16-A771-62C67A012FA3}|Books.Presentation\\Books.Presentation.csproj|c:\\users\\magsu\\desktop\\books\\back\\books.presentation\\controllers\\main\\reviewcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A35D201-DF3A-4B16-A771-62C67A012FA3}|Books.Presentation\\Books.Presentation.csproj|solutionrelative:books.presentation\\controllers\\main\\reviewcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A35D201-DF3A-4B16-A771-62C67A012FA3}|Books.Presentation\\Books.Presentation.csproj|c:\\users\\magsu\\desktop\\books\\back\\books.presentation\\controllers\\main\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A35D201-DF3A-4B16-A771-62C67A012FA3}|Books.Presentation\\Books.Presentation.csproj|solutionrelative:books.presentation\\controllers\\main\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A35D201-DF3A-4B16-A771-62C67A012FA3}|Books.Presentation\\Books.Presentation.csproj|c:\\users\\magsu\\desktop\\books\\back\\books.presentation\\controllers\\main\\rolecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A35D201-DF3A-4B16-A771-62C67A012FA3}|Books.Presentation\\Books.Presentation.csproj|solutionrelative:books.presentation\\controllers\\main\\rolecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A35D201-DF3A-4B16-A771-62C67A012FA3}|Books.Presentation\\Books.Presentation.csproj|c:\\users\\magsu\\desktop\\books\\back\\books.presentation\\controllers\\main\\bookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A35D201-DF3A-4B16-A771-62C67A012FA3}|Books.Presentation\\Books.Presentation.csproj|solutionrelative:books.presentation\\controllers\\main\\bookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A35D201-DF3A-4B16-A771-62C67A012FA3}|Books.Presentation\\Books.Presentation.csproj|c:\\users\\magsu\\desktop\\books\\back\\books.presentation\\middlewares\\activesessionmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A35D201-DF3A-4B16-A771-62C67A012FA3}|Books.Presentation\\Books.Presentation.csproj|solutionrelative:books.presentation\\middlewares\\activesessionmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A35D201-DF3A-4B16-A771-62C67A012FA3}|Books.Presentation\\Books.Presentation.csproj|c:\\users\\magsu\\desktop\\books\\back\\books.presentation\\middlewares\\blacklistmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A35D201-DF3A-4B16-A771-62C67A012FA3}|Books.Presentation\\Books.Presentation.csproj|solutionrelative:books.presentation\\middlewares\\blacklistmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7382B4FF-C1FC-46DB-A578-25C50BCB9FCB}|Books.Application\\Books.Application.csproj|c:\\users\\magsu\\desktop\\books\\back\\books.application\\mappings\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7382B4FF-C1FC-46DB-A578-25C50BCB9FCB}|Books.Application\\Books.Application.csproj|solutionrelative:books.application\\mappings\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{39447DDB-2626-4247-93E3-A00A7B585090}|Books.Core\\Books.Core.csproj|c:\\users\\magsu\\desktop\\books\\back\\books.core\\dtos\\read\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{39447DDB-2626-4247-93E3-A00A7B585090}|Books.Core\\Books.Core.csproj|solutionrelative:books.core\\dtos\\read\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{39447DDB-2626-4247-93E3-A00A7B585090}|Books.Core\\Books.Core.csproj|c:\\users\\magsu\\desktop\\books\\back\\books.core\\abstractions\\services\\auth\\itokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{39447DDB-2626-4247-93E3-A00A7B585090}|Books.Core\\Books.Core.csproj|solutionrelative:books.core\\abstractions\\services\\auth\\itokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7382B4FF-C1FC-46DB-A578-25C50BCB9FCB}|Books.Application\\Books.Application.csproj|c:\\users\\magsu\\desktop\\books\\back\\books.application\\services\\main\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7382B4FF-C1FC-46DB-A578-25C50BCB9FCB}|Books.Application\\Books.Application.csproj|solutionrelative:books.application\\services\\main\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{39447DDB-2626-4247-93E3-A00A7B585090}|Books.Core\\Books.Core.csproj|c:\\users\\magsu\\desktop\\books\\back\\books.core\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{39447DDB-2626-4247-93E3-A00A7B585090}|Books.Core\\Books.Core.csproj|solutionrelative:books.core\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7382B4FF-C1FC-46DB-A578-25C50BCB9FCB}|Books.Application\\Books.Application.csproj|c:\\users\\magsu\\desktop\\books\\back\\books.application\\services\\auth\\accountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7382B4FF-C1FC-46DB-A578-25C50BCB9FCB}|Books.Application\\Books.Application.csproj|solutionrelative:books.application\\services\\auth\\accountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7382B4FF-C1FC-46DB-A578-25C50BCB9FCB}|Books.Application\\Books.Application.csproj|c:\\users\\magsu\\desktop\\books\\back\\books.application\\services\\main\\roleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7382B4FF-C1FC-46DB-A578-25C50BCB9FCB}|Books.Application\\Books.Application.csproj|solutionrelative:books.application\\services\\main\\roleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A35D201-DF3A-4B16-A771-62C67A012FA3}|Books.Presentation\\Books.Presentation.csproj|c:\\users\\magsu\\desktop\\books\\back\\books.presentation\\middlewares\\customsuccessresponsemiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A35D201-DF3A-4B16-A771-62C67A012FA3}|Books.Presentation\\Books.Presentation.csproj|solutionrelative:books.presentation\\middlewares\\customsuccessresponsemiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EE32B7C5-203C-4F3D-8B15-3D40AAFB45F9}|Books.Infrastructure\\Books.Infrastructure.csproj|c:\\users\\magsu\\desktop\\books\\back\\books.infrastructure\\configurations\\userconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EE32B7C5-203C-4F3D-8B15-3D40AAFB45F9}|Books.Infrastructure\\Books.Infrastructure.csproj|solutionrelative:books.infrastructure\\configurations\\userconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7382B4FF-C1FC-46DB-A578-25C50BCB9FCB}|Books.Application\\Books.Application.csproj|c:\\users\\magsu\\desktop\\books\\back\\books.application\\validators\\create\\createuservalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7382B4FF-C1FC-46DB-A578-25C50BCB9FCB}|Books.Application\\Books.Application.csproj|solutionrelative:books.application\\validators\\create\\createuservalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7382B4FF-C1FC-46DB-A578-25C50BCB9FCB}|Books.Application\\Books.Application.csproj|c:\\users\\magsu\\desktop\\books\\back\\books.application\\services\\main\\localizationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7382B4FF-C1FC-46DB-A578-25C50BCB9FCB}|Books.Application\\Books.Application.csproj|solutionrelative:books.application\\services\\main\\localizationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7382B4FF-C1FC-46DB-A578-25C50BCB9FCB}|Books.Application\\Books.Application.csproj|c:\\users\\magsu\\desktop\\books\\back\\books.application\\books.application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{7382B4FF-C1FC-46DB-A578-25C50BCB9FCB}|Books.Application\\Books.Application.csproj|solutionrelative:books.application\\books.application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\magsu\\Desktop\\Books\\Back\\Books.Infrastructure\\Repositories\\UserRepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Books.Infrastructure\\Repositories\\UserRepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 8,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\magsu\\Desktop\\Books\\Back\\Books.Presentation\\Controllers\\Auth\\AuthController.cs",
+              "RelativeDocumentMoniker": "Books.Presentation\\Controllers\\Auth\\AuthController.cs",
+              "ToolTip": "C:\\Users\\magsu\\Desktop\\Books\\Back\\Books.Presentation\\Controllers\\Auth\\AuthController.cs",
+              "RelativeToolTip": "Books.Presentation\\Controllers\\Auth\\AuthController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-16T00:04:00.629Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "TokenRefreshMiddleware.cs",
+              "DocumentMoniker": "C:\\Users\\magsu\\Desktop\\Books\\Back\\Books.Presentation\\Middlewares\\TokenRefreshMiddleware.cs",
+              "RelativeDocumentMoniker": "Books.Presentation\\Middlewares\\TokenRefreshMiddleware.cs",
+              "ToolTip": "C:\\Users\\magsu\\Desktop\\Books\\Back\\Books.Presentation\\Middlewares\\TokenRefreshMiddleware.cs",
+              "RelativeToolTip": "Books.Presentation\\Middlewares\\TokenRefreshMiddleware.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAAABwAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-15T23:52:42.899Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "OrderController.cs",
+              "DocumentMoniker": "C:\\Users\\magsu\\Desktop\\Books\\Back\\Books.Presentation\\Controllers\\Main\\OrderController.cs",
+              "RelativeDocumentMoniker": "Books.Presentation\\Controllers\\Main\\OrderController.cs",
+              "ToolTip": "C:\\Users\\magsu\\Desktop\\Books\\Back\\Books.Presentation\\Controllers\\Main\\OrderController.cs",
+              "RelativeToolTip": "Books.Presentation\\Controllers\\Main\\OrderController.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAACQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-15T23:49:03.017Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ReviewController.cs",
+              "DocumentMoniker": "C:\\Users\\magsu\\Desktop\\Books\\Back\\Books.Presentation\\Controllers\\Main\\ReviewController.cs",
+              "RelativeDocumentMoniker": "Books.Presentation\\Controllers\\Main\\ReviewController.cs",
+              "ToolTip": "C:\\Users\\magsu\\Desktop\\Books\\Back\\Books.Presentation\\Controllers\\Main\\ReviewController.cs",
+              "RelativeToolTip": "Books.Presentation\\Controllers\\Main\\ReviewController.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-15T23:49:02.604Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "OrderItemController.cs",
+              "DocumentMoniker": "C:\\Users\\magsu\\Desktop\\Books\\Back\\Books.Presentation\\Controllers\\Main\\OrderItemController.cs",
+              "RelativeDocumentMoniker": "Books.Presentation\\Controllers\\Main\\OrderItemController.cs",
+              "ToolTip": "C:\\Users\\magsu\\Desktop\\Books\\Back\\Books.Presentation\\Controllers\\Main\\OrderItemController.cs",
+              "RelativeToolTip": "Books.Presentation\\Controllers\\Main\\OrderItemController.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-15T23:49:02.103Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "RoleController.cs",
+              "DocumentMoniker": "C:\\Users\\magsu\\Desktop\\Books\\Back\\Books.Presentation\\Controllers\\Main\\RoleController.cs",
+              "RelativeDocumentMoniker": "Books.Presentation\\Controllers\\Main\\RoleController.cs",
+              "ToolTip": "C:\\Users\\magsu\\Desktop\\Books\\Back\\Books.Presentation\\Controllers\\Main\\RoleController.cs",
+              "RelativeToolTip": "Books.Presentation\\Controllers\\Main\\RoleController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-15T23:49:01.064Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\Users\\magsu\\Desktop\\Books\\Back\\Books.Presentation\\Controllers\\Main\\UserController.cs",
+              "RelativeDocumentMoniker": "Books.Presentation\\Controllers\\Main\\UserController.cs",
+              "ToolTip": "C:\\Users\\magsu\\Desktop\\Books\\Back\\Books.Presentation\\Controllers\\Main\\UserController.cs",
+              "RelativeToolTip": "Books.Presentation\\Controllers\\Main\\UserController.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAAAB0AAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-15T23:48:56.396Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CustomExceptionMiddleware.cs",
+              "DocumentMoniker": "C:\\Users\\magsu\\Desktop\\Books\\Back\\Books.Presentation\\Middlewares\\CustomExceptionMiddleware.cs",
+              "RelativeDocumentMoniker": "Books.Presentation\\Middlewares\\CustomExceptionMiddleware.cs",
+              "ToolTip": "C:\\Users\\magsu\\Desktop\\Books\\Back\\Books.Presentation\\Middlewares\\CustomExceptionMiddleware.cs",
+              "RelativeToolTip": "Books.Presentation\\Middlewares\\CustomExceptionMiddleware.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-08T23:41:34.404Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "C:\\Users\\magsu\\Desktop\\Books\\Back\\Books.Application\\Services\\Auth\\AuthService.cs",
+              "RelativeDocumentMoniker": "Books.Application\\Services\\Auth\\AuthService.cs",
+              "ToolTip": "C:\\Users\\magsu\\Desktop\\Books\\Back\\Books.Application\\Services\\Auth\\AuthService.cs*",
+              "RelativeToolTip": "Books.Application\\Services\\Auth\\AuthService.cs*",
+              "ViewState": "AgIAAF0AAAAAAAAAAAAwwHcAAABeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-08T23:47:28.474Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\magsu\\Desktop\\Books\\Back\\Books.Presentation\\Program.cs",
+              "RelativeDocumentMoniker": "Books.Presentation\\Program.cs",
+              "ToolTip": "C:\\Users\\magsu\\Desktop\\Books\\Back\\Books.Presentation\\Program.cs",
+              "RelativeToolTip": "Books.Presentation\\Program.cs",
+              "ViewState": "AgIAAGEAAAAAAAAAAAAAAHsAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-08T23:28:31.447Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "TokenService.cs",
+              "DocumentMoniker": "C:\\Users\\magsu\\Desktop\\Books\\Back\\Books.Application\\Services\\Auth\\TokenService.cs",
+              "RelativeDocumentMoniker": "Books.Application\\Services\\Auth\\TokenService.cs",
+              "ToolTip": "C:\\Users\\magsu\\Desktop\\Books\\Back\\Books.Application\\Services\\Auth\\TokenService.cs",
+              "RelativeToolTip": "Books.Application\\Services\\Auth\\TokenService.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAwwCoAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-09T00:17:01.983Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ActiveSessionMiddleware.cs",
+              "DocumentMoniker": "C:\\Users\\magsu\\Desktop\\Books\\Back\\Books.Presentation\\Middlewares\\ActiveSessionMiddleware.cs",
+              "RelativeDocumentMoniker": "Books.Presentation\\Middlewares\\ActiveSessionMiddleware.cs",
+              "ToolTip": "C:\\Users\\magsu\\Desktop\\Books\\Back\\Books.Presentation\\Middlewares\\ActiveSessionMiddleware.cs",
+              "RelativeToolTip": "Books.Presentation\\Middlewares\\ActiveSessionMiddleware.cs",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAAAEcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-15T23:48:27.654Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "BlackListMiddleware.cs",
+              "DocumentMoniker": "C:\\Users\\magsu\\Desktop\\Books\\Back\\Books.Presentation\\Middlewares\\BlackListMiddleware.cs",
+              "RelativeDocumentMoniker": "Books.Presentation\\Middlewares\\BlackListMiddleware.cs",
+              "ToolTip": "C:\\Users\\magsu\\Desktop\\Books\\Back\\Books.Presentation\\Middlewares\\BlackListMiddleware.cs",
+              "RelativeToolTip": "Books.Presentation\\Middlewares\\BlackListMiddleware.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-15T23:48:25.381Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "MappingProfile.cs",
+              "DocumentMoniker": "C:\\Users\\magsu\\Desktop\\Books\\Back\\Books.Application\\Mappings\\MappingProfile.cs",
+              "RelativeDocumentMoniker": "Books.Application\\Mappings\\MappingProfile.cs",
+              "ToolTip": "C:\\Users\\magsu\\Desktop\\Books\\Back\\Books.Application\\Mappings\\MappingProfile.cs",
+              "RelativeToolTip": "Books.Application\\Mappings\\MappingProfile.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAgwC4AAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-08T23:57:44.599Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "BookController.cs",
+              "DocumentMoniker": "C:\\Users\\magsu\\Desktop\\Books\\Back\\Books.Presentation\\Controllers\\Main\\BookController.cs",
+              "RelativeDocumentMoniker": "Books.Presentation\\Controllers\\Main\\BookController.cs",
+              "ToolTip": "C:\\Users\\magsu\\Desktop\\Books\\Back\\Books.Presentation\\Controllers\\Main\\BookController.cs",
+              "RelativeToolTip": "Books.Presentation\\Controllers\\Main\\BookController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-08T23:58:50.188Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "CustomSuccessResponseMiddleware.cs",
+              "DocumentMoniker": "C:\\Users\\magsu\\Desktop\\Books\\Back\\Books.Presentation\\Middlewares\\CustomSuccessResponseMiddleware.cs",
+              "RelativeDocumentMoniker": "Books.Presentation\\Middlewares\\CustomSuccessResponseMiddleware.cs",
+              "ToolTip": "C:\\Users\\magsu\\Desktop\\Books\\Back\\Books.Presentation\\Middlewares\\CustomSuccessResponseMiddleware.cs",
+              "RelativeToolTip": "Books.Presentation\\Middlewares\\CustomSuccessResponseMiddleware.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAAAAAC8AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-08T23:44:12.592Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "RoleService.cs",
+              "DocumentMoniker": "C:\\Users\\magsu\\Desktop\\Books\\Back\\Books.Application\\Services\\Main\\RoleService.cs",
+              "RelativeDocumentMoniker": "Books.Application\\Services\\Main\\RoleService.cs",
+              "ToolTip": "C:\\Users\\magsu\\Desktop\\Books\\Back\\Books.Application\\Services\\Main\\RoleService.cs",
+              "RelativeToolTip": "Books.Application\\Services\\Main\\RoleService.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAAAACoAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-08T23:48:15.303Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "UserDto.cs",
+              "DocumentMoniker": "C:\\Users\\magsu\\Desktop\\Books\\Back\\Books.Core\\Dtos\\Read\\UserDto.cs",
+              "RelativeDocumentMoniker": "Books.Core\\Dtos\\Read\\UserDto.cs",
+              "ToolTip": "C:\\Users\\magsu\\Desktop\\Books\\Back\\Books.Core\\Dtos\\Read\\UserDto.cs",
+              "RelativeToolTip": "Books.Core\\Dtos\\Read\\UserDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-09T00:18:18.218Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "ITokenService.cs",
+              "DocumentMoniker": "C:\\Users\\magsu\\Desktop\\Books\\Back\\Books.Core\\Abstractions\\Services\\Auth\\ITokenService.cs",
+              "RelativeDocumentMoniker": "Books.Core\\Abstractions\\Services\\Auth\\ITokenService.cs",
+              "ToolTip": "C:\\Users\\magsu\\Desktop\\Books\\Back\\Books.Core\\Abstractions\\Services\\Auth\\ITokenService.cs",
+              "RelativeToolTip": "Books.Core\\Abstractions\\Services\\Auth\\ITokenService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-09T00:21:34.139Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "C:\\Users\\magsu\\Desktop\\Books\\Back\\Books.Application\\Services\\Main\\UserService.cs",
+              "RelativeDocumentMoniker": "Books.Application\\Services\\Main\\UserService.cs",
+              "ToolTip": "C:\\Users\\magsu\\Desktop\\Books\\Back\\Books.Application\\Services\\Main\\UserService.cs",
+              "RelativeToolTip": "Books.Application\\Services\\Main\\UserService.cs",
+              "ViewState": "AgIAAEkAAAAAAAAAAAAlwF0AAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-08T23:55:03.533Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "AccountService.cs",
+              "DocumentMoniker": "C:\\Users\\magsu\\Desktop\\Books\\Back\\Books.Application\\Services\\Auth\\AccountService.cs",
+              "RelativeDocumentMoniker": "Books.Application\\Services\\Auth\\AccountService.cs",
+              "ToolTip": "C:\\Users\\magsu\\Desktop\\Books\\Back\\Books.Application\\Services\\Auth\\AccountService.cs",
+              "RelativeToolTip": "Books.Application\\Services\\Auth\\AccountService.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAgwCkAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-09T00:00:02.382Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\magsu\\Desktop\\Books\\Back\\Books.Core\\Models\\User.cs",
+              "RelativeDocumentMoniker": "Books.Core\\Models\\User.cs",
+              "ToolTip": "C:\\Users\\magsu\\Desktop\\Books\\Back\\Books.Core\\Models\\User.cs",
+              "RelativeToolTip": "Books.Core\\Models\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-09T00:01:44.048Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "C:\\Users\\magsu\\Desktop\\Books\\Back\\Books.Infrastructure\\Repositories\\UserRepository.cs",
+              "RelativeDocumentMoniker": "Books.Infrastructure\\Repositories\\UserRepository.cs",
+              "ToolTip": "C:\\Users\\magsu\\Desktop\\Books\\Back\\Books.Infrastructure\\Repositories\\UserRepository.cs",
+              "RelativeToolTip": "Books.Infrastructure\\Repositories\\UserRepository.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAIAwwBIAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-08T23:40:20.306Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "UserConfiguration.cs",
+              "DocumentMoniker": "C:\\Users\\magsu\\Desktop\\Books\\Back\\Books.Infrastructure\\Configurations\\UserConfiguration.cs",
+              "RelativeDocumentMoniker": "Books.Infrastructure\\Configurations\\UserConfiguration.cs",
+              "ToolTip": "C:\\Users\\magsu\\Desktop\\Books\\Back\\Books.Infrastructure\\Configurations\\UserConfiguration.cs",
+              "RelativeToolTip": "Books.Infrastructure\\Configurations\\UserConfiguration.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAB0AAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-09T00:02:20.097Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "CreateUserValidator.cs",
+              "DocumentMoniker": "C:\\Users\\magsu\\Desktop\\Books\\Back\\Books.Application\\Validators\\Create\\CreateUserValidator.cs",
+              "RelativeDocumentMoniker": "Books.Application\\Validators\\Create\\CreateUserValidator.cs",
+              "ToolTip": "C:\\Users\\magsu\\Desktop\\Books\\Back\\Books.Application\\Validators\\Create\\CreateUserValidator.cs",
+              "RelativeToolTip": "Books.Application\\Validators\\Create\\CreateUserValidator.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAAAAADgAAABKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-08T23:55:23.605Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "Books.Application.csproj",
+              "DocumentMoniker": "C:\\Users\\magsu\\Desktop\\Books\\Back\\Books.Application\\Books.Application.csproj",
+              "RelativeDocumentMoniker": "Books.Application\\Books.Application.csproj",
+              "ToolTip": "C:\\Users\\magsu\\Desktop\\Books\\Back\\Books.Application\\Books.Application.csproj",
+              "RelativeToolTip": "Books.Application\\Books.Application.csproj",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAswBoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-02-08T20:51:06.409Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "LocalizationService.cs",
+              "DocumentMoniker": "C:\\Users\\magsu\\Desktop\\Books\\Back\\Books.Application\\Services\\Main\\LocalizationService.cs",
+              "RelativeDocumentMoniker": "Books.Application\\Services\\Main\\LocalizationService.cs",
+              "ToolTip": "C:\\Users\\magsu\\Desktop\\Books\\Back\\Books.Application\\Services\\Main\\LocalizationService.cs",
+              "RelativeToolTip": "Books.Application\\Services\\Main\\LocalizationService.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAIAwwCsAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-08T20:48:29.186Z"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
