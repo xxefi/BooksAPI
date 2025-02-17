@@ -1,6 +1,5 @@
 using System.Security.Claims;
 using Books.Core.Dtos.Read;
-using Books.Core.Models;
 
 namespace Books.Core.Abstractions.Services.Auth;
 

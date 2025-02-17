@@ -1,7 +1,7 @@
 using System.Linq.Expressions;
 using Books.Application.Exceptions;
 using Books.Core.Abstractions.Repositories.Main;
-using Books.Core.Models;
+using Books.Core.Entities;
 using Books.Infrastructure.Context;
 using Microsoft.EntityFrameworkCore;
 

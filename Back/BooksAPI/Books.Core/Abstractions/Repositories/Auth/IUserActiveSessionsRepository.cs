@@ -1,5 +1,5 @@
 using System.Linq.Expressions;
-using Books.Core.Models;
+using Books.Core.Entities;
 
 namespace Books.Core.Abstractions.Repositories.Auth;
 

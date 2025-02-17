@@ -1,7 +1,7 @@
 using Books.Core.Dtos.Create;
 using Books.Core.Dtos.Read;
 using Books.Core.Dtos.Update;
-using Books.Core.Models;
+using Books.Core.Entities;
 
 namespace Books.Core.Abstractions.Services.Auth;
 
