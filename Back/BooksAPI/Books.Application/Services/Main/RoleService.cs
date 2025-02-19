@@ -61,7 +61,7 @@ public class RoleService : IRoleService
         var validator = await _createRoleValidator.ValidateAsync(roleDto);
         if (!validator.IsValid)
             throw new BookException(ExceptionType.InvalidRequest, 
-                string.Join(", ", validator.Errors));
+                string.Join(", ", validator.Errors.Select(e => e.ErrorMessage).FirstOrDefault()));
         
         await _unitOfWork.BeginTransactionAsync();
 
@@ -88,7 +88,7 @@ public class RoleService : IRoleService
        var validator = await _updateRoleValidator.ValidateAsync(roleDto);
        if (!validator.IsValid)
            throw new BookException(ExceptionType.InvalidRequest, 
-               string.Join(", ", validator.Errors));
+               string.Join(", ", validator.Errors.Select(e => e.ErrorMessage).FirstOrDefault()));
        
        _mapper.Map(roleDto, existingRole);
        await _roleRepository.UpdateAsync(new[] { existingRole });

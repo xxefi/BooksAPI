@@ -1,0 +1,65 @@
+syntax = "proto3";
+
+option csharp_namespace = "Role.Grpc";
+
+package role;
+
+service RoleService {
+  rpc GetAllRoles (Empty) returns (RoleListResponse);
+  rpc GetRoleById (RoleRequest) returns (RoleResponse);
+  rpc GetRoleByName (RoleNameRequest) returns (RoleResponse);
+  rpc CreateRole (CreateRoleRequest) returns (RoleResponse);
+  rpc UpdateRole (UpdateRoleRequest) returns (RoleResponse);
+  rpc DeleteRole (RoleRequest) returns (DeleteRoleResponse);
+  rpc GetUsersByRoleId (RoleRequest) returns (UserListResponse);
+  rpc GetRolesPage (PaginationRequest) returns (RoleListResponse);
+}
+
+message Empty {}
+
+message RoleRequest {
+  string id = 1;
+}
+
+message RoleNameRequest {
+  string name = 1;
+}
+
+message CreateRoleRequest {
+  string name = 1;
+  string description = 2;
+}
+
+message UpdateRoleRequest {
+  string id = 1;
+  string name = 2;
+  string description = 3;
+}
+
+message RoleResponse {
+  string id = 1;
+  string name = 2;
+  string description = 3;
+}
+
+message RoleListResponse {
+  repeated RoleResponse roles = 1;
+}
+
+message DeleteRoleResponse {
+  bool success = 1;
+}
+
+message PaginationRequest {
+  int32 page_number = 1;
+  int32 page_size = 2;
+}
+
+message UserDto {
+  string id = 1;
+  string name = 2;
+}
+
+message UserListResponse {
+  repeated UserDto users = 1;
+}

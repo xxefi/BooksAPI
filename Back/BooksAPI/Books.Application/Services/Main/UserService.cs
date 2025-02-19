@@ -78,7 +78,7 @@ public class UserService : IUserService
         var validator = await _createUserValidator.ValidateAsync(createUserDto);
         if (!validator.IsValid)
             throw new BookException(ExceptionType.InvalidCredentials, 
-                string.Join(", ", validator.Errors));
+                string.Join(", ", validator.Errors.Select(e => e.ErrorMessage).FirstOrDefault()));
         
         await _unitOfWork.BeginTransactionAsync();
 
@@ -104,7 +104,7 @@ public class UserService : IUserService
         var validator = await _updateUserValidator.ValidateAsync(updateUserDto);
         if (!validator.IsValid)
             throw new BookException(ExceptionType.InvalidCredentials, 
-                string.Join(", ", validator.Errors));
+                string.Join(", ", validator.Errors.Select(e => e.ErrorMessage).FirstOrDefault()));
         
         await _unitOfWork.BeginTransactionAsync();
 

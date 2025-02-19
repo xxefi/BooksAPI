@@ -1,6 +1,5 @@
 using FluentValidation;
 using Books.Core.Dtos.Update;
-using Books.Core.Abstractions.Services;
 using Books.Core.Abstractions.Services.Main;
 using static Books.Core.Constants.ValidationConstants;
 
@@ -41,5 +40,24 @@ public class UpdateBookValidator : AbstractValidator<UpdateBookDto>
             .WithMessage(_ => ls.GetLocalizedString("GenreInvalid"))
             .MaximumLength(MaxGenreLength)
             .WithMessage(_ => string.Format(ls.GetLocalizedString("GenreMaxLength"), MaxGenreLength));
+
+        RuleFor(b => b.Price)
+            .GreaterThan(0)
+            .When(b => b.Price.HasValue)
+            .WithMessage(_ => ls.GetLocalizedString("PriceInvalid"));
+
+        RuleFor(b => b.ISBN)
+            .NotEmpty()
+            .When(b => !string.IsNullOrEmpty(b.ISBN))
+            .WithMessage(_ => ls.GetLocalizedString("ISBNRequired"))
+            .Matches(ISBNRegex)
+            .WithMessage(_ => ls.GetLocalizedString("ISBNInvalid"));
+
+        RuleFor(b => b.Description)
+            .NotEmpty()
+            .When(b => !string.IsNullOrEmpty(b.Description))
+            .WithMessage(_ => ls.GetLocalizedString("DescriptionRequired"))
+            .MaximumLength(MaxDescriptionLength)
+            .WithMessage(_ => string.Format(ls.GetLocalizedString("DescriptionMaxLength"), MaxDescriptionLength));
     }
 }

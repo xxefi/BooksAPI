@@ -19,12 +19,12 @@ public class LocalizationService : ILocalizationService
             }
         },  
         {
-            "OrderStatus",
+            "StatusesMessages",
             new()
             {
-                { "en", new ResourceManager("Books.Application.Resources.OrderStatus.OrderStatusMessages", typeof(LocalizationService).Assembly) },
-                { "ru", new ResourceManager("Books.Application.Resources.OrderStatus.OrderStatusMessages", typeof(LocalizationService).Assembly) },
-                { "az", new ResourceManager("Books.Application.Resources.OrderStatus.OrderStatusMessages", typeof(LocalizationService).Assembly) }
+                { "en", new ResourceManager("Books.Application.Resources.Statuses.StatusesMessages", typeof(LocalizationService).Assembly) },
+                { "ru", new ResourceManager("Books.Application.Resources.Statuses.StatusesMessages", typeof(LocalizationService).Assembly) },
+                { "az", new ResourceManager("Books.Application.Resources.Statuses.StatusesMessages", typeof(LocalizationService).Assembly) }
             }
         },
         {

@@ -39,5 +39,21 @@ public class CreateBookValidator : AbstractValidator<CreateBookDto>
             .WithMessage(_ => ls.GetLocalizedString("GenreInvalid"))
             .MaximumLength(MaxGenreLength)
             .WithMessage(_ => string.Format(ls.GetLocalizedString("GenreMaxLength"), MaxGenreLength));
+
+        RuleFor(b => b.Price)
+            .GreaterThan(0)
+            .WithMessage(_ => ls.GetLocalizedString("PriceInvalid"));
+
+        RuleFor(b => b.ISBN)
+            .NotEmpty()
+            .WithMessage(_ => ls.GetLocalizedString("ISBNRequired"))
+            .Matches(ISBNRegex)
+            .WithMessage(_ => ls.GetLocalizedString("ISBNInvalid"));
+
+        RuleFor(b => b.Description)
+            .NotEmpty()
+            .WithMessage(_ => ls.GetLocalizedString("DescriptionRequired"))
+            .MaximumLength(MaxDescriptionLength)
+            .WithMessage(_ => string.Format(ls.GetLocalizedString("DescriptionMaxLength"), MaxDescriptionLength));
     }
 }

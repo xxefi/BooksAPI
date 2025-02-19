@@ -22,7 +22,7 @@ namespace Books.Infrastructure.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("Books.Core.Models.BlackListed", b =>
+            modelBuilder.Entity("Books.Core.Entities.BlackListed", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -50,9 +50,6 @@ namespace Books.Infrastructure.Migrations
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<string>("UserAgent")
-                        .HasColumnType("text");
-
                     b.HasKey("Id");
 
                     b.HasIndex("RefreshToken")
@@ -61,7 +58,7 @@ namespace Books.Infrastructure.Migrations
                     b.ToTable("BlackListeds");
                 });
 
-            modelBuilder.Entity("Books.Core.Models.Book", b =>
+            modelBuilder.Entity("Books.Core.Entities.Book", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -72,13 +69,33 @@ namespace Books.Infrastructure.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("character varying(255)");
 
+                    b.Property<string>("BookStatus")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("BookStatusId")
+                        .HasColumnType("integer");
+
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(1000)
+                        .HasColumnType("character varying(1000)");
 
                     b.Property<string>("Genre")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("character varying(100)");
+
+                    b.Property<string>("ISBN")
+                        .IsRequired()
+                        .HasMaxLength(17)
+                        .HasColumnType("character varying(17)");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -97,7 +114,7 @@ namespace Books.Infrastructure.Migrations
                     b.ToTable("Books");
                 });
 
-            modelBuilder.Entity("Books.Core.Models.Order", b =>
+            modelBuilder.Entity("Books.Core.Entities.Order", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -105,11 +122,15 @@ namespace Books.Infrastructure.Migrations
 
                     b.Property<string>("Address")
                         .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("character varying(255)");
+                        .HasMaxLength(500)
+                        .HasColumnType("character varying(500)");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<int>("StatusId")
                         .HasColumnType("integer");
@@ -118,19 +139,20 @@ namespace Books.Infrastructure.Migrations
                         .HasPrecision(18, 2)
                         .HasColumnType("numeric(18,2)");
 
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("timestamp with time zone");
+
                     b.Property<Guid>("UserId")
                         .HasColumnType("uuid");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("StatusId");
 
                     b.HasIndex("UserId");
 
                     b.ToTable("Orders");
                 });
 
-            modelBuilder.Entity("Books.Core.Models.OrderItem", b =>
+            modelBuilder.Entity("Books.Core.Entities.OrderItem", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -163,25 +185,7 @@ namespace Books.Infrastructure.Migrations
                     b.ToTable("OrderItems");
                 });
 
-            modelBuilder.Entity("Books.Core.Models.OrderStatus", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("character varying(50)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("OrderStatus");
-                });
-
-            modelBuilder.Entity("Books.Core.Models.Review", b =>
+            modelBuilder.Entity("Books.Core.Entities.Review", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -215,7 +219,7 @@ namespace Books.Infrastructure.Migrations
                     b.ToTable("Reviews");
                 });
 
-            modelBuilder.Entity("Books.Core.Models.Role", b =>
+            modelBuilder.Entity("Books.Core.Entities.Role", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -237,7 +241,7 @@ namespace Books.Infrastructure.Migrations
                     b.ToTable("Roles");
                 });
 
-            modelBuilder.Entity("Books.Core.Models.User", b =>
+            modelBuilder.Entity("Books.Core.Entities.User", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -284,7 +288,7 @@ namespace Books.Infrastructure.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("Books.Core.Models.UserActiveSessions", b =>
+            modelBuilder.Entity("Books.Core.Entities.UserActiveSessions", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -312,34 +316,26 @@ namespace Books.Infrastructure.Migrations
                     b.ToTable("UserActiveSessions");
                 });
 
-            modelBuilder.Entity("Books.Core.Models.Order", b =>
+            modelBuilder.Entity("Books.Core.Entities.Order", b =>
                 {
-                    b.HasOne("Books.Core.Models.OrderStatus", "Status")
-                        .WithMany("Orders")
-                        .HasForeignKey("StatusId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("Books.Core.Models.User", "User")
+                    b.HasOne("Books.Core.Entities.User", "User")
                         .WithMany("Orders")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Status");
-
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("Books.Core.Models.OrderItem", b =>
+            modelBuilder.Entity("Books.Core.Entities.OrderItem", b =>
                 {
-                    b.HasOne("Books.Core.Models.Book", "Book")
+                    b.HasOne("Books.Core.Entities.Book", "Book")
                         .WithMany("OrderItems")
                         .HasForeignKey("BookId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("Books.Core.Models.Order", "Order")
+                    b.HasOne("Books.Core.Entities.Order", "Order")
                         .WithMany("OrderItems")
                         .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -350,15 +346,15 @@ namespace Books.Infrastructure.Migrations
                     b.Navigation("Order");
                 });
 
-            modelBuilder.Entity("Books.Core.Models.Review", b =>
+            modelBuilder.Entity("Books.Core.Entities.Review", b =>
                 {
-                    b.HasOne("Books.Core.Models.Book", "Book")
+                    b.HasOne("Books.Core.Entities.Book", "Book")
                         .WithMany("Reviews")
                         .HasForeignKey("BookId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Books.Core.Models.User", "User")
+                    b.HasOne("Books.Core.Entities.User", "User")
                         .WithMany("Reviews")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -369,9 +365,9 @@ namespace Books.Infrastructure.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("Books.Core.Models.User", b =>
+            modelBuilder.Entity("Books.Core.Entities.User", b =>
                 {
-                    b.HasOne("Books.Core.Models.Role", "Role")
+                    b.HasOne("Books.Core.Entities.Role", "Role")
                         .WithMany("Users")
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -380,29 +376,24 @@ namespace Books.Infrastructure.Migrations
                     b.Navigation("Role");
                 });
 
-            modelBuilder.Entity("Books.Core.Models.Book", b =>
+            modelBuilder.Entity("Books.Core.Entities.Book", b =>
                 {
                     b.Navigation("OrderItems");
 
                     b.Navigation("Reviews");
                 });
 
-            modelBuilder.Entity("Books.Core.Models.Order", b =>
+            modelBuilder.Entity("Books.Core.Entities.Order", b =>
                 {
                     b.Navigation("OrderItems");
                 });
 
-            modelBuilder.Entity("Books.Core.Models.OrderStatus", b =>
-                {
-                    b.Navigation("Orders");
-                });
-
-            modelBuilder.Entity("Books.Core.Models.Role", b =>
+            modelBuilder.Entity("Books.Core.Entities.Role", b =>
                 {
                     b.Navigation("Users");
                 });
 
-            modelBuilder.Entity("Books.Core.Models.User", b =>
+            modelBuilder.Entity("Books.Core.Entities.User", b =>
                 {
                     b.Navigation("Orders");
 

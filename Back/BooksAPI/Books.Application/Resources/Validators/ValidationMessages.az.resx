@@ -11,11 +11,12 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
+
     <data name="UsernameIsRequired" xml:space="preserve">
         <value>İstifadəçi adı tələb olunur</value>
     </data>
     <data name="UsernameMinLength" xml:space="preserve">
-        <value>İstifadəçi adı ən azı {0} simvol olmalıdır</value>
+        <value>İstifadəçi adı ən az {0} simvol olmalıdır</value>
     </data>
     <data name="UsernameMaxLength" xml:space="preserve">
         <value>İstifadəçi adı {0} simvoldan çox olmamalıdır</value>
@@ -24,7 +25,7 @@
         <value>Ad tələb olunur</value>
     </data>
     <data name="FirstNameMinLength" xml:space="preserve">
-        <value>Ad ən azı {0} simvol olmalıdır</value>
+        <value>Ad ən az {0} simvol olmalıdır</value>
     </data>
     <data name="FirstNameMaxLength" xml:space="preserve">
         <value>Ad {0} simvoldan çox olmamalıdır</value>
@@ -33,7 +34,7 @@
         <value>Soyad tələb olunur</value>
     </data>
     <data name="LastNameMinLength" xml:space="preserve">
-        <value>Soyad ən azı {0} simvol olmalıdır</value>
+        <value>Soyad ən az {0} simvol olmalıdır</value>
     </data>
     <data name="LastNameMaxLength" xml:space="preserve">
         <value>Soyad {0} simvoldan çox olmamalıdır</value>
@@ -42,13 +43,13 @@
         <value>Email tələb olunur</value>
     </data>
     <data name="EmailInvalid" xml:space="preserve">
-        <value>Yanlış email formatı</value>
+        <value>Etibarsız email formatı</value>
     </data>
     <data name="PasswordRequired" xml:space="preserve">
         <value>Şifrə tələb olunur</value>
     </data>
     <data name="PasswordMinLength" xml:space="preserve">
-        <value>Şifrə ən azı {0} simvol olmalıdır</value>
+        <value>Şifrə ən az {0} simvol olmalıdır</value>
     </data>
     <data name="PasswordMaxLength" xml:space="preserve">
         <value>Şifrə {0} simvoldan çox olmamalıdır</value>
@@ -57,61 +58,61 @@
         <value>Rol tələb olunur</value>
     </data>
     <data name="UsernameInvalidFormat" xml:space="preserve">
-        <value>İstifadəçi adı düzgün formatda deyil</value>
+        <value>Etibarsız istifadəçi adı formatı</value>
     </data>
     <data name="FirstNameInvalidFormat" xml:space="preserve">
-        <value>Adın formatı düzgün deyil</value>
+        <value>Etibarsız ad formatı</value>
     </data>
     <data name="LastNameInvalidFormat" xml:space="preserve">
-        <value>Soyadın formatı düzgün deyil</value>
+        <value>Etibarsız soyad formatı</value>
     </data>
     <data name="PasswordInvalidFormat" xml:space="preserve">
-        <value>Şifrə ən azı bir hərf və bir rəqəm olmalıdır</value>
+        <value>Şifrə ən az bir hərf və bir rəqəm içerməlidir</value>
     </data>
     <data name="ReviewTextRequired" xml:space="preserve">
-        <value>Rəy mətnini daxil etmək tələb olunur</value>
+        <value>Rəy mətnini daxil edin</value>
     </data>
     <data name="ReviewTextMaxLength" xml:space="preserve">
-        <value>Rəy mətninin uzunluğu {0} simvoldan çox ola bilməz</value>
+        <value>Rəy mətni {0} simvoldan çox olmamalıdır</value>
     </data>
     <data name="RatingRequired" xml:space="preserve">
-        <value>Reytinqi daxil etmək tələb olunur</value>
+        <value>Reytinq tələb olunur</value>
     </data>
     <data name="RatingRange" xml:space="preserve">
-        <value>Reytinq 1 və 5 arasında olmalıdır</value>
+        <value>Reytinq 1-dən 5-ə qədər olmalıdır</value>
     </data>
     <data name="UserIdRequired" xml:space="preserve">
-        <value>İstifadəçi ID-si tələb olunur</value>
+        <value>İstifadəçi ID tələb olunur</value>
     </data>
     <data name="ReviewTextInvalidCharacters" xml:space="preserve">
-        <value>Rəy mətnində yalnız hərflər, rəqəmlər və əsas simvollar (.,!?-) istifadə oluna bilər</value>
+        <value>Rəy mətni yalnız hərflər, rəqəmlər və əsas simvollar (.,!?-) içerebilir</value>
     </data>
     <data name="BookIdRequired" xml:space="preserve">
-        <value>Kitab Identifikatoru tələb olunur</value>
+        <value>Kitab identifikatoru tələb olunur</value>
+    </data>
+    <data name="QuantityRequired" xml:space="preserve">
+        <value>Miqdarı daxil edin</value>
     </data>
     <data name="QuantityGreaterThanZero" xml:space="preserve">
         <value>Miqdarı 0-dan böyük olmalıdır</value>
     </data>
-    <data name="PriceGreaterThanZero" xml:space="preserve">
-        <value>Qiymət 0-dan böyük olmalıdır</value>
-    </data>
     <data name="PriceRequired" xml:space="preserve">
         <value>Qiymət tələb olunur</value>
     </data>
-    <data name="QuantityRequired" xml:space="preserve">
-        <value>Miqdar tələb olunur</value>
+    <data name="PriceGreaterThanZero" xml:space="preserve">
+        <value>Qiymət 0-dan böyük olmalıdır</value>
     </data>
     <data name="OrderItemsRequired" xml:space="preserve">
-    <value>Sifarişin maddələri tələb olunur</value>
+        <value>Sifariş məhsulları tələb olunur</value>
     </data>
     <data name="OrderItemInvalid" xml:space="preserve">
-        <value>Hər bir sifariş maddəsi miqdarı 0-dan çox və qiyməti 0-dan çox olmalıdır</value>
+        <value>Hər bir sifariş məhsulu miqdarı 0-dan böyük olmalı və qiyməti böyük olmalıdır</value>
     </data>
     <data name="TotalPriceGreaterThanZero" xml:space="preserve">
         <value>Cəmi qiymət 0-dan böyük olmalıdır</value>
     </data>
     <data name="StatusIdRequired" xml:space="preserve">
-        <value>Sifarişin statusu tələb olunur</value>
+        <value>Status ID tələb olunur</value>
     </data>
     <data name="AddressRequired" xml:space="preserve">
         <value>Ünvan tələb olunur</value>
@@ -120,7 +121,7 @@
         <value>Başlıq tələb olunur</value>
     </data>
     <data name="AuthorRequired" xml:space="preserve">
-        <value>Yazıçı tələb olunur</value>
+        <value>Müəllif tələb olunur</value>
     </data>
     <data name="YearRequired" xml:space="preserve">
         <value>İl tələb olunur</value>
@@ -129,33 +130,48 @@
         <value>Janr tələb olunur</value>
     </data>
     <data name="YearInvalid" xml:space="preserve">
-        <value>İl düzgün rəqəm olmalıdır</value>
+        <value>İl etibarlı bir rəqəm olmalıdır</value>
     </data>
     <data name="TitleMaxLength" xml:space="preserve">
-        <value>Başlıq {0} simvoldan çox ola bilməz</value>
+        <value>Başlıq {0} simvoldan çox olmamalıdır</value>
     </data>
     <data name="TitleInvalid" xml:space="preserve">
-        <value>Başlıqda səhv simvollar var</value>
+        <value>Başlıqda etibarsız simvollar var</value>
     </data>
     <data name="AuthorMaxLength" xml:space="preserve">
-        <value>Yazıçı {0} simvoldan çox ola bilməz</value>
+        <value>Müəllif {0} simvoldan çox olmamalıdır</value>
     </data>
     <data name="AuthorInvalid" xml:space="preserve">
-        <value>Yazıçıda səhv simvollar var</value>
+        <value>Müəllifdə etibarsız simvollar var</value>
     </data>
     <data name="GenreMaxLength" xml:space="preserve">
-        <value>Janr {0} simvoldan çox ola bilməz</value>
+        <value>Janr {0} simvoldan çox olmamalıdır</value>
     </data>
     <data name="GenreInvalid" xml:space="preserve">
-        <value>Janrda səhv simvollar var</value>
-    </data>
-    <data name="RoleNameMaxLength" xml:space="preserve">
-        <value>Rol adının maksimum uzunluğu {0} dır</value>
+        <value>Janrda etibarsız simvollar var</value>
     </data>
     <data name="RoleNameRequired" xml:space="preserve">
         <value>Rol adı tələb olunur</value>
     </data>
     <data name="RoleNameMinLength" xml:space="preserve">
-        <value>Rol adının minimum uzunluğu {0} olmalıdır</value>
+        <value>Rol adı ən az {0} simvol olmalıdır</value>
+    </data>
+    <data name="RoleNameMaxLength" xml:space="preserve">
+        <value>Rol adı {0} simvoldan çox olmamalıdır</value>
+    </data>
+    <data name="DescriptionMaxLength" xml:space="preserve">
+        <value>Təsvir {0} simvoldan çox olmamalıdır</value>
+    </data>
+    <data name="DescriptionRequired" xml:space="preserve">
+        <value>Təsvir tələb olunur</value>
+    </data>
+    <data name="ISBNInvalid" xml:space="preserve">
+        <value>ISBN etibarsızdır</value>
+    </data>
+    <data name="ISBNRequired" xml:space="preserve">
+        <value>ISBN tələb olunur</value>
+    </data>
+    <data name="PriceInvalid" xml:space="preserve">
+        <value>Qiymət 0-dan çox olmalıdır</value>
     </data>
 </root>

@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Books.Presentation.Controllers.Main;
 
-[Authorize]
+//[Authorize]
 [ApiController]
 [Route("api/[controller]")]
 public class RolesController : ControllerBase

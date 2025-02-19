@@ -158,4 +158,19 @@
     <data name="RoleNameMaxLength" xml:space="preserve">
         <value>Role Name Maximum Length is {0}</value>
     </data>
+    <data name="DescriptionMaxLength" xml:space="preserve">
+        <value>Description cannot exceed {0} characters</value>
+    </data>
+    <data name="DescriptionRequired" xml:space="preserve">
+        <value>Description is required</value>
+    </data>
+    <data name="ISBNInvalid" xml:space="preserve">
+        <value>ISBN is invalid</value>
+    </data>
+    <data name="ISBNRequired" xml:space="preserve">
+        <value>ISBN is required</value>
+    </data>
+    <data name="PriceInvalid" xml:space="preserve">
+        <value>Price must be greater than 0</value>
+    </data>
 </root>

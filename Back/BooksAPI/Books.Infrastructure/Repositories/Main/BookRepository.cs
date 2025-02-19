@@ -44,7 +44,11 @@ public class BookRepository : IBookRepository
                     .SetProperty(b => b.Title, book.Title)
                     .SetProperty(b => b.Author, book.Author)
                     .SetProperty(b => b.Year, book.Year)
-                    .SetProperty(b => b.Genre, book.Genre));
+                    .SetProperty(b => b.Genre, book.Genre)
+                    .SetProperty(b => b.Price, book.Price)
+                    .SetProperty(b => b.Description, book.Description)
+                    .SetProperty(b => b.ISBN, book.ISBN)
+                    .SetProperty(b => b.BookStatusId, book.BookStatusId));
             
             if (existingBook == 0) throw new BookException(ExceptionType.NotFound, "BookNotFound");
         }

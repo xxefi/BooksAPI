@@ -25,6 +25,10 @@ public class MappingProfile : Profile
         CreateMap<User, UserDto>();
         CreateMap<User, UpdateUserDto>();
         
+        CreateMap<CreateRoleDto, Role>();
+        CreateMap<UpdateRoleDto, Role>();
+        CreateMap<Role, RoleDto>();
+        
         CreateMap<CreateBlackListedDto, BlackListed>();
         CreateMap<BlackListed, BlackListedDto>().ReverseMap();
         

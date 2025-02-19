@@ -1,0 +1,80 @@
+<root>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="UsernameIsRequired" xml:space="preserve">
+        <value>Имя пользователя обязательно</value>
+    </data>
+    <data name="UsernameMinLength" xml:space="preserve">
+        <value>Имя пользователя должно содержать минимум {0} символа</value>
+    </data>
+    <data name="UsernameMaxLength" xml:space="preserve">
+        <value>Имя пользователя не должно превышать {0} символов</value>
+    </data>
+    <data name="FirstNameRequired" xml:space="preserve">
+        <value>Имя обязательно</value>
+    </data>
+    <data name="FirstNameMinLength" xml:space="preserve">
+        <value>Имя должно содержать минимум {0} символов</value>
+    </data>
+    <data name="FirstNameMaxLength" xml:space="preserve">
+        <value>Имя не должно превышать {0} символов</value>
+    </data>
+    <data name="LastNameRequired" xml:space="preserve">
+        <value>Фамилия обязательна</value>
+    </data>
+    <data name="LastNameMinLength" xml:space="preserve">
+        <value>Фамилия должна содержать минимум {0} символов</value>
+    </data>
+    <data name="LastNameMaxLength" xml:space="preserve">
+        <value>Фамилия не должна превышать {0} символов</value>
+    </data>
+    <data name="EmailRequired" xml:space="preserve">
+        <value>Электронная почта обязательна</value>
+    </data>
+    <data name="EmailInvalid" xml:space="preserve">
+        <value>Неверный формат электронной почты</value>
+    </data>
+    <data name="PasswordRequired" xml:space="preserve">
+        <value>Пароль обязателен</value>
+    </data>
+    <data name="PasswordMinLength" xml:space="preserve">
+        <value>Пароль должен содержать минимум {0} символов</value>
+    </data>
+    <data name="PasswordMaxLength" xml:space="preserve">
+        <value>Пароль не должен превышать {0} символов</value>
+    </data>
+    <data name="RoleRequired" xml:space="preserve">
+        <value>Роль обязательна</value>
+    </data>
+    <data name="UsernameInvalidFormat" xml:space="preserve">
+        <value>Неверный формат имени пользователя</value>
+    </data>
+    <data name="FirstNameInvalidFormat" xml:space="preserve">
+        <value>Неверный формат имени</value>
+    </data>
+    <data name="LastNameInvalidFormat" xml:space="preserve">
+        <value>Неверный формат фамилии</value>
+    </data>
+    <data name="PasswordInvalidFormat" xml:space="preserve">
+        <value>Пароль должен содержать хотя бы одну букву и одну цифру</value>
+    </data>
+    <data name="RoleNameMaxLength" xml:space="preserve">
+        <value>Максимальная длина имени роли {0}</value>
+    </data>
+    <data name="RoleNameMinLength" xml:space="preserve">
+        <value>Минимальная длина имени роли {0}</value>
+    </data>
+    <data name="RoleNameRequired" xml:space="preserve">
+        <value>Имя роли Обязательно</value>
+    </data>
+</root>

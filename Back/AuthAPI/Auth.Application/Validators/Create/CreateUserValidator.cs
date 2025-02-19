@@ -1,6 +1,7 @@
 using Auth.Core.Abstractions.Services;
 using Auth.Core.Dtos.Create;
 using FluentValidation;
+using static Auth.Core.Constants.ValidationConstants;
 
 namespace Auth.Application.Validators.Create;
 

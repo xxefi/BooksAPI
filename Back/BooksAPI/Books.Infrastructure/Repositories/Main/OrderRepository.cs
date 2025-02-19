@@ -18,8 +18,8 @@ public class OrderRepository : IOrderRepository
     public async Task<Order> GetByIdAsync(Guid id)
         => await _context.Orders
                .Include(o => o.User)
-               .Include(o => o.Status)
                .Include(o => o.OrderItems)
+               .ThenInclude(oi => oi.Book)
                .AsNoTracking()
                .FirstOrDefaultAsync(o => o.Id == id)
            ?? throw new BookException(ExceptionType.NotFound, "OrderNotFound");
@@ -28,8 +28,8 @@ public class OrderRepository : IOrderRepository
     {
         var orders = await _context.Orders
             .Include(o => o.User)
-            .Include(o => o.Status)
             .Include(o => o.OrderItems)
+            .ThenInclude(oi => oi.Book)
             .AsNoTracking()
             .ToListAsync();
         
@@ -70,8 +70,8 @@ public class OrderRepository : IOrderRepository
     public async Task<ICollection<Order>> FindAsync(Expression<Func<Order, bool>> predicate)
         => await _context.Orders
             .Include(o => o.User)
-            .Include(o => o.Status)
             .Include(o => o.OrderItems)
+            .ThenInclude(oi => oi.Book)
             .Where(predicate)
             .AsNoTracking()
             .ToListAsync();

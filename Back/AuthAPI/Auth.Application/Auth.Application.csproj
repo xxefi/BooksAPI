@@ -6,17 +6,30 @@
     
     <ItemGroup>
         <PackageReference Include="AutoMapper" Version="12.0.1" />
+        <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
         <PackageReference Include="FluentValidation" Version="11.11.0" />
         <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.13" />
+        <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.0.1" />
     </ItemGroup>
-
+    
     <ItemGroup>
-      <Folder Include="Resources\" />
-      <Folder Include="Validators\Update\" />
+      <Compile Update="Resources\Statuses\StatusesMessages.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>StatusesMessages.resx</DependentUpon>
+      </Compile>
+    </ItemGroup>
+    
+    <ItemGroup>
+      <EmbeddedResource Update="Resources\Statuses\StatusesMessages.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>StatusesMessages.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
     </ItemGroup>
 
     <PropertyGroup>
-        <TargetFramework>net8.0</TargetFramework>
+        <TargetFramework>net9.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
     </PropertyGroup>

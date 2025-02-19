@@ -13,6 +13,9 @@ public class RoleConfiguration : IEntityTypeConfiguration<Role>
         builder.Property(r => r.Name)
             .IsRequired() 
             .HasMaxLength(100);
+        builder.Property(r => r.Description)
+            .IsRequired() 
+            .HasMaxLength(100);
         builder.Property(r => r.CreatedAt);
         
         builder.HasMany(r => r.Users) 

@@ -4,6 +4,7 @@ using Books.Core.Dtos.Create;
 using Books.Core.Dtos.Read;
 using Books.Core.Dtos.Update;
 using Books.Core.Entities;
+using Books.Core.Enums;
 
 namespace Books.Application.Mappings;
 
@@ -22,18 +23,21 @@ public class MappingProfile : Profile
         CreateMap<CreateBookDto, Book>();
         CreateMap<UpdateBookDto, Book>();
         CreateMap<CreateBookDto, BookDto>();
-
-        CreateMap<Book, BookDto>()
-            .ForMember(dest => dest.Reviews, opt => opt.MapFrom(src => src.Reviews));;
         
-
+        CreateMap<Book, BookDto>()
+            .ForMember(dest => dest.BookStatusId, opt => opt.MapFrom(src => src.BookStatusId))
+            .ForMember(dest => dest.BookStatus, opt => opt.MapFrom(src => src.BookStatus.ToString()))
+            .ForMember(dest => dest.Reviews, opt => opt.MapFrom(src => src.Reviews))
+            .ForMember(dest => dest.OrderItems, opt => opt.MapFrom(src => src.OrderItems));
+        
         CreateMap<CreateOrderDto, Order>();
         CreateMap<UpdateOrderDto, Order>();
         CreateMap<Order, OrderDto>();
 
         CreateMap<CreateOrderItemDto, OrderItem>();
         CreateMap<UpdateOrderItemDto, OrderItem>();
-        CreateMap<OrderItem, OrderItemDto>();
+        CreateMap<OrderItem, OrderItemDto>()
+            .ForMember(dest => dest.OrderId, opt => opt.MapFrom(src => src.OrderId));
 
         CreateMap<CreateReviewDto, Review>();
         CreateMap<UpdateReviewDto, Review>();
@@ -48,10 +52,12 @@ public class MappingProfile : Profile
         
         CreateMap<User, UserDto>();
         CreateMap<User, UpdateUserDto>();
+        
+        CreateMap<Order, OrderDto>()
+            .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.Status.ToString()));
 
         CreateMap<CreateOrderStatusDto, OrderStatus>();
         CreateMap<UpdateOrderStatusDto, OrderStatus>();
-        CreateMap<OrderStatus, OrderStatusDto>();
         
         CreateMap<CreateBlackListedDto, BlackListed>();
         CreateMap<BlackListed, BlackListedDto>().ReverseMap();

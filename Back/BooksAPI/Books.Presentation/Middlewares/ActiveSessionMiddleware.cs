@@ -24,7 +24,6 @@ public class ActiveSessionMiddleware
         }
 
         if (context.Request.Path.StartsWithSegments("/api/Auth/Login") ||
-            context.Request.Path.StartsWithSegments("/api/Auth/RefreshToken") ||
             context.Request.Path.StartsWithSegments("/api/Auth/Logout"))
         {
             await _next(context);
@@ -40,7 +39,7 @@ public class ActiveSessionMiddleware
 
         if (string.IsNullOrEmpty(accessToken) || string.IsNullOrEmpty(refreshToken))
         {
-            await WriteJsonErrorResponse(context, StatusCodes.Status401Unauthorized, "Access or refresh token is missing");
+            await WriteJsonErrorResponse(context, StatusCodes.Status401Unauthorized, "User token is missing");
             return;
         }
 

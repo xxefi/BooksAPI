@@ -1,4 +1,5 @@
 using Books.Core.Entities;
+using Books.Core.Enums;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -14,18 +15,23 @@ public class OrderConfiguration : IEntityTypeConfiguration<Order>
             .HasPrecision(18, 2)
             .IsRequired();
         builder.Property(o => o.Address)
-            .HasMaxLength(255);
+            .HasMaxLength(500);
+        
+        builder.Property(o => o.Status)
+            .IsRequired()
+            .HasConversion(
+                v => v.ToString(),
+                v => (OrderStatus)Enum.Parse(typeof(OrderStatus), v)
+            );
+        
         builder.Property(o => o.CreatedAt);
+        builder.Property(o => o.UpdatedAt);
         
         builder.HasOne(o => o.User) 
             .WithMany(u => u.Orders)
             .HasForeignKey(o => o.UserId)
             .OnDelete(DeleteBehavior.Cascade); 
         
-        builder.HasOne(o => o.Status)
-            .WithMany(u => u.Orders)
-            .HasForeignKey(o => o.StatusId)
-            .OnDelete(DeleteBehavior.Restrict);
         
         builder.HasMany(o => o.OrderItems)
             .WithOne(oi => oi.Order)

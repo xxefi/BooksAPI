@@ -47,7 +47,7 @@ public class OrderItemService : IOrderItemService
         var validator = await _createOrderItemValidator.ValidateAsync(createOrderItemDto);
         if (!validator.IsValid)
             throw new BookException(ExceptionType.InvalidRequest,
-                string.Join(", ", validator.Errors));
+                string.Join(", ", validator.Errors.Select(e => e.ErrorMessage).FirstOrDefault()));
         
         await _unitOfWork.BeginTransactionAsync();
 
@@ -73,7 +73,7 @@ public class OrderItemService : IOrderItemService
         var validator = await _updateOrderItemValidator.ValidateAsync(updateOrderItemDto);
         if (!validator.IsValid)
             throw new BookException(ExceptionType.InvalidRequest,
-                string.Join(", ", validator.Errors));
+                string.Join(", ", validator.Errors.Select(e => e.ErrorMessage).FirstOrDefault()));
         
         await _unitOfWork.BeginTransactionAsync();
 

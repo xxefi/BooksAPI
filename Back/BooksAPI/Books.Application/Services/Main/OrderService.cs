@@ -10,6 +10,7 @@ using Books.Core.Dtos.Create;
 using Books.Core.Dtos.Read;
 using Books.Core.Dtos.Update;
 using Books.Core.Entities;
+using Books.Core.Enums;
 
 namespace Books.Application.Services.Main;
 
@@ -47,12 +48,16 @@ public class OrderService : IOrderService
         var validator = await _createOrderValidator.ValidateAsync(createOrderDto);
         if (!validator.IsValid)
             throw new BookException(ExceptionType.InvalidRequest,
-                string.Join(", ", validator.Errors));
+                string.Join(", ", validator.Errors.Select(e => e.ErrorMessage).FirstOrDefault()));
 
         await _unitOfWork.BeginTransactionAsync();
         try
         {
             var order = _mapper.Map<Order>(createOrderDto);
+            if (!Enum.TryParse(createOrderDto.StatusId.ToString(), out OrderStatus orderStatus))
+                throw new BookException(ExceptionType.InvalidRequest, "InvalidBookStatus");
+           
+            order.Status = orderStatus;
             await _orderRepository.AddAsync(order);
             await _unitOfWork.CommitTransactionAsync();
 
@@ -72,7 +77,7 @@ public class OrderService : IOrderService
         var validator = await _updateOrderValidator.ValidateAsync(updateOrderDto);
         if (!validator.IsValid)
             throw new BookException(ExceptionType.InvalidRequest,
-                string.Join(", ", validator.Errors));
+                string.Join(", ", validator.Errors.Select(e => e.ErrorMessage).FirstOrDefault()));
         
         await _unitOfWork.BeginTransactionAsync();
         try

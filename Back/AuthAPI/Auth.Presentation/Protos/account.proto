@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+option csharp_namespace = "Account.Grpc";
+
+package account;
+
+service AccountService {
+  rpc ChangePassword(ChangePasswordRequest) returns (ChangePasswordResponse);
+  rpc ResetPassword(ResetPasswordRequest) returns (ResetPasswordResponse);
+}
+
+message ChangePasswordRequest{
+  string currentPassword = 1;
+  string newPassword = 2;
+}
+
+message ResetPasswordRequest {
+  string email = 1;
+}
+
+message ChangePasswordResponse {
+  bool success = 1;
+}
+
+message ResetPasswordResponse {
+  string new_password = 1;
+}

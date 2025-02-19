@@ -100,7 +100,7 @@ public class ReviewService : IReviewService
         var validator = await _createReviewValidator.ValidateAsync(reviewDto);
         if (!validator.IsValid)
             throw new BookException(ExceptionType.InvalidRequest, 
-                string.Join(", ", validator.Errors));
+                string.Join(", ", validator.Errors.Select(e => e.ErrorMessage).FirstOrDefault()));
         
         await _unitOfWork.BeginTransactionAsync();
         try
@@ -124,7 +124,7 @@ public class ReviewService : IReviewService
         var validator = await _updateReviewValidator.ValidateAsync(reviewDto);
         if (!validator.IsValid)
             throw new BookException(ExceptionType.InvalidRequest, 
-                string.Join(", ", validator.Errors));
+                string.Join(", ", validator.Errors.Select(e => e.ErrorMessage).FirstOrDefault()));
         
         await _unitOfWork.BeginTransactionAsync();
         try

@@ -10,6 +10,7 @@ using Books.Core.Dtos.Create;
 using Books.Core.Dtos.Read;
 using Books.Core.Dtos.Update;
 using Books.Core.Entities;
+using Books.Core.Enums;
 
 namespace Books.Application.Services.Main;
 
@@ -57,12 +58,17 @@ public class BookService : IBookService
         var validator = await _createBookValidator.ValidateAsync(createBookDto);
         if (!validator.IsValid)
             throw new BookException(ExceptionType.InvalidRequest, 
-                string.Join(", ", validator.Errors));
+                string.Join(", ", validator.Errors.Select(e => e.ErrorMessage).FirstOrDefault()));
 
         await _unitOfWork.BeginTransactionAsync();
         try
         {
            var book = _mapper.Map<Book>(createBookDto);
+           if (!Enum.TryParse(createBookDto.StatusId.ToString(), out BookStatus bookStatus))
+               throw new BookException(ExceptionType.InvalidRequest, "InvalidBookStatus");
+           
+           book.BookStatus = bookStatus;
+           
            await _bookRepository.AddAsync(book);
            await _unitOfWork.CommitTransactionAsync();
            
@@ -80,13 +86,14 @@ public class BookService : IBookService
     {
         var existingBook = await _bookRepository.GetByIdAsync(id);
         
-        if (existingBook.Title != updateBookDto.Title && await ExistsByTitleAsync(updateBookDto.Title))
+        if (existingBook.Title != updateBookDto.Title && await ExistsByTitleAsync(updateBookDto.Title) 
+            && existingBook.ISBN != updateBookDto.ISBN)
             throw new BookException(ExceptionType.CredentialsAlreadyExists, "BookAlreadyExists");
         
         var validator = await _updateBookValidator.ValidateAsync(updateBookDto);
         if (!validator.IsValid)
             throw new BookException(ExceptionType.InvalidRequest, 
-                string.Join(", ", validator.Errors));
+                string.Join(", ", validator.Errors.Select(e => e.ErrorMessage).FirstOrDefault()));
         
         await _unitOfWork.BeginTransactionAsync();
 

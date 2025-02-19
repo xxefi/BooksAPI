@@ -11,6 +11,7 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
+    <!-- Existing translations -->
     <data name="UsernameIsRequired" xml:space="preserve">
         <value>Имя пользователя обязательно</value>
     </data>
@@ -69,7 +70,7 @@
         <value>Пароль должен содержать хотя бы одну букву и одну цифру</value>
     </data>
     <data name="ReviewTextRequired" xml:space="preserve">
-    <value>Текст отзыва обязателен</value>
+        <value>Текст отзыва обязателен</value>
     </data>
     <data name="ReviewTextMaxLength" xml:space="preserve">
         <value>Длина текста отзыва не должна превышать {0} символов</value>
@@ -119,43 +120,61 @@
     <data name="TitleRequired" xml:space="preserve">
         <value>Название обязательно</value>
     </data>
-    <data name="AuthorRequired" xml:space="preserve">
-        <value>Автор обязателен</value>
-    </data>
-    <data name="YearRequired" xml:space="preserve">
-        <value>Год обязателен</value>
-    </data>
-    <data name="GenreRequired" xml:space="preserve">
-        <value>Жанр обязателен</value>
-    </data>
-    <data name="YearInvalid" xml:space="preserve">
-        <value>Год должен быть действительным числом</value>
+    <data name="TitleInvalid" xml:space="preserve">
+        <value>Название содержит недопустимые символы</value>
     </data>
     <data name="TitleMaxLength" xml:space="preserve">
         <value>Название не может превышать {0} символов</value>
     </data>
-    <data name="TitleInvalid" xml:space="preserve">
-        <value>Название содержит недопустимые символы</value>
-    </data>
-    <data name="AuthorMaxLength" xml:space="preserve">
-        <value>Автор не может превышать {0} символов</value>
+    <data name="AuthorRequired" xml:space="preserve">
+        <value>Автор обязателен</value>
     </data>
     <data name="AuthorInvalid" xml:space="preserve">
         <value>Автор содержит недопустимые символы</value>
     </data>
-    <data name="GenreMaxLength" xml:space="preserve">
-        <value>Жанр не может превышать {0} символов</value>
+    <data name="AuthorMaxLength" xml:space="preserve">
+        <value>Автор не может превышать {0} символов</value>
+    </data>
+    <data name="GenreRequired" xml:space="preserve">
+        <value>Жанр обязателен</value>
     </data>
     <data name="GenreInvalid" xml:space="preserve">
         <value>Жанр содержит недопустимые символы</value>
     </data>
-    <data name="RoleNameRequired" xml:space="preserve">
-        <value>Требуется имя роли</value>
+    <data name="GenreMaxLength" xml:space="preserve">
+        <value>Жанр не может превышать {0} символов</value>
     </data>
-    <data name="RoleNameMinLength" xml:space="preserve">
-        <value>Минимальная длина имени должна быть больше {0}</value>
+    <data name="YearRequired" xml:space="preserve">
+        <value>Год обязателен</value>
+    </data>
+    <data name="YearInvalid" xml:space="preserve">
+        <value>Год должен быть действительным числом</value>
+    </data>
+    <data name="PriceRequired" xml:space="preserve">
+        <value>Цена обязательна</value>
+    </data>
+    <data name="PriceInvalid" xml:space="preserve">
+        <value>Цена должна быть больше 0</value>
+    </data>
+    <data name="ISBNRequired" xml:space="preserve">
+        <value>ISBN обязателен</value>
+    </data>
+    <data name="ISBNInvalid" xml:space="preserve">
+        <value>Недействительный ISBN</value>
+    </data>
+    <data name="DescriptionRequired" xml:space="preserve">
+        <value>Описание обязательно</value>
+    </data>
+    <data name="DescriptionMaxLength" xml:space="preserve">
+        <value>Описание не может превышать {0} символов</value>
     </data>
     <data name="RoleNameMaxLength" xml:space="preserve">
-        <value>Максимальная длина имени роли не должна превышать {0}</value>
+        <value>Максимальная длина имени роли равна {0}</value>
+    </data>
+    <data name="RoleNameMinLength" xml:space="preserve">
+        <value>Минимальная длина имени роли - {0}</value>
+    </data>
+    <data name="RoleNameRequired" xml:space="preserve">
+        <value>Требуется имя роли</value>
     </data>
 </root>

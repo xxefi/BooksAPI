@@ -6,6 +6,6 @@ public interface IAuthService
 {
     Task<AccessInfoDto> LoginAsync(LoginDto loginDto);
     Task<AccessInfoDto> RefreshTokenAsync();
-    Task<bool> LogoutAsync();
+    Task<bool> LogoutAsync(string accessToken, string refreshToken);
     Guid GetUserIdFromAccessToken(string accessToken);
 }

@@ -1,0 +1,254 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\magsu\\Desktop\\Books\\Back\\AuthAPI\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9F48EFE9-5ABE-46A5-A151-323136585F08}|Auth.Application\\Auth.Application.csproj|c:\\users\\magsu\\desktop\\books\\back\\authapi\\auth.application\\resources\\statuses\\statusesmessages.ru.resx||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{9F48EFE9-5ABE-46A5-A151-323136585F08}|Auth.Application\\Auth.Application.csproj|solutionrelative:auth.application\\resources\\statuses\\statusesmessages.ru.resx||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F48EFE9-5ABE-46A5-A151-323136585F08}|Auth.Application\\Auth.Application.csproj|c:\\users\\magsu\\desktop\\books\\back\\authapi\\auth.application\\resources\\statuses\\statusesmessages.az.resx||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{9F48EFE9-5ABE-46A5-A151-323136585F08}|Auth.Application\\Auth.Application.csproj|solutionrelative:auth.application\\resources\\statuses\\statusesmessages.az.resx||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F48EFE9-5ABE-46A5-A151-323136585F08}|Auth.Application\\Auth.Application.csproj|c:\\users\\magsu\\desktop\\books\\back\\authapi\\auth.application\\resources\\statuses\\statusesmessages.en.resx||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{9F48EFE9-5ABE-46A5-A151-323136585F08}|Auth.Application\\Auth.Application.csproj|solutionrelative:auth.application\\resources\\statuses\\statusesmessages.en.resx||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F48EFE9-5ABE-46A5-A151-323136585F08}|Auth.Application\\Auth.Application.csproj|c:\\users\\magsu\\desktop\\books\\back\\authapi\\auth.application\\auth.application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{9F48EFE9-5ABE-46A5-A151-323136585F08}|Auth.Application\\Auth.Application.csproj|solutionrelative:auth.application\\auth.application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{236DA405-28D5-41D8-BC6D-669929209CF8}|Auth.Presentation\\Auth.Presentation.csproj|c:\\users\\magsu\\desktop\\books\\back\\authapi\\auth.presentation\\services\\accountserviceimpl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{236DA405-28D5-41D8-BC6D-669929209CF8}|Auth.Presentation\\Auth.Presentation.csproj|solutionrelative:auth.presentation\\services\\accountserviceimpl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{236DA405-28D5-41D8-BC6D-669929209CF8}|Auth.Presentation\\Auth.Presentation.csproj|c:\\users\\magsu\\desktop\\books\\back\\authapi\\auth.presentation\\auth.presentation.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{236DA405-28D5-41D8-BC6D-669929209CF8}|Auth.Presentation\\Auth.Presentation.csproj|solutionrelative:auth.presentation\\auth.presentation.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{236DA405-28D5-41D8-BC6D-669929209CF8}|Auth.Presentation\\Auth.Presentation.csproj|c:\\users\\magsu\\desktop\\books\\back\\authapi\\auth.presentation\\protos\\account.proto||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{236DA405-28D5-41D8-BC6D-669929209CF8}|Auth.Presentation\\Auth.Presentation.csproj|solutionrelative:auth.presentation\\protos\\account.proto||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{236DA405-28D5-41D8-BC6D-669929209CF8}|Auth.Presentation\\Auth.Presentation.csproj|c:\\users\\magsu\\desktop\\books\\back\\authapi\\auth.presentation\\protos\\auth.proto||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{236DA405-28D5-41D8-BC6D-669929209CF8}|Auth.Presentation\\Auth.Presentation.csproj|solutionrelative:auth.presentation\\protos\\auth.proto||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{236DA405-28D5-41D8-BC6D-669929209CF8}|Auth.Presentation\\Auth.Presentation.csproj|c:\\users\\magsu\\desktop\\books\\back\\authapi\\auth.presentation\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{236DA405-28D5-41D8-BC6D-669929209CF8}|Auth.Presentation\\Auth.Presentation.csproj|solutionrelative:auth.presentation\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F48EFE9-5ABE-46A5-A151-323136585F08}|Auth.Application\\Auth.Application.csproj|c:\\users\\magsu\\desktop\\books\\back\\authapi\\auth.application\\services\\accountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F48EFE9-5ABE-46A5-A151-323136585F08}|Auth.Application\\Auth.Application.csproj|solutionrelative:auth.application\\services\\accountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{236DA405-28D5-41D8-BC6D-669929209CF8}|Auth.Presentation\\Auth.Presentation.csproj|c:\\users\\magsu\\desktop\\books\\back\\authapi\\auth.presentation\\services\\authserviceimpl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{236DA405-28D5-41D8-BC6D-669929209CF8}|Auth.Presentation\\Auth.Presentation.csproj|solutionrelative:auth.presentation\\services\\authserviceimpl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{236DA405-28D5-41D8-BC6D-669929209CF8}|Auth.Presentation\\Auth.Presentation.csproj|c:\\users\\magsu\\desktop\\books\\back\\authapi\\auth.presentation\\middlewares\\grpcexceptioninterceptor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{236DA405-28D5-41D8-BC6D-669929209CF8}|Auth.Presentation\\Auth.Presentation.csproj|solutionrelative:auth.presentation\\middlewares\\grpcexceptioninterceptor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F48EFE9-5ABE-46A5-A151-323136585F08}|Auth.Application\\Auth.Application.csproj|c:\\users\\magsu\\desktop\\books\\back\\authapi\\auth.application\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F48EFE9-5ABE-46A5-A151-323136585F08}|Auth.Application\\Auth.Application.csproj|solutionrelative:auth.application\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{620C35C5-0215-4A73-9441-9E3373980C15}|Auth.Core\\Auth.Core.csproj|c:\\users\\magsu\\desktop\\books\\back\\authapi\\auth.core\\abstractions\\services\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{620C35C5-0215-4A73-9441-9E3373980C15}|Auth.Core\\Auth.Core.csproj|solutionrelative:auth.core\\abstractions\\services\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "StatusesMessages.az.resx",
+              "DocumentMoniker": "C:\\Users\\magsu\\Desktop\\Books\\Back\\AuthAPI\\Auth.Application\\Resources\\Statuses\\StatusesMessages.az.resx",
+              "RelativeDocumentMoniker": "Auth.Application\\Resources\\Statuses\\StatusesMessages.az.resx",
+              "ToolTip": "C:\\Users\\magsu\\Desktop\\Books\\Back\\AuthAPI\\Auth.Application\\Resources\\Statuses\\StatusesMessages.az.resx",
+              "RelativeToolTip": "Auth.Application\\Resources\\Statuses\\StatusesMessages.az.resx",
+              "ViewState": "AgIAAFQAAAAAAAAAAAAcwGUAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
+              "WhenOpened": "2025-02-18T23:21:45.145Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "StatusesMessages.ru.resx",
+              "DocumentMoniker": "C:\\Users\\magsu\\Desktop\\Books\\Back\\AuthAPI\\Auth.Application\\Resources\\Statuses\\StatusesMessages.ru.resx",
+              "RelativeDocumentMoniker": "Auth.Application\\Resources\\Statuses\\StatusesMessages.ru.resx",
+              "ToolTip": "C:\\Users\\magsu\\Desktop\\Books\\Back\\AuthAPI\\Auth.Application\\Resources\\Statuses\\StatusesMessages.ru.resx",
+              "RelativeToolTip": "Auth.Application\\Resources\\Statuses\\StatusesMessages.ru.resx",
+              "ViewState": "AgIAAGYAAAAAAAAAAAAcwG4AAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
+              "WhenOpened": "2025-02-18T23:21:01.19Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "StatusesMessages.en.resx",
+              "DocumentMoniker": "C:\\Users\\magsu\\Desktop\\Books\\Back\\AuthAPI\\Auth.Application\\Resources\\Statuses\\StatusesMessages.en.resx",
+              "RelativeDocumentMoniker": "Auth.Application\\Resources\\Statuses\\StatusesMessages.en.resx",
+              "ToolTip": "C:\\Users\\magsu\\Desktop\\Books\\Back\\AuthAPI\\Auth.Application\\Resources\\Statuses\\StatusesMessages.en.resx",
+              "RelativeToolTip": "Auth.Application\\Resources\\Statuses\\StatusesMessages.en.resx",
+              "ViewState": "AgIAAG4AAAAAAAAAAAAcwIgAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
+              "WhenOpened": "2025-02-18T23:20:20.022Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Auth.Application",
+              "DocumentMoniker": "C:\\Users\\magsu\\Desktop\\Books\\Back\\AuthAPI\\Auth.Application\\Auth.Application.csproj",
+              "RelativeDocumentMoniker": "Auth.Application\\Auth.Application.csproj",
+              "ToolTip": "C:\\Users\\magsu\\Desktop\\Books\\Back\\AuthAPI\\Auth.Application\\Auth.Application.csproj*",
+              "RelativeToolTip": "Auth.Application\\Auth.Application.csproj*",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-02-18T23:19:50.855Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AccountServiceImpl.cs",
+              "DocumentMoniker": "C:\\Users\\magsu\\Desktop\\Books\\Back\\AuthAPI\\Auth.Presentation\\Services\\AccountServiceImpl.cs",
+              "RelativeDocumentMoniker": "Auth.Presentation\\Services\\AccountServiceImpl.cs",
+              "ToolTip": "C:\\Users\\magsu\\Desktop\\Books\\Back\\AuthAPI\\Auth.Presentation\\Services\\AccountServiceImpl.cs",
+              "RelativeToolTip": "Auth.Presentation\\Services\\AccountServiceImpl.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-18T21:39:02.173Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "IAuthService.cs",
+              "DocumentMoniker": "C:\\Users\\magsu\\Desktop\\Books\\Back\\AuthAPI\\Auth.Core\\Abstractions\\Services\\IAuthService.cs",
+              "RelativeDocumentMoniker": "Auth.Core\\Abstractions\\Services\\IAuthService.cs",
+              "ToolTip": "C:\\Users\\magsu\\Desktop\\Books\\Back\\AuthAPI\\Auth.Core\\Abstractions\\Services\\IAuthService.cs",
+              "RelativeToolTip": "Auth.Core\\Abstractions\\Services\\IAuthService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-18T21:22:31.912Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "AuthServiceImpl.cs",
+              "DocumentMoniker": "C:\\Users\\magsu\\Desktop\\Books\\Back\\AuthAPI\\Auth.Presentation\\Services\\AuthServiceImpl.cs",
+              "RelativeDocumentMoniker": "Auth.Presentation\\Services\\AuthServiceImpl.cs",
+              "ToolTip": "C:\\Users\\magsu\\Desktop\\Books\\Back\\AuthAPI\\Auth.Presentation\\Services\\AuthServiceImpl.cs",
+              "RelativeToolTip": "Auth.Presentation\\Services\\AuthServiceImpl.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABkAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-18T21:21:30.507Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "auth.proto",
+              "DocumentMoniker": "C:\\Users\\magsu\\Desktop\\Books\\Back\\AuthAPI\\Auth.Presentation\\Protos\\auth.proto",
+              "RelativeDocumentMoniker": "Auth.Presentation\\Protos\\auth.proto",
+              "ToolTip": "C:\\Users\\magsu\\Desktop\\Books\\Back\\AuthAPI\\Auth.Presentation\\Protos\\auth.proto",
+              "RelativeToolTip": "Auth.Presentation\\Protos\\auth.proto",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003853|",
+              "WhenOpened": "2025-02-18T21:21:29.576Z"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "C:\\Users\\magsu\\Desktop\\Books\\Back\\AuthAPI\\Auth.Application\\Services\\AuthService.cs",
+              "RelativeDocumentMoniker": "Auth.Application\\Services\\AuthService.cs",
+              "ToolTip": "C:\\Users\\magsu\\Desktop\\Books\\Back\\AuthAPI\\Auth.Application\\Services\\AuthService.cs",
+              "RelativeToolTip": "Auth.Application\\Services\\AuthService.cs",
+              "ViewState": "AgIAAKUAAAAAAAAAAAAAAL0AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-18T21:22:39.583Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "GrpcExceptionInterceptor.cs",
+              "DocumentMoniker": "C:\\Users\\magsu\\Desktop\\Books\\Back\\AuthAPI\\Auth.Presentation\\Middlewares\\GrpcExceptionInterceptor.cs",
+              "RelativeDocumentMoniker": "Auth.Presentation\\Middlewares\\GrpcExceptionInterceptor.cs",
+              "ToolTip": "C:\\Users\\magsu\\Desktop\\Books\\Back\\AuthAPI\\Auth.Presentation\\Middlewares\\GrpcExceptionInterceptor.cs",
+              "RelativeToolTip": "Auth.Presentation\\Middlewares\\GrpcExceptionInterceptor.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAB8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-18T21:24:18.623Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "AccountService.cs",
+              "DocumentMoniker": "C:\\Users\\magsu\\Desktop\\Books\\Back\\AuthAPI\\Auth.Application\\Services\\AccountService.cs",
+              "RelativeDocumentMoniker": "Auth.Application\\Services\\AccountService.cs",
+              "ToolTip": "C:\\Users\\magsu\\Desktop\\Books\\Back\\AuthAPI\\Auth.Application\\Services\\AccountService.cs",
+              "RelativeToolTip": "Auth.Application\\Services\\AccountService.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAwwDkAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-18T21:29:54.246Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "account.proto",
+              "DocumentMoniker": "C:\\Users\\magsu\\Desktop\\Books\\Back\\AuthAPI\\Auth.Presentation\\Protos\\account.proto",
+              "RelativeDocumentMoniker": "Auth.Presentation\\Protos\\account.proto",
+              "ToolTip": "C:\\Users\\magsu\\Desktop\\Books\\Back\\AuthAPI\\Auth.Presentation\\Protos\\account.proto",
+              "RelativeToolTip": "Auth.Presentation\\Protos\\account.proto",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003853|",
+              "WhenOpened": "2025-02-18T21:38:57.956Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Auth.Presentation.csproj",
+              "DocumentMoniker": "C:\\Users\\magsu\\Desktop\\Books\\Back\\AuthAPI\\Auth.Presentation\\Auth.Presentation.csproj",
+              "RelativeDocumentMoniker": "Auth.Presentation\\Auth.Presentation.csproj",
+              "ToolTip": "C:\\Users\\magsu\\Desktop\\Books\\Back\\AuthAPI\\Auth.Presentation\\Auth.Presentation.csproj",
+              "RelativeToolTip": "Auth.Presentation\\Auth.Presentation.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-02-18T21:40:39.647Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\magsu\\Desktop\\Books\\Back\\AuthAPI\\Auth.Presentation\\Program.cs",
+              "RelativeDocumentMoniker": "Auth.Presentation\\Program.cs",
+              "ToolTip": "C:\\Users\\magsu\\Desktop\\Books\\Back\\AuthAPI\\Auth.Presentation\\Program.cs",
+              "RelativeToolTip": "Auth.Presentation\\Program.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAAADgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-18T21:21:24.037Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
